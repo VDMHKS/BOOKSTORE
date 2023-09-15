@@ -1,0 +1,881 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>알라딘</title>
+
+    <link href="css/reset.css" rel="stylesheet">
+
+    <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.7.0.min.js"></script>
+
+    <script>
+        $(function () {
+            $("#htnav li").mouseenter(function () {
+                $(this).children("div").css("display", "flex");
+            }),
+                $("#htnav li").mouseleave(function () {
+                $(this).children("div").hide();
+            });
+        });
+    </script>
+
+    <style>
+        body {
+            font-size: 12px;
+            line-height: 18px;
+        }
+    
+        a {
+            text-decoration: none;
+        }
+
+        div {
+            text-align: left;
+            color: #444444;
+        }
+
+        h3 {
+            display: block;
+            font-size: 1.17em;
+            margin-block-start: 1em;
+            margin-block-end: 1em;
+            margin-inline-start: 0px;
+            margin-inline-end: 0px;
+            font-weight: bold;
+        }
+
+        h4 {
+            margin-block-start: 1.33em;
+            margin-block-end: 1.33em;
+            margin-inline-start: 0px;
+            margin-inline-end: 0px;
+        }
+
+        strong {
+            font-weight: bold !important;
+        }
+
+        .hlayer a:hover {
+            text-decoration: underline;
+        }
+
+        img {
+            overflow: clip;
+            border: none;
+        }
+
+
+
+
+
+        header {
+            width: 100%;
+            border-bottom: 1px solid #33AFE9;
+            margin-bottom: 9px;
+            font-family: Malgun Gothic,Dotum,'돋움',Helvetica,"Apple SD Gothic Neo",sans-serif;
+        }
+    
+        /* 헤더 최상부 */
+        .headertop {
+            height: 38px;
+            background-color: #33afe9;
+            border-bottom: 1px solid #4496D9;
+            box-sizing: border-box;
+        }   
+    
+        .htinner {
+            width: 1030px;
+            display: flex;
+            justify-content: space-between;
+            position: relative;
+            margin:0 auto;
+        }
+    
+        .htinner>ul {
+            display: flex;
+        }
+    
+        .htinner>.hnav>li>a {
+            display: inline-block;
+            width: max-content;
+            height: 38px;
+            line-height: 38px;
+            padding: 0px 7px;
+            color: #fff;
+            font-size: 13px;
+            font-weight: bold;
+            box-sizing: border-box;
+            letter-spacing: -0.5px;
+        }
+
+        .htinner>.hnav>li>a.first {
+            background-color: #fff;
+            border: 1px solid #4496D9;
+            border-bottom: none;
+            color: #0f4e8a;
+        }
+
+        .hlayer {
+            width: 1030px;
+            left: 0;
+            background-color: #fff;
+            box-shadow: 0px 3px 16px #00000033;
+            padding: 30px;
+            box-sizing: border-box;
+            position: absolute;
+            top: 38px;
+            z-index: 10000;
+            display: flex;
+            justify-content: space-between;
+
+        }
+
+        .hlayer .category {
+            display: flex;
+            font-weight: normal;
+            padding-top: 40px;
+            position: relative;
+        }
+
+        .hlayer .category a {
+            display: block;
+            font-size: 13px;
+            padding: 0;
+            color: #333;
+            text-align: left;
+        }
+
+        .hlayer .category h3 {
+            position: absolute;
+            left: 0;
+            top: 0;
+            margin: 0;
+        }
+
+        .hlayer .category h3 a {
+            font-size: 15px;
+            background: url('img/arr_go.svg') no-repeat center right 1px / 6px auto;
+            padding-right: 12px;
+            font-family: 'Noto Sans KR', sans-serif;
+            letter-spacing: -0.01em;
+        }
+
+        .hlayer .stitle > div ul {
+            margin-top: 25px;
+        }
+
+        .hlayer .category ul {
+            width: 150px;
+        }
+
+        .hlayer .category ul li {
+            margin-bottom: 8px;
+        }
+
+        .hlayer .category.stitle > div {
+            position: relative;
+        }
+
+        .hlayer .category.stitle > div h4 {
+            font-size: 13px;
+            font-weight: bold;
+            margin: 0 0 8px 0;
+            position: absolute;
+            left: 0;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            padding: 0;
+            color: #333;
+        }
+
+        .hlayer .category a.arr::after {
+            content: '';
+            display: inline-block;
+            width: 3px;
+            height: 5px;
+            background: url('img/hd_layer_arr.gif') no-repeat center;
+            margin: -2px 0 0 3px;
+            vertical-align: middle;
+        }
+
+        .hlayer a.pinkt {
+            color: #EA3692!important;
+        }
+
+        .hlayer .banner {
+            border-radius: 20px;
+            overflow: hidden;
+            line-height: 0;
+        }
+
+        #domesticlayer .hlayer .banner img {
+            width: 300px !important;
+            height: 290px !important;
+        }
+
+        #foreignlayer .hlayer .banner img {
+            width: 226px !important;
+            height: 290px !important;
+        }
+
+        .htinner>.mytool>li>a {
+            width: max-content;
+            display: inline-block;
+            height: 38px;
+            padding: 0 4px;
+            line-height: 37px;
+            color: #fff;
+            font-size: 11px;
+            font-weight: bold;
+            box-sizing: border-box;
+        }
+    
+        .htinner>.mytool>li>.dropbtn::after {
+            content: '';
+            display: inline-block;
+            width: 6px;
+            height: 3px;
+            background: url('img/arr_drop_white.png') no-repeat;
+            vertical-align: middle;
+            margin: -2px 0 0 2px;
+        }
+        
+    
+        /* 헤더 중간부 */
+        .headermid {
+            width: 1030px;
+            height: 88px;
+            margin: 0 auto;
+            display: flex;
+            position: relative;
+        }
+    
+        .headermid>.logo {
+            width: 212px;
+            height: 100%;
+            flex-shrink: 0;
+            font-size: 0px;
+            margin: 0;
+            color: transparent;
+            padding: 0;
+        }
+    
+        .headermid>.logo>a {
+            display: block;
+            width: 100%;
+            height: 100%;
+            color: transparent;
+            font-size: 0;
+        }
+    
+        .search>.searchbox {
+            background: url('img/bg_search.png') no-repeat!important;
+            width: 535px;
+            position: relative;
+            top: 28px;
+            height: 41px;
+        }
+    
+        .search>.searchbox>dl {
+            float: left;
+            width: 78px;
+            margin: 12px 0 0 20px;
+        }
+    
+        .search>.searchbox>dl>#searchoption {
+            background: url('img/i_arrdown.gif') no-repeat right 5px;
+            color: #2f9ddc;
+            font-weight: bold;
+            height: 18px;
+            overflow: hidden;
+        }
+    
+        .search>.searchbox>.searchin {
+            padding-left: 10px;
+            float: left;
+            width: 282px;
+            margin-top: 7px;
+        }
+    
+        .search>.searchbox>.searchin>.searchon {
+            margin-bottom: 10px!important;
+            background-color: transparent;
+            width: 280px;
+            color: #006699;
+            font-weight: bold;
+            font-size: 14px;
+            line-height: 20px;
+            margin: 1px 0 0 0px !important;
+            display: inline;
+            outline-style: none;
+            background-position-y: 3px;
+        }
+    
+        .search>.searchbox>.searchbtn {
+            width: 50px;
+            height: 40px;
+            font-size: 15px;
+            font-weight: bold;
+            background-color: transparent;
+            color: #fff;
+            border: 0;
+            cursor: pointer;
+            position: absolute;
+            right: 66px;
+            top: 0;
+        }
+    
+        .search>.searchbox>.detailsearch {
+            font-size: 11px;
+            background: url("img/gray_arr.gif") no-repeat center right;
+            padding: 0 8px 2px 0;
+            margin: 0 0 0 8px;
+            letter-spacing: -0.5px;
+            color: #737373;
+            position: absolute;
+            right: 0;
+            top: 11px;
+        }
+    
+        .adbox {
+            width: 192px;
+            position: absolute;
+            right: 0;
+            top: 10px;
+            text-align: right;
+            height: 69px;
+        }
+    
+        /* 헤더 최하부 */
+        .headerbot {
+            width: 1030px;
+            height: 30px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+        }
+    
+        .headerbot>ul {
+            display: flex;
+        }
+    
+        .headerbot>ul>li {
+            position: relative;
+        }
+    
+        .headerbot>ul>li>a {
+            display: inline-block;
+            line-height: 25px;
+            font-size: 13px;
+            position: relative;
+            box-sizing: border-box;
+        }
+    
+        li.allcate>a {
+            width: max-content;
+            background: url('img/i-menu.png') no-repeat left 8px center;
+            padding: 0 15px 3px 28px !important;
+            color: #0f4e8a;
+            font-weight: bold;
+            margin-right: 7px;
+        }
+    
+        li.allcate>a::after {
+            content: '';
+            display: block;
+            width: 1px;
+            height: 12px;
+            background-color: #DED9D9;
+            position: absolute;
+            right: 0;
+            top: 7px;
+        }
+    
+        ul.hbotleft>li>a {
+            width: max-content;
+            color: #0f4e8a;
+            font-weight: bold;
+            padding: 0 7px 3px 7px;
+            letter-spacing: -0.5px;
+        }
+    
+        ul.hbotleft>li>a.arrow::after {
+            content: '';
+            display: inline-block;
+            width: 5px;
+            height: 4px;
+            background: url('img/arr_drop_blue.png') no-repeat;
+            vertical-align: middle;
+            margin: -2px 0 0 2px;
+        }
+    
+        ul.hbotleft>li>a>.new {
+            display: inline-block;
+            width: 13px;
+            height: 13px;
+            background-color: #F32383;
+            color: #fff;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 12px;
+            font-size: 9px;
+            font-weight: normal;
+            margin: -2px 0 0 0px;
+            vertical-align: middle;
+        }
+
+        .headerbot>ul>li>a.tbc {
+            color: #26b5bf;
+            padding: 0 13px 4px 7px;
+        }
+
+        .headerbot>ul>li>a.tbc::after {
+            content: '';
+            display: inline-block;
+            width: 11px;
+            height: 11px;
+            background: url('img/tb-simbol.svg') no-repeat center / 100% auto;
+            font-size: 0px;
+            color: transparent;
+            margin: -2px 0 0 0px;
+            vertical-align: middle;
+            position: absolute;
+            right: 0;
+            top: 10px;
+        }
+
+        .hbotright>li>a {
+            width: max-content;
+            font-size: 13px;
+            color: #dd2483;
+            font-weight: bold;
+            padding: 0 6px 3px 8px;
+            line-height: 25px;
+        }
+
+        .hbotright>li~li::before {
+            content: '';
+            display: block;
+            width: 2px;
+            height: 2px;
+            background-color: #dd2483;
+            border-radius: 50%;
+            position: absolute;
+            left: 0;
+            top: 13px;
+        }
+    
+    </style>
+
+</head>
+
+
+
+
+<body>
+
+    <header>
+        <div class="headertop">
+            <div class="htinner">
+                <ul class="hnav" id="htnav">
+                    <li><a href="#" class="first">HOME</a></li>
+
+                    <li id="domesticlayer"><a href="#">국내도서</a>
+                        <div class="hlayer" style="display: none;">
+                            <div class="category">
+                                <h3><a href="#">국내도서</a></h3>
+                                <ul>
+                                    <li><a href="#">건강/취미</a></li>
+                                    <li><a href="#"><strong>경제경영</strong></a></li>
+                                    <li><a href="#">공무원 수험서</a></li>
+                                    <li><a href="#">과학</a></li>
+                                    <li><a href="#">달력/기타</a></li>
+                                    <li><a href="#">대학교재</a></li>
+                                    <li><a href="#">만화</a></li>
+                                    <li><a href="#">사회과학</a></li>
+                                    <li><a href="#"><strong>소설/시/희곡</strong></a></li>
+                                    <li><a href="#"><strong>수험서/자격증</strong></a></li>
+                                </ul>
+                                <ul>
+                                    <li><a href="#"><strong>어린이</strong></a></li>
+                                    <li><a href="#">에세이</a></li>
+                                    <li><a href="#">여행</a></li>
+                                    <li><a href="#">역사</a></li>
+                                    <li><a href="#">예술/대중문화</a></li>
+                                    <li><a href="#">외국어</a></li>
+                                    <li><a href="#">요리/살림</a></li>
+                                    <li><a href="#">유아</a></li>
+                                    <li><a href="#"><strong>인문학</strong></a></li>
+                                    <li><a href="#">자기계발</a></li>
+                                </ul>
+                                <ul>
+                                    <li><a href="#">잡지</a></li>
+                                    <li><a href="#">장르소설</a></li>
+                                    <li><a href="#">전집/중고전집</a></li>
+                                    <li><a href="#">종교/역학</a></li>
+                                    <li><a href="#">좋은부모</a></li>
+                                    <li><a href="#">청소년</a></li>
+                                    <li><a href="#">컴퓨터/모바일</a></li>
+                                    <li><a href="#"><strong>초등학교참고서</strong></a></li>
+                                    <li><a href="#">중학교참고서</a></li>
+                                    <li><a href="#"><strong>고등학교참고서</strong></a></li>
+                                </ul>
+                                <ul>
+                                    <li><a href="#">베스트셀러</a></li>
+                                    <li><a href="#">새로나온책</a></li>
+                                    <li><a href="#">재정가도서</a></li>
+                                    <li><a href="#">이벤트</a></li>
+                                    <li><a href="#">독자북펀드</a></li>
+                                </ul>
+                            </div>
+                            <div>
+                                <div class="banner">
+                                    <a href="#"><img src="img/230914_september_hlayer.png"  alt="" style="width: 300px; height: 290px;"></a>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+
+                    <li id="foreignlayer"><a href="#">외국도서</a>
+                        <div class="hlayer" style="display: none;">
+                            <div class="category stitle">
+                                <h3><a href="#">외국도서</a></h3>
+                                <div>
+                                    <h4><a href="#">영미도서</a></h4>
+                                    <ul>
+                                        <li><a href="#">ELT/어학/사전</a></li>
+                                        <li><a href="#">가정/원예/인테리어</a></li>
+                                        <li><a href="#">건강/스포츠</a></li>
+                                        <li><a href="#">경제경영</a></li>
+                                        <li><a href="#">공예/취미/수집</a></li>
+                                        <li><a href="#">만화</a></li>
+                                        <li><a href="#">소설/시/희곡</a></li>
+                                        <li><a href="#">여행</a></li>
+                                        <li><a href="#">역사</a></li>
+                                        <li><a href="#">요리</a></li>
+                                        <li><a href="#">인문/사회</a></li>
+                                        <li><a href="#">종교/명상/점술</a></li>
+                                        <li><a href="#">청소년</a></li>
+                                        <li><a href="#">해외잡지</a></li>
+                                    </ul>
+                                </div>
+                                <div>
+                                    <h4><a href="#">대학교재/전문서</a></h4>
+                                    <ul>
+                                        <li><a href="#">건축/디자인</a></li>
+                                        <li><a href="#">교육/자료</a></li>
+                                        <li><a href="#">기술공학</a></li>
+                                        <li><a href="#">법률</a></li>
+                                        <li><a href="#">수험서</a></li>
+                                        <li><a href="#">언어학</a></li>
+                                        <li><a href="#">예술/대중문화</a></li>
+                                        <li><a href="#">의학</a></li>
+                                        <li><a href="#">자연과학</a></li>
+                                        <li><a href="#">컴퓨터</a></li>
+                                    </ul>
+                                </div>
+                                <div>
+                                    <h4><a href="#" class="arr">기타 언어권</a></h4>
+                                    <ul>
+                                        <li><a href="#">독일 도서</a></li>
+                                        <li><a href="#">스페인 도서</a></li>
+                                        <li><a href="#">중국 도서</a></li>
+                                    </ul>
+                                </div>
+                                <div>
+                                    <h4><a href="#" class="arr">어린이</a></h4>
+                                    <ul>
+                                        <li><a href="#">그림책</a></li>
+                                        <li><a href="#">동화책</a></li>
+                                        <li><a href="#">리더스</a></li>
+                                        <li><a href="#">영어학습</a></li>
+                                        <li><a href="#">챕터북</a></li>
+                                        <li><a href="#">코스북</a></li>
+                                    </ul>
+                                </div>
+                                <div>
+                                    <h4><a href="#" class="arr">일본도서</a></h4>
+                                    <ul>
+                                        <li><a href="#">문학</a></li>
+                                        <li><a href="#">애니메이션 굿즈</a></li>
+                                        <li><a href="#">잡지</a></li>
+                                        <li><a href="#">코믹</a></li>
+                                        <li><a href="#">베스트셀러</a></li>
+                                        <li><a href="#">새로나온책</a></li>
+                                        <li><a href="#">특가도서</a></li>
+                                        <li><a href="#">이벤트</a></li>
+                                        <li><a href="#" class="pinkt"><strong>LEXILE 지수별<br>원서 읽기</strong></a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="banner">
+                                    <a href="#"><img src="img/230816_sale_hlayer.jpg" alt=""></a>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+
+                    <li id="ebooklayer"><a href="#">eBook</a>
+                        <div class="hlayer" style="display: none;">
+                            <div class="category">
+                                <h3><a href="#">eBook</a></h3>
+                                <ul>
+                                    <li><a href="#">건강/취미</a></li>
+                                    <li><a href="#"><strong>경제경영</strong></a></li>
+                                    <li><a href="#">과학</a></li>
+                                    <li><a href="#"><strong>라이트노벨</strong></a></li>
+                                    <li><a href="#"><strong>로맨스</strong></a></li>
+                                    <li><a href="#"><strong>만화</strong></a></li>
+                                    <li><a href="#"><strong>사회과학</strong></a></li>
+                                    <li><a href="#"><strong>소설/시/희곡</strong></a></li>
+                                    <li><a href="#">어린이</a></li>
+                                </ul>
+                                <ul>
+                                    <li><a href="#"><strong>에세이</strong></a></li>
+                                    <li><a href="#">여행</a></li>
+                                    <li><a href="#">역사</a></li>
+                                    <li><a href="#">예술/대중문화</a></li>
+                                    <li><a href="#">외국어</a></li>
+                                    <li><a href="#">요리/살림</a></li>
+                                    <li><a href="#"><strong>인문학</strong></a></li>
+                                    <li><a href="#"><strong>자기계발</strong></a></li>
+                                    <li><a href="#">좋은부모</a></li>
+                                    <li><a href="#">좋은부모</a></li>
+                                </ul>
+                                <ul>
+                                    <li><a href="#">판타지/무협</a></li>
+                                    <li><a href="#"><strong>BL</strong></a></li>
+                                    <li><a href="#"><strong>오디오북</strong></a></li>
+                                </ul>
+                                <ul>
+                                    <li><a href="#">베스트셀러</a></li>
+                                    <li><a href="#">새로나온eBook</a></li>
+                                    <li><a href="#">대여eBook</a></li>
+                                    <li><a href="#">연재eBook</a></li>
+                                </ul>
+                            </div>
+                            <div>
+                                <div class="banner">
+                                    <a href="#"><img src="img/210629_eonly_hlayer.jpg" alt=""></a>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+
+                    <li id="goodslayer"><a href="#">알라딘굿즈</a>
+                        <div class="hlayer" style="display: none;">
+                            <div class="category">
+                                <h3><a href="#">알라딘굿즈</a></h3>
+                                <ul>
+                                    <li><a href="#">가방·파우치</a></li>
+                                    <li><a href="#">데스크용품</a></li>
+                                    <li><a href="#">독서용품</a></li>
+                                    <li><a href="#">디지털</a></li>
+                                    <li><a href="#">리빙·키친</a></li>
+                                    <li><a href="#">문구</a></li>
+                                    <li><a href="#">생활용품</a></li>
+                                    <li><a href="#">의류·잡화</a></li>
+                                </ul>
+                                <ul>
+                                    <li><a href="#">노트</a></li>
+                                    <li><a href="#">독서대</a></li>
+                                    <li><a href="#">북마크</a></li>
+                                    <li><a href="#">북커버</a></li>
+                                    <li><a href="#">사무용품</a></li>
+                                    <li><a href="#">조명</a></li>
+                                    <li><a href="#">파우치</a></li>
+                                    <li><a href="#">필기구</a></li>
+                                </ul>
+                                <ul>
+                                    <li><a href="#">피너츠</a></li>
+                                    <li><a href="#">어린왕자</a></li>
+                                    <li><a href="#">우주</a></li>
+                                    <li><a href="#">앨리스</a></li>
+                                    <li><a href="#">빨강머리 앤</a></li>
+                                    <li><a href="#">고양이</a></li>
+                                    <li><a href="#">모비딕</a></li>
+                                </ul>
+                                <ul>
+                                    <li><a href="#">베스트셀러</a></li>
+                                    <li><a href="#"><strong>생활용품연구소</strong></a></li>
+                                    <li><a href="#">알라딘 문방구</a></li>
+                                    <li><a href="#">굿즈한정할인</a></li>
+                                </ul>
+                            </div>
+                            <div>
+                                <div class="banner">
+                                    <a href="#"><img src="img/sep_goods_hlayer.jpg" alt=""></a>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+
+                    <li id="usedlayer"><a href="#">온라인중고</a>
+                        <div class="hlayer" style="display: none;">
+                            <div class="category stitle">
+                                <h3><a href="#">외국도서</a></h3>
+                                <div>
+                                    <h4><a href="#">영미도서</a></h4>
+                                    <ul>
+                                        <li><a href="#">ELT/어학/사전</a></li>
+                                        <li><a href="#">가정/원예/인테리어</a></li>
+                                        <li><a href="#">건강/스포츠</a></li>
+                                        <li><a href="#">경제경영</a></li>
+                                        <li><a href="#">공예/취미/수집</a></li>
+                                        <li><a href="#">만화</a></li>
+                                        <li><a href="#">소설/시/희곡</a></li>
+                                        <li><a href="#">여행</a></li>
+                                        <li><a href="#">역사</a></li>
+                                        <li><a href="#">요리</a></li>
+                                        <li><a href="#">인문/사회</a></li>
+                                        <li><a href="#">종교/명상/점술</a></li>
+                                        <li><a href="#">청소년</a></li>
+                                        <li><a href="#">해외잡지</a></li>
+                                    </ul>
+                                </div>
+                                <div>
+                                    <h4><a href="#">대학교재/전문서</a></h4>
+                                    <ul>
+                                        <li><a href="#">건축/디자인</a></li>
+                                        <li><a href="#">교육/자료</a></li>
+                                        <li><a href="#">기술공학</a></li>
+                                        <li><a href="#">법률</a></li>
+                                        <li><a href="#">수험서</a></li>
+                                        <li><a href="#">언어학</a></li>
+                                        <li><a href="#">예술/대중문화</a></li>
+                                        <li><a href="#">의학</a></li>
+                                        <li><a href="#">자연과학</a></li>
+                                        <li><a href="#">컴퓨터</a></li>
+                                    </ul>
+                                </div>
+                                <div>
+                                    <h4><a href="#" class="arr">기타 언어권</a></h4>
+                                    <ul>
+                                        <li><a href="#">독일 도서</a></li>
+                                        <li><a href="#">스페인 도서</a></li>
+                                        <li><a href="#">중국 도서</a></li>
+                                    </ul>
+                                </div>
+                                <div>
+                                    <h4><a href="#" class="arr">어린이</a></h4>
+                                    <ul>
+                                        <li><a href="#">그림책</a></li>
+                                        <li><a href="#">동화책</a></li>
+                                        <li><a href="#">리더스</a></li>
+                                        <li><a href="#">영어학습</a></li>
+                                        <li><a href="#">챕터북</a></li>
+                                        <li><a href="#">코스북</a></li>
+                                    </ul>
+                                </div>
+                                <div>
+                                    <h4><a href="#" class="arr">일본도서</a></h4>
+                                    <ul>
+                                        <li><a href="#">문학</a></li>
+                                        <li><a href="#">애니메이션 굿즈</a></li>
+                                        <li><a href="#">잡지</a></li>
+                                        <li><a href="#">코믹</a></li>
+                                        <li><a href="#">베스트셀러</a></li>
+                                        <li><a href="#">새로나온책</a></li>
+                                        <li><a href="#">특가도서</a></li>
+                                        <li><a href="#">이벤트</a></li>
+                                        <li><a href="#" class="pinkt"><strong>LEXILE 지수별<br>원서 읽기</strong></a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="banner">
+                                    <a href="#"><img src="img/230816_sale_hlayer.jpg" alt=""></a>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+
+                    <li id="spacelayer"><a href="#">우주점</a>
+                    </li>
+
+                    <li id="usedshoplayer"><a href="#">중고매장</a>
+                    </li>
+
+                    <li id="coffeelayer"><a href="#">커피</a>
+                    </li>
+
+                    <li id="recordlayer"><a href="#">음반</a>
+                    </li>
+
+                    <li id="bluraylayer"><a href="#">블루레이</a>
+                    </li>
+
+                    <li id="bookplelayer"><a href="#">북플 · 서재</a>
+                    </li>
+
+                </ul>
+                <ul class="mytool">
+                    <li><a href="#">로그인</a></li>
+                    <li><a href="#">회원가입</a></li>
+                    <li><a href="#" class="dropbtn">마이페이지</a></li>
+                    <li><a href="#">고객센터</a></li>
+                    <li><a href="#">장바구니<span>(0)</span></a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="headermid">
+            <div class="logo">
+                <a href="#">
+                    <img src="img/aladin_logo_new.gif" alt="">
+                </a>
+            </div>
+
+            <div class="search">
+                <div class="searchbox">
+                    <dl>
+                        <dt id="searchoption" style="cursor: pointer;">통합검색</dt>
+                    </dl>
+                    <div class="searchin">
+                        <input type="text" class="searchon" name="searchon" style="border: 0px solid white; ime-mode: active;">
+                    </div>
+                    <div class="arrowicon" style="float: left; width: 29px;">
+                        <a href="#"><img src="img/btn_search_drop2.gif" alt=""></a>
+                    </div>
+                    <button type="submit" class="searchbtn">검색</button>
+                    <a href="#" class="detailsearch">상세검색</a>
+                </div>
+            </div>
+
+            <div class="adbox">
+                <a href="#"><img src="img/230908_thanks_hright.jpg" alt=""></a>
+            </div>
+        </div>
+
+        <div class="headerbot">
+            <ul class="hbotleft">
+                <li class="allcate"><a href="#">분야보기</a></li>
+                <li><a href="#" class="arrow">추천마법사</a></li>
+                <li><a href="#">베스트셀러</a></li>
+                <li><a href="#" class="arrow">새로나온 책</a></li>
+                <li><a href="#" class="arrow">이벤트</a></li>
+                <li><a href="#" class="arrow">추천도서</a></li>
+                <li><a href="#">단한권 인쇄소 <span class="new">N</span></a></li>
+                <li><a href="#" class="tbc">투비컨티뉴드</a></li>
+            </ul>
+            <ul class="hbotright">
+                <li><a href="#">알라디너TV</a></li>
+                <li><a href="#">이 책의 한 문장</a></li>
+                <li><a href="#">북펀드</a></li>
+            </ul>
+        </div>
+    </header>
+
+
+    <div id="slider"></div>
+
+
+    <div id="allover"></div>
+
+
+    <footer></footer>
+    
+</body>
+</html>
