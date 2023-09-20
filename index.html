@@ -12,6 +12,7 @@
     <script src="js/header.js"></script>
     <script src="js/leftevent.js"></script>
     <script src="js/sliderswipe.js"></script>
+    <script src="js/section1.js"></script>
 
     <script>
         
@@ -1026,6 +1027,10 @@
             animation: fadeInRight 0.5s;
         }
 
+        .rbicontent {
+            position: relative;
+            animation: fadeInRight 0.5s;
+        }
 
         /* 첫 번 째 */
 
@@ -1034,6 +1039,7 @@
             min-height: 390px;
             margin: 0 auto 50px auto;
             display: flex;
+            flex-direction: row;
         }
 
         .section1 .editor {
@@ -1149,6 +1155,104 @@
             width: 685px;
         }
 
+        .section1 .editor .editorlist .listinner {
+            align-items: flex-end;
+            height: auto;
+            position: relative;
+            width: 100%;
+            z-index: 1;
+            display: flex;
+            transition-property: transform;
+            box-sizing: content-box;
+        }
+
+        .section1 .editor .editorlist .listinner .innerbook {
+            flex-shrink: 0;
+            height: 100%;
+            position: relative;
+            transition-property: transform;
+        }
+
+        .innerbook .cover {
+            width: 154px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .innerbook .goodscover {
+            width: 228px;
+            height: 230px;
+            position: relative;
+        }
+
+        .innerbook .cover a {
+            display: block;
+            padding: 10px;
+        }
+
+        .innerbook .goodscover a {
+            display: inline-block;
+            position: absolute;
+            bottom: 10px;
+            left: 10px;
+        }
+
+        .innerbook .cover a img {
+            width: 134px;
+            border: 1px #e2e2e2 solid;
+        }
+
+        .innerbook .goodscover a img {
+            width: 208px;
+            border: 1px #e2e2e2 solid;
+        }
+
+        .editorlist .text {
+            width: 100%;
+            height: 90px;
+            overflow: hidden;
+        }
+
+        .editorlist .text .title {
+            width: calc(100% - 20px);
+            max-height: 42px;
+            margin: 4px 10px 8px 10px;
+            font-size: 15px;
+            font-weight: bold;
+            overflow: hidden;
+            line-height: 1.4;
+            letter-spacing: -0.5px;
+            text-overflow: ellipsis;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            transform: translate3d(0, 0, 0);
+            -webkit-transform: translate3d(0, 0, 0);
+        }
+
+        .editorlist .text .title a {
+            display: block;
+            transition: none;
+            transform: translate3d(0,0,0);
+            -webkit-font-smoothing: auto;
+        }
+
+        .editorlist .sub {
+            max-height: 36px;
+            margin: 0 10px;
+            font-size: 13px;
+            letter-spacing: -0.8px;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+        }
+
+        .editorlist .text a:hover {
+            text-decoration: underline;
+        }
+
         .rightbbn {
             width: 305px;
             height: 362px;
@@ -1156,6 +1260,85 @@
             border: 1px #E8E8E8 solid;
             border-radius: 6px;
             overflow: hidden;
+        }
+
+        .rightbbn a {
+            display: block;
+        }
+
+        .rbinner {
+            cursor: grab;
+            transition-duration: 0ms;
+            height: auto;
+        }
+
+        .rbicontent {
+            width: 305px;
+            z-index: 4;
+            transform: translate3d(calc(0px + 0%), calc(0px), calc(-1px)) rotateX(0deg) rotateY(0deg) rotateZ(0deg) scale(1);
+            opacity: 1;
+            transition-duration: 0ms;
+            -webkit-backface-visibility: hidden;
+            backface-visibility: hidden;
+            overflow: hidden;
+            transition-property: transform,opacity,height;
+        }
+
+        .page {
+            width: 100%;
+            right: 0px;
+            top: 0;
+            bottom: auto;
+            left: auto;
+            text-align: right;
+            font-size: 12px;
+            color: #737373;
+            padding: 8px 15px 0 0;
+            position: absolute;
+            transition: .3s opacity;
+            transform: translate3d(0,0,0);
+            z-index: 10;
+            cursor: default;
+        }
+
+        .page span {
+            display: inline-block;
+            margin: 0 -3px;
+        }
+
+        .rbiprev, .rbinext {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            opacity: 0;
+            right: auto;
+            position: absolute;
+            top: 44%;
+            margin-top: calc(0px - (var(--swiper-navigation-size)/ 2));
+            z-index: 10;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--swiper-navigation-color,var(--swiper-theme-color));
+        }
+
+        .rbiprev {
+            background: url('img/arrow-left-white.svg') rgba(58, 58, 58, 0.3) no-repeat center / 10px auto;
+            left: 5px;
+        }
+
+        .rbinext {
+            background: url('img/arrow-right-white.svg') rgba(58, 58, 58, 0.3) no-repeat center / 10px auto;
+            right: 5px;
+        }
+
+        .rbiprev:hover {
+            background: url('img/arrow-left-white.svg') rgba(58, 58, 58, 0.6) no-repeat center / 10px auto;
+        }
+
+        .rbinext:hover {
+            background: url('img/arrow-right-white.svg') rgba(58, 58, 58, 0.6) no-repeat center / 10px auto;
         }
     </style>
 
@@ -2395,22 +2578,309 @@
                     </div>
                 </div>
                 <div class="swiper editorlist" style="display: block;">
-
+                    <div class="listinner">
+                        <div class="innerbook" style="width: 156.25px;
+                        margin-right: 20px;">
+                            <div class="cover">
+                                <a href="#">
+                                    <img src="img/k472834424_3.jpg" alt="상황과 이야기">
+                                </a>
+                            </div>
+                            <div class="text">
+                                <div class="title">
+                                    <a href="#">상황과 이야기</a>
+                                </div>
+                                <div class="sub">비비언 고닉이 말하는 자전적 글쓰기</div>
+                            </div>
+                        </div>
+                        <div class="innerbook" style="width: 156.25px;
+                        margin-right: 20px;">
+                            <div class="cover">
+                                <a href="#">
+                                    <img src="img/k692935569_1.jpg" alt="말리의 일곱 개의 달">
+                                </a>
+                            </div>
+                            <div class="text">
+                                <div class="title">
+                                    <a href="#">말리의 일곱 개의 달</a>
+                                </div>
+                                <div class="sub">2022 부커상 심사위원 만장일치 수상작</div>
+                            </div>
+                        </div>
+                        <div class="innerbook" style="width: 156.25px;
+                        margin-right: 20px;">
+                            <div class="cover">
+                                <a href="#">
+                                    <img src="img/k392935098_3.jpg" alt="어린이 마음 약국 (친필 인쇄 사인본)">
+                                </a>
+                            </div>
+                            <div class="text">
+                                <div class="title">
+                                    <a href="#">어린이 마음 약국 (친필 인쇄 사인본)</a>
+                                </div>
+                                <div class="sub">어린이 마음 약국에 온 걸 환영합니다.</div>
+                            </div>
+                        </div>
+                        <div class="innerbook" style="width: 156.25px;
+                        margin-right: 20px;">
+                            <div class="cover">
+                                <a href="#">
+                                    <img src="img/k402935294_1.jpg" alt="드라큘라의 시">
+                                </a>
+                            </div>
+                            <div class="text">
+                                <div class="title">
+                                    <a href="#">드라큘라의 시</a>
+                                </div>
+                                <div class="sub">외로움과 두려움을 노래하는 드라큘라</div>
+                            </div>
+                        </div>
+                        <div class="innerbook" style="width: 156.25px;
+                        margin-right: 20px;">
+                            <div class="cover">
+                                <a href="#">
+                                    <img src="img/8932042101_1.jpg" alt="촉진하는 밤">
+                                </a>
+                            </div>
+                            <div class="text">
+                                <div class="title">
+                                    <a href="#">촉진하는 밤</a>
+                                </div>
+                                <div class="sub">범람하는 밤에게 굴하지 않기</div>
+                            </div>
+                        </div>
+                        <div class="innerbook" style="width: 156.25px;
+                        margin-right: 20px;">
+                            <div class="cover">
+                                <a href="#">
+                                    <img src="img/k042935982_1.jpg" alt="6시 20분의 남자">
+                                </a>
+                            </div>
+                            <div class="text">
+                                <div class="title">
+                                    <a href="#">6시 20분의 남자</a>
+                                </div>
+                                <div class="sub">데이비드 발다치 신작, 뉴욕타임스 베스트셀러 1위</div>
+                            </div>
+                        </div>
+                        <div class="innerbook" style="width: 156.25px;
+                        margin-right: 20px;">
+                            <div class="cover">
+                                <a href="#">
+                                    <img src="img/k092935672_2.jpg" alt="마시지 않을 수 없는 밤이니까요">
+                                </a>
+                            </div>
+                            <div class="text">
+                                <div class="title">
+                                    <a href="#">마시지 않을 수 없는 밤이니까요</a>
+                                </div>
+                                <div class="sub">술과 사람, 인생. 정지아의 내밀한 이야기들</div>
+                            </div>
+                        </div>
+                        <div class="innerbook" style="width: 156.25px;
+                        margin-right: 20px;">
+                            <div class="cover">
+                                <a href="#">
+                                    <img src="img/8936479415_1.jpg" alt="딸이 조용히 무너져 있었다">
+                                </a>
+                            </div>
+                            <div class="text">
+                                <div class="title">
+                                    <a href="#">딸이 조용히 무너져 있었다</a>
+                                </div>
+                                <div class="sub">정신질환자의 가족으로 사는 일</div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
                 <div class="swiper editorlist" style="display: none;">
-
+                    <div class="listinner">
+                        <div class="innerbook" style="width: 156.25px;
+                        margin-right: 20px;">
+                            <div class="cover">
+                                <a href="#">
+                                    <img src="img/e902532178_1.jpg" alt="개의 설계사">
+                                </a>
+                            </div>
+                            <div class="text">
+                                <div class="title">
+                                    <a href="#">개의 설계사</a>
+                                </div>
+                                <div class="sub">문윤성 SF문학상 장편 대상작</div>
+                            </div>
+                        </div>
+                        <div class="innerbook" style="width: 156.25px;
+                        margin-right: 20px;">
+                            <div class="cover">
+                                <a href="#">
+                                    <img src="img/e652532279_1.jpg" alt="집착의 법칙">
+                                </a>
+                            </div>
+                            <div class="text">
+                                <div class="title">
+                                    <a href="#">집착의 법칙</a>
+                                </div>
+                                <div class="sub">집착이라는 재능</div>
+                            </div>
+                        </div>
+                        <div class="innerbook" style="width: 156.25px;
+                        margin-right: 20px;">
+                            <div class="cover">
+                                <a href="#">
+                                    <img src="img/e152532770_1.jpg" alt="철학이 내 손을 잡을 때">
+                                </a>
+                            </div>
+                            <div class="text">
+                                <div class="title">
+                                    <a href="#">철학이 내 손을 잡을 때</a>
+                                </div>
+                                <div class="sub">오늘을 춤추게 하는 철학</div>
+                            </div>
+                        </div>
+                        <div class="innerbook" style="width: 156.25px;
+                        margin-right: 20px;">
+                            <div class="cover">
+                                <a href="#">
+                                    <img src="img/e052532178_1.jpg" alt="눈부시게 불완전한">
+                                </a>
+                            </div>
+                            <div class="text">
+                                <div class="title">
+                                    <a href="#">눈부시게 불완전한</a>
+                                </div>
+                                <div class="sub">극복과 치유 너머 장애 정치</div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
                 <div class="swiper editorlist" style="display: none;">
-
+                    <div class="listinner">
+                        <div class="innerbook" style="width: 156.25px;
+                        margin-right: 20px;">
+                            <div class="cover">
+                                <a href="#">
+                                    <img src="img/1982181281_1.jpg" alt="Elon Musk (Hardcover)">
+                                </a>
+                            </div>
+                            <div class="text">
+                                <div class="title">
+                                    <a href="#">Elon Musk (Hardcover)</a>
+                                </div>
+                                <div class="sub">월터 아이작슨 <일론 머스크> 전기</div>
+                            </div>
+                        </div>
+                        <div class="innerbook" style="width: 156.25px;
+                        margin-right: 20px;">
+                            <div class="cover">
+                                <a href="#">
+                                    <img src="img/1368090133_1.jpg" alt="Look Out for the Little Guy (Hardcover)">
+                                </a>
+                            </div>
+                            <div class="text">
+                                <div class="title">
+                                    <a href="#">Look Out for the Little Guy (Hardcover)</a>
+                                </div>
+                                <div class="sub">앤트맨 스콧랭 영화 회고록</div>
+                            </div>
+                        </div>
+                        <div class="innerbook" style="width: 156.25px;
+                        margin-right: 20px;">
+                            <div class="cover">
+                                <a href="#">
+                                    <img src="img/f752834307_1.jpg" alt="なかよし 2023年 10月號">
+                                </a>
+                            </div>
+                            <div class="text">
+                                <div class="title">
+                                    <a href="#">なかよし 2023年 10月號</a>
+                                </div>
+                                <div class="sub">카드캡터 사쿠라 6면 메모 컬렉션</div>
+                            </div>
+                        </div>
+                        <div class="innerbook" style="width: 156.25px;
+                        margin-right: 20px;">
+                            <div class="cover">
+                                <a href="#">
+                                    <img src="img/0810987996_1.jpg" alt="Diary of a Wimpy Kid #2 : Rodrick Rules">
+                                </a>
+                            </div>
+                            <div class="text">
+                                <div class="title">
+                                    <a href="#">Diary of a Wimpy Kid #2 : Rodrick Rules</a>
+                                </div>
+                                <div class="sub"></div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
                 <div class="swiper editorlist" style="display: none;">
-
+                    <div class="listinner">
+                        <div class="innerbook" style="width: 228.333px;">
+                            <div class="goodscover">
+                                <a href="#">
+                                    <img src="img/g782431007.jpg" alt="상황과 이야기">
+                                </a>
+                            </div>
+                            <div class="text">
+                                <div class="title">
+                                    <a href="#">기능에 집중한 문진</a>
+                                </div>
+                                <div class="sub">손이 자유로운 독서</div>
+                            </div>
+                        </div>
+                        <div class="innerbook" style="width: 228.333px;">
+                            <div class="goodscover">
+                                <a href="#">
+                                    <img src="img/g272431300.jpg" alt="3단 펜케이스">
+                                </a>
+                            </div>
+                            <div class="text">
+                                <div class="title">
+                                    <a href="#">3단 펜케이스</a>
+                                </div>
+                                <div class="sub">핸들이 있는 대용량</div>
+                            </div>
+                        </div>
+                        <div class="innerbook" style="width: 228.333px;">
+                            <div class="goodscover">
+                                <a href="#">
+                                    <img src="img/g652431496.jpg" alt="발 볼 편한 쿠션 실내화">
+                                </a>
+                            </div>
+                            <div class="text">
+                                <div class="title">
+                                    <a href="#">발 볼 편한 쿠션 실내화</a>
+                                </div>
+                                <div class="sub">오래도록 신어보고 확인한</div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
-
             <div class="swiper rightbbn">
-            </div>
-        </div>    
+                <div class="rbinner">
+                    <div class="rbicontent" style="display: block;"><a href="#">
+                        <img src="img/230918_b1958_wrtop.jpg" alt="">
+                    </a></div>
+                    <div class="rbicontent" style="display: none;"><a href="#">
+                        <img src="img/230915_salon_wrtop.jpg" alt="">
+                    </a></div>
+                    <div class="rbicontent" style="display: none;"><a href="#">
+                        <img src="img/230915_sidae_wrtop.jpg" alt="">
+                    </a></div>
+                    <div class="rbicontent" style="display: none;"><a href="#">
+                        <img src="img/230908_b1951_wrtop.jpg" alt="">
+                    </a></div>
+    
+                    <div class="page">
+                        <span class="pagecurrent">1</span> / <span class="pagetotal">4</span>
+                    </div>
+                    </div><div class="rbiprev">
+                    </div><div class="rbinext">
+                </div>
+            </div> 
+        </div>
+        
     </div>
 
 
