@@ -9,64 +9,12 @@
 
     <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.7.0.min.js"></script>
 
+    <script src="js/header.js"></script>
+    <script src="js/leftevent.js"></script>
+    <script src="js/sliderswipe.js"></script>
+
     <script>
-
-        $(function () {
-            $('.close a').click(function () {
-                $('.headerevent').hide();
-            })
-        })
-
-
-
-
-        $(function () {
-            $("#htnav li").mouseenter(function () {
-                $(this).children("div").css("display", "flex");
-            }),
-                $("#htnav li").mouseleave(function () {
-                $(this).children("div").hide();
-            });
-        });
-
-        $(function () {
-            $(".mytool li").mouseenter(function () {
-                $(this).children("div").css("display", "flex");
-            }),
-                $(".mytool li").mouseleave(function () {
-                $(this).children("div").hide();
-            });
-        });
-
-
-
-        $(function () {
-            $(".headerbot li").mouseenter(function () {
-                $(this).children("div").css("display", "flex");
-            }),
-                $(".headerbot li").mouseleave(function () {
-                $(this).children("div").hide();
-            });
-        });
-
-
-
-
-
-        $(function () {
-            $(".widetab a").click(function () {
-                $(".widebn").stop().toggle("slow");
-                $(".widebnimg img").css("display", "block");
-            })
-        })
         
-        $(function () {
-            $(".widebnbtn a").click(function () {
-                $(".widebn").stop().hide("slow");
-            })
-        })
-
-
     </script>
 
     <style>
@@ -158,6 +106,10 @@
             line-height: 18px;
         }
 
+        button {
+            cursor: pointer;
+            font-family: Malgun Gothic,Dotum,'돋움',Helvetica,"Apple SD Gothic Neo",sans-serif;
+        }
 
 
         /* 헤더 시작 */
@@ -555,6 +507,27 @@
             text-align: right;
             height: 69px;
         }
+
+        .searchdrop {
+            z-index: 10000;
+            background: white;
+            margin-left: -6px;
+            margin-top: -6px;
+            text-align: left !important;
+        }
+
+        a.blue02 {
+            color: #006699;
+            text-decoration: none;
+            display: block;
+            min-width: 75px;
+            padding-left: 5px;
+            font-weight: normal !important;
+        }
+
+        a.blue02:hover {
+            background-color: #eaf4fc;
+        }
     
         /* 헤더 최하부 */
         .headerbot {
@@ -714,7 +687,7 @@
             list-style: none;
             padding: 0;
             margin: 0;
-            width: 140px;
+            width: 139px;
         }
 
         .alrs1 li {
@@ -742,12 +715,63 @@
         /* 헤더 끝 */
 
 
+
+        /* 사이드 배너 */
+
+        .sidebanner {
+            width: 1030px;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        .sidebanner .leftsbn {
+            position: absolute;
+            left: -112px;
+            top: 0;
+        }
+
+        .sidebanner .rightsbn {
+            position: absolute;
+            right: -85px;
+            top: 0;
+        }
+
+        .sidebanner .rightsbn .pinkbox {
+            width: 76px;
+            min-height: 24px;
+            background-color: #EE3C97;
+            border: 1px solid #D92883;
+            color: #fff;
+            font-size: 12px;
+            line-height: 1.4;
+            text-align: center;
+            margin-bottom: 5px;
+            font-family: 'Noto Sans KR', sans-serif;
+            box-sizing: border-box;
+            padding: 3px 0;
+        }
+
+        .sidebanner .rightsbn a {
+            display: block;
+        }
+
+        .sidebanner .rightsbn .goodsbn {
+            padding-top: 5px;
+        }
+
+
         /* 전체 시작 */
 
-        /* 플로팅 배너 */
         .wrap {
             width: 100%;
         }
+
+        .wrap a {
+            text-decoration: none;
+            color: #333;
+        }
+
+        /* 플로팅 배너 */
 
         .floating {
             width: 1030px;
@@ -800,19 +824,46 @@
             margin-bottom: 20px;
         }
 
-        .welcome_top_bn {
+        .topbn {
             background-color: #fff;
             width: 100%;
             height: 385px;
             border-radius: 6px;
         }
 
-        .swiper-3d {
-            perspective: 1200px;
+        .topbn > div .gift {
+            width: 85px;
+            height: 85px;
+            position: absolute;
+            right: 0;
+            top: 170px;
+            text-align: center;
         }
 
-        .swiper-pointer-events {
-            touch-action: pan-y;
+        .topbn > div .gift::after{
+            content: '';
+            display: block;
+            width: 23px;
+            height: 23px;
+            background: url('img/gift_pluse.svg') no-repeat center / 100%;
+            position: absolute;
+            left: -8px;
+            top: -8px;
+        }
+
+        .topbn > div .gift .giftimg {
+            width: 100%;
+            height: 100%;
+            border: 2px #FEB80D solid;
+            border-radius: 6px;
+            overflow: hidden;
+            background-color: #fff;
+            display: flex;
+            align-items: center;
+        }
+
+        .topbn > div .gift .giftimg img {
+            width: 100%;
         }
 
         .swiper {
@@ -824,7 +875,290 @@
             padding: 0;
             z-index: 1;
         }
+
+        .swiper .swiperinner {
+            padding: 28px 50px 26px 49px;
+            box-sizing: border-box;
+        }
+
+        .swiper .eventtype {
+            padding: 20px 35px;
+            box-sizing: border-box;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .swiper .eventtype div {
+            float: left;
+            width: 275px !important;
+            position: relative;
+        }
+
+        .swiper .eventtype div~div {
+            margin-left: 60px !important;
+        }
+
+        .swiper .eventtype div~div::before {
+            content: '';
+            display: block;
+            width: 41px;
+            height: 337px;
+            background: url('img/ev_line.png');
+            position: absolute;
+            left: -50px;
+            top: 0;
+        }
+
+        .swiper .eventtype::after {
+            content: '';
+            display: block;
+            clear: both;
+        }
+
+        .swiper .swiperinner > div {
+            float: left;
+            width: 210px;
+            position: relative;
+        }
+
+        .swiper .swiperinner > div~div {
+            margin-left: 27px;
+        }
+
+        .swiper .swiperinner > div .cover {
+            width: 170px;
+            height: 260px;
+            position: relative;
+            overflow: hidden;
+            margin: 0 auto 5px auto;
+            background: url('img/top_fl_sh.png') no-repeat center bottom;
+        }
+
+        .swiper .swiperinner > div .cover .coverimg {
+            position: absolute;
+            left: 0;
+            bottom: 10px;
+            width: 170px;
+            max-height: 250px;
+            overflow: hidden;
+        }
+
+        .swiper .swiperinner > div .cover .coverimg::after {
+            content: "";
+            display: block;
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 170px;
+            height: 100%;
+            box-shadow: inset 0px 0px 10px rgba(0, 0, 0, 0.10);
+            box-sizing: border-box;
+            border: 1px #ddd solid;
+        }
+
+        .swiper .swiperinner > div .cover img {
+            display: block;
+            width: 100%;
+        }
+
+        .swiper .swiperinner > div .title {
+            font-size: 15px;
+            font-weight: bold;
+            text-align: center;
+            letter-spacing: -1.5px;
+            margin-bottom: 4px;
+        }
+
+        .swiper .swiperinner > div .sub {
+            font-size: 13px;
+            font-weight: bold;
+            color: #2A68B9;
+            text-align: center;
+            letter-spacing: -1px;
+            margin-bottom: 4px;
+        }
+
+        .swiper .swiperinner > div .author {
+            font-size: 13px;
+            color: #737373;
+            text-align: center;
+        }
+
+        .swipertab {
+            padding: 12px 10px;
+        }
+
+        .swiperbtn {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+            display: flex;
+            transition-property: transform;
+            box-sizing: content-box;
+        }
+
+        .sbtns {
+            width: 111.111px;
+            height: 34px;
+            line-height: 33px;
+            color: #3C5980;
+            font-size: 13px;
+            font-weight: bold;
+            text-align: center;
+            cursor: pointer;
+            overflow: hidden;
+        }
+
+        @keyframes fadeInRight {
+            0% {
+                opacity: 1;
+                transform: translate3d(+100%, 0, 0);
+            }
+            to {
+                opacity: 1;
+                transform: translateZ(0);
+            }
+        }
+    
+        .swiperinner {
+            position: relative;
+            animation: fadeInRight 0.5s;
+        }
+
+
+        /* 첫 번 째 */
+
+        .section1 {
+            width: 1030px;
+            min-height: 390px;
+            margin: 0 auto 50px auto;
+            display: flex;
+        }
+
+        .section1 .editor {
+            flex-grow: 1;
+            margin-right: 36px;
+            position: relative;
+        }
+
+        .section1 .editor .editortab {
+            width: 100%;
+            height: 35px;
+            border-bottom: 1px solid #dadada;
+            position: relative;
+            margin-bottom: 10px;
+        }
+
+        .section1 .editor .editortab a.on {
+            background-color: #fff;
+            border: 1px #dadada solid;
+            border-bottom: none;
+            font-weight: bold;
+        }
+
+        .section1 .editor .editortab a.on::after {
+            content: '';
+            display: block;
+            height: 1px;
+            background-color: #fff;
+            position: absolute;
+            left: 0;
+            right: 0;
+            bottom: -1px;
+        }
+
+        .section1 .editor .editortab a {
+            display: inline-block;
+            width: 110px;
+            height: 36px;
+            border-radius: 6px 6px 0 0;
+            background-color: #EDEFF1;
+            font-size: 13px;
+            position: relative;
+            text-align: center;
+            line-height: 36px;
+            box-sizing: border-box;
+            border-bottom: 1px solid #dadada;
+            overflow: hidden;
+        }
+
+        .section1 .editor .editorbtn {
+            width: 63px;
+            height: 27px;
+            position: absolute;
+            right: 0;
+            top: 0;
+        }
+
+        .section1 .editor .editorbtn .ebeditor {
+            justify-content: space-between;
+        }
+
+        .section1 .editor .editorbtn > div {
+            width: 100%;
+            display: flex;
+        }
+
+        .section1 .editor .editorbtn button {
+            display: block;
+            width: 27px;
+            height: 27px;
+            background-color: #fff;
+            border: 1px solid #E9E9E9;
+            box-shadow: 0px 3px 6px #0000000F;
+            border-radius: 50%;
+            font-size: 1px;
+            color: transparent;
+            overflow: hidden;
+            position: relative;
+            text-indent: -999em;
+        }
+
+        .section1 .editor .editorbtn .ebprev:hover::after {
+            opacity: 1;
+        }
+
+        .section1 .editor .editorbtn .ebnext:hover::after {
+            opacity: 1;
+        }
+
+        .section1 .editor .editorbtn .ebprev::after {
+            background: url('img/arrow-left.svg') no-repeat center right 10px / 6px auto;
+            content: '';
+            position: absolute;
+            left: 0;
+            right: 0;
+            top: 0;
+            bottom: 0;
+            opacity: 0.6;
+        }
+
+        .section1 .editor .editorbtn .ebnext::after {
+            background: url('img/arrow-right.svg') no-repeat center left 10px / 6px auto;
+            content: '';
+            position: absolute;
+            left: 0;
+            right: 0;
+            top: 0;
+            bottom: 0;
+            opacity: 0.6;
+        }
+
+        .section1 .editor .editorlist {
+            width: 685px;
+        }
+
+        .rightbbn {
+            width: 305px;
+            height: 362px;
+            flex-shrink: 0;
+            border: 1px #E8E8E8 solid;
+            border-radius: 6px;
+            overflow: hidden;
+        }
     </style>
+
 
 </head>
 
@@ -1404,6 +1738,99 @@
                     <dl>
                         <dt id="searchoption" style="cursor: pointer;">통합검색</dt>
                     </dl>
+                    <div style="position: absolute; display: none; z-index: 100000000000;" id="searchdrop" >
+                        <div style="position: absolute; background-color: white; top: 28px; left: 12px;">
+                            <table style="border: 2px solid #5397D0; width: 88px;">
+                                <tbody>
+                                    <tr>
+                                        <td>
+                                            <a href="#" class="blue02">통합검색</a>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <a href="#" class="blue02">국내도서</a>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <a href="#" class="blue02">외국도서</a>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <a href="#" class="blue02">eBook</a>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <a href="#" class="blue02">알라딘굿즈</a>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <a href="#" class="blue02">온라인중고</a>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <a href="#" class="blue02">중고매장</a>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <a href="#" class="blue02">커피</a>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <a href="#" class="blue02">음반</a>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <a href="#" class="blue02">블루레이</a>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <img src="img/eventlayer_se.gif" alt="line">
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <a href="#" class="blue02">서재검색</a>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <a href="#" class="blue02">서재태그</a>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <a href="#" class="blue02">마이리뷰</a>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <a href="#" class="blue02">마이리스트</a>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <a href="#" class="blue02">마이페이퍼</a>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <a href="#" class="blue02">서재</a>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
                     <div class="searchin">
                         <input type="text" class="searchon" name="searchon" style="border: 0px solid white; ime-mode: active;">
                     </div>
@@ -1684,14 +2111,29 @@
         </div>
     </header>
 
+    <div class="sidebanner">
+        <div class="leftsbn">
+            <img src="img/230913_neofiction_wletop.jpg" alt="">
+        </div>
+        <div class="rightsbn">
+            <a href="#" class="pinkbox">알라딘 us</a>
+            <a href="#" class="pinkbox">도서관 사서</a>
+            <div class="goodsbn">
+                <a href="#"><img src="img/sep_goods_quick.jpg" alt=""></a>
+                <a href="#"><img src="img/230623_free_pc_wingBN.jpg" alt=""></a>
+            </div>
+            <a href="#"><img src="img/230904_ebsEmath_wquick.jpg" alt=""></a>
+        </div>
+    </div>
+
     <div class="wrap">
         <div class="floating">
             <div class="widebn" style="display: none;">
                 <div class="widebnimg">
-                    <a href="#"><img src="img/230914_september_layer.jpg" style="display: none; width: 100%; height: 420px;"></a>
-                    <a href="#"><img src="img/230825_study_layer.jpg" style="display: none; width: 100%; height: 420px;"></a>
-                    <a href="#"><img src="img/230801_univevt2_layer.jpg" style="display: none; width: 100%; height: 420px;"></a>
-                    <a href="#"><img src="img/layer_230907_bolanofestival.jpg" style="display: none; width: 100%; height: 420px;"></a>
+                    <a href="#"><img src="img/230914_september_layer.jpg" style="display: none; width: 100%; height: 100%;"></a>
+                    <a href="#"><img src="img/230825_study_layer.jpg" style="display: none; width: 100%; height: 100%;"></a>
+                    <a href="#"><img src="img/230801_univevt2_layer.jpg" style="display: none; width: 100%; height: 100%;"></a>
+                    <a href="#"><img src="img/layer_230907_bolanofestival.jpg" style="display: none; width: 100%; height: 100%;"></a>
                 </div>
                 <div class="widebnbtn">
                     <a href="#"><img src="img/btn_close_today.png"></a>
@@ -1706,18 +2148,286 @@
             </div>
         </div>
         <div class="slider">
-            <div class="swiper welcome_top_bn swiper-creative swiper-3d swiper-initialized swiper-horizontal swiper-pointer-events swiper-watch-progress">
+            <div class="swiper topbn">
+                <div class="swiperinner" style="width: 1020px;">
+                    <div><a href="#">
+                        <div class="cover"><div class="coverimg"><img src="img/8932042101_1.jpg" alt="촉진하는 밤"></div></div>
+                        <div class="title">촉진하는 밤</div>
+                        <div class="sub">범람하는 밤에게 굴하지 않기</div>
+                        <div class="author">김소연 지음</div>
+                    </a></div>
+                    <div><a href="#">
+                        <div class="cover"><div class="coverimg"><img src="img/k042935982_1.jpg" alt="6시 20분의 남자"></div></div>
+                        <div class="title">6시 20분의 남자</div>
+                        <div class="sub">뉴욕타임스 베스트셀러 1위</div>
+                        <div class="author">데이비드 발다치 지음, 허형은 옮김</div>
+                    </a></div>
+                    <div><a href="#">
+                        <div class="cover"><div class="coverimg"><img src="img/k092935672_2.jpg" alt="마시지않을 수 없는 밤이니까요"></div></div>
+                        <div class="title">마시지 않을 수 없는 밤이니까요</div>
+                        <div class="sub"><아버지의 해방일지> 정지아 에세이</div>
+                        <div class="author">정지아 지음</div>
+                    </a></div>
+                    <div><a href="#">
+                        <div class="cover"><div class="coverimg"><img src="img/8936479415_1.jpg" alt="딸이 조용히 무너져 있었다"></div></div>
+                        <div class="title">딸이 조용히 무너져 있었다</div>
+                        <div class="sub">정신질환자의 가족으로 사는 일</div>
+                        <div class="author">김현아 지음</div>
+                    </a></div>
+                </div>
+                <div class="swiperinner eventtype" style="width: 1020px;">
+                    <div><a href="#"><img src="img/230914_september2_w.jpg"></a></div>
+                    <div><a href="#"><img src="img/230911_picturebook_w.jpg"></a></div>
+                    <div><a href="#"><img src="img/anothercover74_w.jpg"></a></div>
+                </div>
+                <div class="swiperinner" style="width: 1020px;">
+                    <div><a href="#">
+                        <div class="cover"><div class="coverimg"><img src="img/8954695051_1.jpg" alt="아주 희미한 빛으로도"></div></div>
+                        <div class="title">아주 희미한 빛으로도</div>
+                        <div class="sub">고요하게 휘몰아치는 최은영의 세계</div>
+                        <div class="author">최은영 지음</div>
+                    </a></div>
+                    <div><a href="#">
+                        <div class="cover"><div class="coverimg"><img src="img/k902935578_1.jpg" alt="이효석문학상 수상작품집 2023"></div></div>
+                        <div class="title">이효석문학상 수상작품집 2023</div>
+                        <div class="sub">지금, 뜨겁게 주목해야 할 여섯 작가</div>
+                        <div class="author">안보윤 외 지음</div>
+                    </a></div>
+                    <div><a href="#">
+                        <div class="cover"><div class="coverimg"><img src="img/k642935403_1.jpg" alt="그리스 로마 신화 : 신들의 사생활 2"></div></div>
+                        <div class="title">그리스 로마 신화 : 신들의 사생활 2</div>
+                        <div class="sub">설민석이 들려주는 신神세계!</div>
+                        <div class="author"><그리스 로마 신화...> 제작팀 지음</div>
+                    </a></div>
+                    <div><a href="#">
+                        <div class="cover"><div class="coverimg"><img src="img/k112935993_1.jpg" alt="푸틴을 죽이는 완벽한 방법"></div></div>
+                        <div class="title">푸틴을 죽이는 완벽한 방법</div>
+                        <div class="sub">밀리언셀러 작가 김진명 신작 소설</div>
+                        <div class="author">김진명 지음</div>
+                    </a></div>
+                </div>
+                <div class="swiperinner" style="width: 1020px;">
+                    <div><a href="#">
+                        <div class="cover"><div class="coverimg"><img src="img/k942935205_3.jpg" alt="시대예보: 핵개인의 시대"></div></div>
+                        <div class="title">시대예보: 핵개인의 시대</div>
+                        <div class="sub">송길영이 관찰한 우리가 맞이할 미래</div>
+                        <div class="author">송길영 지음</div>
+                    </a></div>
+                    <div><a href="#">
+                        <div class="cover"><div class="coverimg"><img src="img/8932042101_1.jpg" alt="촉진하는 밤"></div></div>
+                        <div class="title">촉진하는 밤</div>
+                        <div class="sub">김소연 시인, 5년 만의 신간 시집</div>
+                        <div class="author">김소연 지음</div>
+                    </a></div>
+                    <div><a href="#">
+                        <div class="cover"><div class="coverimg"><img src="img/896262575x_1.jpg" alt="눈부시게 불완전한"></div></div>
+                        <div class="title">눈부시게 불완전한</div>
+                        <div class="sub">장애가 없다면 나는 누구란 말인가?</div>
+                        <div class="author">일라이 클레어 지음, 하은빈 옮김</div>
+                    </a></div>
+                    <div><a href="#">
+                        <div class="cover"><div class="coverimg"><img src="img/k912834842_1.jpg" alt="발끝이 바다에 닿으면"></div></div>
+                        <div class="gift"><div class="giftimg"><img src="img/230918_welcome_2_4.jpg" alt="gifr"></div></div>
+                        <div class="title">푸틴을 죽이는 완벽한 방법</div>
+                        <div class="sub">밀리언셀러 작가 김진명 신작 소설</div>
+                        <div class="author">김진명 지음</div>
+                    </a></div>
+                </div>
+                <div class="swiperinner" style="width: 1020px;">
+                    <div><a href="#">
+                        <div class="cover"><div class="coverimg"><img src="img/8934940999_1.jpg" alt="내 멋대로 장래 희망 뽑기"></div></div>
+                        <div class="title">내 멋대로 장래 희망 뽑기</div>
+                        <div class="sub">이번 뽑기는 '꿈'이다!</div>
+                        <div class="author">최은옥 지음, 김무연 그림</div>
+                    </a></div>
+                    <div><a href="#">
+                        <div class="cover"><div class="coverimg"><img src="img/k682935405_1.jpg" alt="나를 위해 뛴다"></div></div>
+                        <div class="gift"><div class="giftimg"><img src="img/s882935290_1.jpg" alt="gifr"></div></div>
+                        <div class="title">나를 위해 뛴다</div>
+                        <div class="sub">배우 유준상 에세이+친필 사인 미니잔</div>
+                        <div class="author">유준상 지음</div>
+                    </a></div>
+                    <div><a href="#">
+                        <div class="cover"><div class="coverimg"><img src="img/896564285x_1.jpg" alt="세계 끝의 버섯"></div></div>
+                        <div class="gift"><div class="giftimg"><img src="img/s182935298_1.jpg" alt="gifr"></div></div>
+                        <div class="title">세계 끝의 버섯</div>
+                        <div class="sub">세계 끝의 버섯 키링</div>
+                        <div class="author">애나 로웬하웁트 칭 지음</div>
+                    </a></div>
+                    <div><a href="#">
+                        <div class="cover"><div class="coverimg"><img src="img/k092935291_1.jpg" alt="처음 만나는 7일의 미술 수업"></div></div>
+                        <div class="gift"><div class="giftimg"><img src="img/s942935678_1.jpg" alt="gifr"></div></div>
+                        <div class="title">처음 만나는 7일의 미술 수업</div>
+                        <div class="sub">명화 오프너</div>
+                        <div class="author">김영숙 지음</div>
+                    </a></div>
+                </div>
+                <div class="swiperinner" style="width: 1020px;">
+                    <div><a href="#">
+                        <div class="cover"><div class="coverimg"><img src="img/k342935468_2.jpg" alt="소녀 동지여 적을 쏴라"></div></div>
+                        <div class="gift"><div class="giftimg"><img src="img/s342935467_1.jpg" alt="gifr"></div></div>
+                        <div class="title">소녀 동지여 적을 쏴라</div>
+                        <div class="sub">2022년 일본에서 가장 많이 팔린 소설</div>
+                        <div class="author">아이사카 토마 지음, 이소담 옮김</div>
+                    </a></div>
+                    <div><a href="#">
+                        <div class="cover"><div class="coverimg"><img src="img/k392834889_1.jpg" alt="위기의 역사"></div></div>
+                        <div class="gift"><div class="giftimg"><img src="img/s842935576_1.jpg" alt="gifr"></div></div>
+                        <div class="title">위기의 역사</div>
+                        <div class="sub">코인 머들러</div>
+                        <div class="author">오건영 지음, 안병현 그림</div>
+                    </a></div>
+                    <div><a href="#">
+                        <div class="cover"><div class="coverimg"><img src="img/k132833528_2.jpg" alt="비가 오면 열리는 상점"></div></div>
+                        <div class="gift"><div class="giftimg"><img src="img/230918_welcome_4_3.jpg" alt="gifr"></div></div>
+                        <div class="title">비가 오면 열리는 상점</div>
+                        <div class="sub">여권 케이스</div>
+                        <div class="author">유영광 지음</div>
+                    </a></div>
+                    <div><a href="#">
+                        <div class="cover"><div class="coverimg"><img src="img/k082935301_2.jpg" alt="위리 이야기 1~2"></div></div>
+                        <div class="title">위리 이야기 1~2</div>
+                        <div class="sub">인기 인스타툰 단행본으로 출간</div>
+                        <div class="author">모로 지음</div>
+                    </a></div>
+                </div>
+                <div class="swiperinner" style="width: 1020px;">
+                    <div><a href="#">
+                        <div class="cover"><div class="coverimg"><img src="img/k052935204_1.jpg" alt="페어리 테일 1~2"></div></div>
+                        <div class="gift"><div class="giftimg"><img src="img/230915_gs_1.jpg" alt="gifr"></div></div>
+                        <div class="title">페어리 테일 1~2</div>
+                        <div class="sub">스티븐 킹 신작 동화 + 고블렛잔</div>
+                        <div class="author">스티븐 킹 지음, 이은선 옮김</div>
+                    </a></div>
+                    <div><a href="#">
+                        <div class="cover"><div class="coverimg"><img src="img/8954449492_1.jpg" alt="초록은 어디에나"></div></div>
+                        <div class="title">초록은 어디에나</div>
+                        <div class="sub">임선우 친필 사인본</div>
+                        <div class="author">임선우 지음</div>
+                    </a></div>
+                    <div><a href="#">
+                        <div class="cover"><div class="coverimg"><img src="img/k622935200_1.jpg" alt="흔한남매 14"></div></div>
+                        <div class="gift"><div class="giftimg"><img src="img/230915_gs_3.jpg" alt="gifr"></div></div>
+                        <div class="title">흔한남매 14</div>
+                        <div class="sub">흔한남매 램프문방구</div>
+                        <div class="author">백난도 글, 유난희 그림</div>
+                    </a></div>
+                    <div><a href="#">
+                        <div class="cover"><div class="coverimg"><img src="img/k532834884_2.jpg" alt="데일 카네기 인간관계론 (개정판)"></div></div>
+                        <div class="gift"><div class="giftimg"><img src="img/230915_gs_4.jpg" alt="gifr"></div></div>
+                        <div class="title">데일 카네기 인간관계론 (개정판)</div>
+                        <div class="sub">사각 유리 문진</div>
+                        <div class="author">데일 카네기 지음, 이지연 옮김</div>
+                    </a></div>
+                </div>
+                <div class="swiperinner" style="width: 1020px;">
+                    <div><a href="#">
+                        <div class="cover"><div class="coverimg"><img src="img/8936439294_1.jpg" alt="네가 있는 요일"></div></div>
+                        <div class="title">네가 있는 요일</div>
+                        <div class="sub">수요일의 현울림, 내 몸을 찾습니다</div>
+                        <div class="author">박소영 지음</div>
+                    </a></div>
+                    <div><a href="#">
+                        <div class="cover"><div class="coverimg"><img src="img/8932923477_1.jpg" alt="중요한 건 살인"></div></div>
+                        <div class="title">중요한 건 살인</div>
+                        <div class="sub"><맥파이 살인사건> 작가 신작</div>
+                        <div class="author">앤서니 호로위츠 지음, 이은선 옮김</div>
+                    </a></div>
+                    <div><a href="#">
+                        <div class="cover"><div class="coverimg"><img src="img/s232935093_1.jpg" alt="우리는 조금씩 자란다"></div></div>
+                        <div class="gift"><div class="giftimg"><img src="img/s802834859_1.jpg" alt="gifr"></div></div>
+                        <div class="title">우리는 조금씩 자란다</div>
+                        <div class="sub"><나의 두 사람> 김달님 신작구</div>
+                        <div class="author">김달님 지음</div>
+                    </a></div>
+                    <div><a href="#">
+                        <div class="cover"><div class="coverimg"><img src="img/k882935570_1.jpg" alt="전놀이"></div></div>
+                        <div class="title">전놀이</div>
+                        <div class="sub">세상에서 가장 군침 도는 그림책</div>
+                        <div class="author">동글 지음, 강은옥 그림</div>
+                    </a></div>
+                </div>
+                <div class="swiperinner eventtype" style="width: 1020px;">
+                    <div><a href="#"><img src="img/230911_eviche_wc2.jpg"></a></div>
+                    <div><a href="#"><img src="img/230831_neofiction_w.jpg"></a></div>
+                    <div><a href="#"><img src="img/230919_epayback_w.jpg"></a></div>
+                </div>
                 
             </div>
+            <div class="swipertab">
+                <div class="swiperbtn" style="height: 34px;">
+                    <div class="sbtns" style="background-color: #2A68B9; border-radius: 17px; color: #fff;">편집장의 선택</div>
+                    <div class="sbtns">추천 이벤트</div>
+                    <div class="sbtns">이 주의 책</div>
+                    <div class="sbtns">신간 소개</div>
+                    <div class="sbtns">베스트 예감</div>
+                    <div class="sbtns">화제의 책</div>
+                    <div class="sbtns">이벤트 굿즈</div>
+                    <div class="sbtns">눈에 띄는 새책</div>
+                    <div class="sbtns">eBook</div>
+                </div>
+            </div>
         </div>
+        <div class="section1">
+            <div class="editor">
+                <div class="editortab">
+                    <a href="#" class="on">편집장의 선택</a>
+                    <a href="#">eBook</a>
+                    <a href="#">외국도서</a>
+                    <a href="#">알라딘굿즈</a>
+                </div>
+                <div class="editorbtn">
+                    <div class="ebeditor" style="display: flex;">
+                        <button type="button" class="ebprev"></button>
+                        <button type="button" class="ebnext"></button>
+                    </div>
+                    <div class="ebebook" style="display: none;">
+                        <button type="button" class="ebprev"></button>
+                        <button type="button" class="ebnext"></button>
+                    </div>
+                    <div class="ebforeign" style="display: none;">
+                        <button type="button" class="ebprev"></button>
+                        <button type="button" class="ebnext"></button>
+                    </div>
+                    <div class="ebgoods" style="display: none;">
+                        <button type="button" class="ebprev"></button>
+                        <button type="button" class="ebnext"></button>
+                    </div>
+                </div>
+                <div class="swiper editorlist" style="display: block;">
 
+                </div>
+                <div class="swiper editorlist" style="display: none;">
 
-        
+                </div>
+                <div class="swiper editorlist" style="display: none;">
+
+                </div>
+                <div class="swiper editorlist" style="display: none;">
+
+                </div>
+            </div>
+
+            <div class="swiper rightbbn">
+            </div>
+        </div>    
     </div>
 
 
 
     <footer></footer>
     
+    <script>
+        $.ajax({
+            method: "GET",
+            url: "https://dapi.kakao.com/v3/search/book?target=title",
+            data: {query:"촉진하는 밤"},
+            headers: {Authorization: "KakaoAK 57053f6a3b08ec813a2b7088ee0a1cf8"}
+        })
+        .done(function(msg){
+            console.log(msg.documents[0].thumbnail);
+            console.log(msg.documents[0].title);
+        });
+    </script>
 </body>
 </html>
