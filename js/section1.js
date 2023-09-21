@@ -1,4 +1,4 @@
-// ----------- 슬라이더 컨트롤
+// ----------- 슬라이더 탭 호버 컨트롤
 $(function () {
     $(".editortab a").eq(0).mouseenter(function () {
         $(".editortab a").css({
@@ -15,6 +15,8 @@ $(function () {
         });
         $(".editorlist").css("display", "none");
         $(".editorlist").eq(0).css("display", "block");
+        $(".ebwrap").css("display", "none");
+        $(".ebwrap").eq(0).css("display", "flex");
     })
 })
 
@@ -34,6 +36,8 @@ $(function () {
         });
         $(".editorlist").css("display", "none");
         $(".editorlist").eq(1).css("display", "block");
+        $(".ebwrap").css("display", "none");
+        $(".ebwrap").eq(1).css("display", "flex");
     })
 })
 
@@ -53,6 +57,8 @@ $(function () {
         });
         $(".editorlist").css("display", "none");
         $(".editorlist").eq(2).css("display", "block");
+        $(".ebwrap").css("display", "none");
+        $(".ebwrap").eq(2).css("display", "flex");
     })
 })
 
@@ -72,6 +78,59 @@ $(function () {
         });
         $(".editorlist").css("display", "none");
         $(".editorlist").eq(3).css("display", "block");
+        $(".ebwrap").css("display", "none");
+    })
+})
+
+//--------- 슬라이더 탭 페이지 넘기기
+$(function () {
+    $(".editorbtn .ebprev").eq(0).click(function(){
+        $('.listinner').eq(0).children('.innerbook').slice(4).prependTo('.ediliwrap1');
+        $('.listinner').css('margin-left',-700);
+        $('.listinner').filter(':not(:animated)').stop().animate({marginLeft:0},400);
+    })
+})
+
+$(function () {
+    $(".editorbtn .ebnext").eq(0).click(function(){
+        $('.listinner').filter(':not(:animated)').stop().animate({marginLeft:-700}, function(){
+            $('.listinner').eq(0).children('.innerbook').slice(0,3).appendTo('.ediliwrap1');
+            $('.listinner').css({marginLeft:0})
+        });
+    })
+})
+
+$(function () {
+    $(".editorbtn .ebprev").eq(1).click(function(){
+        $('.listinner').eq(1).children('.innerbook').slice(4).prependTo('.ediliwrap2');
+        $('.listinner').css('margin-left',-700);
+        $('.listinner').stop().animate({marginLeft:0},400);
+    })
+})
+
+$(function () {
+    $(".editorbtn .ebnext").eq(1).click(function(){
+        $('.listinner').filter(':not(:animated)').stop().animate({marginLeft:-700}, function(){
+            $('.listinner').eq(1).children('.innerbook').slice(0,3).appendTo('.ediliwrap2');
+            $('.listinner').css({marginLeft:0})
+        });
+    })
+})
+
+$(function () {
+    $(".editorbtn .ebprev").eq(2).click(function(){
+        $('.listinner').eq(2).children('.innerbook').slice(4).prependTo('.ediliwrap3');
+        $('.listinner').css('margin-left',-700);
+        $('.listinner').stop().animate({marginLeft:0},400);
+    })
+})
+
+$(function () {
+    $(".editorbtn .ebnext").eq(2).click(function(){
+        $('.listinner').filter(':not(:animated)').stop().animate({marginLeft:-700}, function(){
+            $('.listinner').eq(2).children('.innerbook').slice(0,3).appendTo('.ediliwrap3');
+            $('.listinner').css({marginLeft:0})
+        });
     })
 })
 
