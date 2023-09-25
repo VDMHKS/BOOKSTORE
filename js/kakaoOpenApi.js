@@ -19,10 +19,10 @@ $(function () {
             method: "GET",
             url: "https://dapi.kakao.com/v3/search/book?target=title",
             data: { query: bookTitles[i] },
-            headers: { Authorization: "KakaoAK 77d5402229f6fe717a05f4568b38aa86"},
+            headers: { Authorization: "KakaoAK 57053f6a3b08ec813a2b7088ee0a1cf8"},
         }).done(function (data) {
-            $(".section4 .swiperslide .cover").eq(i).append('<a href="#"><img src="'+ data.documents[i].thumbnail +'" alt=""></a>');
-            $(".section4 .swiperslide").eq(i).append('<div class="text"><div class="tit"><a href="#">'+ data.documents[i].title +'</a></div></div>')
+            $(".section4 .swiperslide .cover").eq(i).append('<a href="sub.html"><img src="'+ data.documents[i].thumbnail +'" alt=""></a>');
+            $(".section4 .swiperslide").eq(i).append('<div class="text"><div class="tit"><a href="sub.html">'+ data.documents[i].title +'</a></div></div>')
         });
     };
 });
@@ -45,7 +45,7 @@ $(function () {
             method: "GET",
             url: "https://dapi.kakao.com/v3/search/book?target=title",
             data: { query: bookTitles2[i] },
-            headers: { Authorization: "KakaoAK 77d5402229f6fe717a05f4568b38aa86"},
+            headers: { Authorization: "KakaoAK 57053f6a3b08ec813a2b7088ee0a1cf8"},
         }).done(function (data) {
             $(".section5 .swiperslide a").eq(i).append('<div class="cover"><img src="'+ data.documents[i].thumbnail +'" alt=""></div>');
             $(".section5 .swiperslide a").eq(i).append('<div class="rtext"><div class="tit">'+ data.documents[i].title +'</div><div class="sub">'+data.documents[i].contents.substring(0,40)+'...'+'</div></div>')
@@ -75,10 +75,10 @@ $(function () {
             method: "GET",
             url: "https://dapi.kakao.com/v3/search/book?target=title",
             data: { query: bookTitles[i] },
-            headers: { Authorization: "KakaoAK 77d5402229f6fe717a05f4568b38aa86"},
+            headers: { Authorization: "KakaoAK 57053f6a3b08ec813a2b7088ee0a1cf8"},
         }).done(function (data) {
-            $(".section7 .swiperslide .cover").eq(i).append('<a href="#"><img src="'+ data.documents[i].thumbnail +'" alt=""></a>');
-            $(".section7 .swiperslide").eq(i).append('<div class="text"><div class="tit"><a href="#">'+ data.documents[i].title +'</a></div></div>')
+            $(".section7 .swiperslide .cover").eq(i).append('<a href="sub.html"><img src="'+ data.documents[i].thumbnail +'" alt=""></a>');
+            $(".section7 .swiperslide").eq(i).append('<div class="text"><div class="tit"><a href="sub.html">'+ data.documents[i].title +'</a></div></div>')
         });
     };
 });
@@ -106,10 +106,10 @@ $(function () {
             method: "GET",
             url: "https://dapi.kakao.com/v3/search/book?target=title",
             data: { query: bookTitles[i] },
-            headers: { Authorization: "KakaoAK 77d5402229f6fe717a05f4568b38aa86"},
+            headers: { Authorization: "KakaoAK 57053f6a3b08ec813a2b7088ee0a1cf8"},
         }).done(function (data) {
-            $(".section8 .swiperslide .cover").eq(i).append('<a href="#"><img src="'+ data.documents[i].thumbnail +'" alt=""></a>');
-            $(".section8 .swiperslide .tit").eq(i).append('<a href="#">'+ data.documents[i].title +'</a>')
+            $(".section8 .swiperslide .cover").eq(i).append('<a href="sub.html"><img src="'+ data.documents[i].thumbnail +'" alt=""></a>');
+            $(".section8 .swiperslide .tit").eq(i).append('<a href="sub.html">'+ data.documents[i].title +'</a>')
         });
     };
 });
@@ -136,10 +136,10 @@ $(function () {
             method: "GET",
             url: "https://dapi.kakao.com/v3/search/book?target=title",
             data: { query: bookTitles[i] },
-            headers: { Authorization: "KakaoAK 77d5402229f6fe717a05f4568b38aa86"},
+            headers: { Authorization: "KakaoAK 57053f6a3b08ec813a2b7088ee0a1cf8"},
         }).done(function (data) {
-            $(".section9 .swiperslide .cover").eq(i).append('<a href="#"><img src="'+ data.documents[i].thumbnail +'" alt=""></a>');
-            $(".section9 .swiperslide").eq(i).append('<div class="text"><div class="tit"><a href="#">'+ data.documents[i].title +'</a></div></div>')
+            $(".section9 .swiperslide .cover").eq(i).append('<a href="sub.html"><img src="'+ data.documents[i].thumbnail +'" alt=""></a>');
+            $(".section9 .swiperslide").eq(i).append('<div class="text"><div class="tit"><a href="sub.html">'+ data.documents[i].title +'</a></div></div>')
         });
     };
 });
@@ -167,10 +167,10 @@ $(function () {
             method: "GET",
             url: "https://dapi.kakao.com/v3/search/book?target=title",
             data: { query: bookTitles[i] },
-            headers: { Authorization: "KakaoAK 77d5402229f6fe717a05f4568b38aa86"},
+            headers: { Authorization: "KakaoAK 57053f6a3b08ec813a2b7088ee0a1cf8"},
         }).done(function (data) {
-            $(".section12 .swiperslide .cover").eq(i).append('<a href="#"><img src="'+ data.documents[i].thumbnail +'" alt=""></a>');
-            $(".section12 .swiperslide .tit").eq(i).append('<a href="#">'+ data.documents[i].title +'</a>')
+            $(".section12 .swiperslide .cover").eq(i).append('<a href="sub.html"><img src="'+ data.documents[i].thumbnail +'" alt=""></a>');
+            $(".section12 .swiperslide .tit").eq(i).append('<a href="sub.html">'+ data.documents[i].title +'</a>')
         });
     };
 });
@@ -193,10 +193,10 @@ $(function () {
             method: "GET",
             url: "https://dapi.kakao.com/v3/search/book?target=title",
             data: { query: bookTitles[i] },
-            headers: { Authorization: "KakaoAK 77d5402229f6fe717a05f4568b38aa86"},
+            headers: { Authorization: "KakaoAK 57053f6a3b08ec813a2b7088ee0a1cf8"},
         }).done(function (data) {
-            $(".section13 .swiperslide .cover").eq(i).append('<a href="#"><span class="audiobook">오디오북</span><img src="'+ data.documents[i].thumbnail +'" alt=""></a>');
-            $(".section13 .swiperslide").eq(i).append('<div class="text"><div class="tit"><a href="#">'+ data.documents[i].title +'</a></div></div>')
+            $(".section13 .swiperslide .cover").eq(i).append('<a href="sub.html"><span class="audiobook">오디오북</span><img src="'+ data.documents[i].thumbnail +'" alt=""></a>');
+            $(".section13 .swiperslide").eq(i).append('<div class="text"><div class="tit"><a href="sub.html">'+ data.documents[i].title +'</a></div></div>')
         });
     };
 });

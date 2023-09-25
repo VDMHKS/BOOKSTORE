@@ -193,3 +193,23 @@ $(function () {
         });
     })
 })
+
+
+//---------- 끝 광고 배너
+
+$(function () {
+    $('.section15 .whiteprev').click(function(){
+        $('.section15 .swiperwrapper').children('.swiperslide').slice(3).prependTo('.section15 .swiperwrapper');
+        $('.section15 .swiperwrapper').css('margin-left',-1030);
+        $('.section15 .swiperwrapper').stop().animate({marginLeft:0},400);
+    })
+})
+
+$(function () {
+    $('.section15 .whitenext').click(function(){
+        $('.section15 .swiperwrapper').filter(':not(:animated)').stop().animate({marginLeft:-1030}, function(){
+            $('.section15 .swiperwrapper').children('.swiperslide').slice(0,3).appendTo('.section15 .swiperwrapper');
+            $('.section15 .swiperwrapper').css({marginLeft:0})
+        });
+    })
+})
