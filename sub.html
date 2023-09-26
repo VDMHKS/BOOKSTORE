@@ -10,14 +10,81 @@
 
     <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.7.0.min.js"></script>
 
-    <!---------헤더 스크립트---------->
+    <!-- 헤더 스크립트 -->
     <script src="js/header.js"></script>
 
-    <!---------최상단으로 가기 버튼----------->
+    <!-- 최상단으로 가기 버튼 -->
     <script src="js/gototop.js"></script>
 
     <!-- SNS 공유 버튼 -->
     <script src="js/snsshare.js"></script>
+
+    <script>
+        /* 북 커버 슬라이드 & 마지막 페이지 알림 & 미리보기 버튼 Hide/Show */
+
+        $(function(){
+            var $index = 0
+
+            $(function () {
+                $('.leftarrow2 span').click(function(){
+                    if ($index > 0) {
+                        $index--;
+                        $('.swipercontainer .swiperwrapper').stop().animate({marginLeft:($index * -502)});
+                        if ($index < 1) {
+                        $('.prevbox a').css('opacity', '1');
+                        }   
+                    }
+                })
+            })
+
+            $(function () {
+                $('.rightarrow2 span').click(function(){
+                    if ($index < 16) {
+                        $index++;
+                        $('.swipercontainer .swiperwrapper').stop().animate({marginLeft:($index * -502)});
+                        $('.prevbox a').css('opacity', '0');
+                    }
+                    else if ($index == 16) {
+                        $(".lastpic").css('display', 'flex');
+                        setTimeout(function () {
+                            $(".lastpic").css('display', 'none');
+                        }, 2000); 
+                    }
+                })
+            })
+        })
+
+
+        /* 메인 커버 회전 */
+
+        $(function () {
+        var isRotated = false;
+
+        $(".coveritem").click(function () {
+            if (isRotated) {
+                $(this).css("transform", "rotateY(35deg)");
+                isRotated = false;
+            } else {
+                $(this).css("transform", "rotateY(180deg)");
+                isRotated = true;
+            }
+        });
+
+        $(".coveritem").hover(
+            function () {
+                if (!isRotated) {
+                    $(this).css("transform", "rotateY(35deg)");
+                }
+            },
+            function () {
+                if (!isRotated) {
+                    $(this).css("transform", "rotateY(0deg)");
+                }
+            }
+        );
+        });
+
+    </script>
 
     <style>
 
@@ -229,6 +296,9 @@
             height: 30px;
         }
 
+
+        /* 책 커버 */
+
         .ereprodbookwrap {
             width: 1060px;
             margin: 0 auto;
@@ -258,6 +328,10 @@
             text-align: center;
         }
 
+        .ereprodbcoverwrap .cover img {
+            max-width: 500px;
+        }
+
         .ereprodbcoverwrap .leftarrow2 {
             position: absolute;
             z-index: 10;
@@ -267,6 +341,11 @@
             top: 0;
             left: 0;
             cursor: pointer;
+            -webkit-transition: opacity 1s ease-in-out;
+            -moz-transition: opactiy 1s ease-in-out;
+            -ms-transition: opacity 1s ease-in-out;
+            -o-transition: opacity 1s ease-in-out;
+            transition: opacity 1s ease-in-out;
         }
 
         .leftarrow2 span {
@@ -296,11 +375,164 @@
             top: 0;
             left: 75%;
             cursor: pointer;
+            -webkit-transition: opacity 1s ease-in-out;
+            -moz-transition: opactiy 1s ease-in-out;
+            -ms-transition: opacity 1s ease-in-out;
+            -o-transition: opacity 1s ease-in-out;
+            transition: opacity 1s ease-in-out;
         }
 
         .rightarrow2 span {
             background: url('img/arrow-right-white.svg') rgba(58, 58, 58, 0.4) no-repeat center / 15px auto;
-            left: 5px;
+            right: 5px;
+        }
+
+        .leftarrow2:hover, .rightarrow2:hover {
+            -webkit-transition: none;
+            -moz-transition: none;
+            -ms-transition: none;
+            -o-transition: none;
+            transition: none;
+            opacity: 1;
+        }
+
+        .swipercontainer {
+            height: auto;
+            margin: 0 auto;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .swiperwrapper {
+            position: relative;
+            width: 100%;
+            z-index: 1;
+            display: flex;
+            box-sizing: content-box;
+        }
+
+        .swipercontainer .swiperslide {
+            height: auto;
+            flex-shrink: 0;
+        }
+
+        .swipercontainer .swiperslide .imgbox {
+            border: 1px solid #ddd;
+        }
+
+        .cover img {
+            max-width: 500px;
+        }
+
+        .ereprodbcoverwrap .prevbox {
+            margin: 0px auto;
+            padding: 0;
+            width: 500px;
+            text-align: center;
+            font-family: malgun, "Malgun Gothic", Dotum, 돋움, sans-serif;
+            font-size: 13px;
+        }
+
+        .ereprodbcoverwrap .prevbox a {
+            color: #333;
+            padding: 7px 15px;
+            margin: 0 10px;
+            text-align: center;
+            display: inline-block;
+            letter-spacing: -0.07em;
+        }
+
+        .ereprodbcoverwrap .prevbox img {
+            margin-bottom: -5px;
+        }
+
+        .swipercontainer .swiperslide:last-child {
+            position: relative;
+        }
+
+        .ereprodbcoverwrap .lastpic {
+            position: absolute;
+            z-index: 10;
+            background: rgba(245, 245, 245, 0.9);
+            top: calc(50% - 75px);
+            left: calc(50% - 75px);
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            -webkit-border-radius: 50%;
+            -moz-border-radius: 50%;
+            text-align: center;
+            font-size: 17px;
+            font-family: malgun, "Malgun Gothic", Dotum, 돋움, sans-serif;
+            color: #333;
+            font-weight: bold;
+            line-height: 1.4;
+            padding: 0;
+            justify-content: center;
+            align-items: center;
+        }
+        
+
+        .ereprodbcoverwrap .swiperwrapper {
+            transform-style:preserve-3d;
+            perspective:1000px;
+            width:400px;
+            height:600px;
+        }
+
+        .coveritem {
+            cursor: url('img/mousecursor2.png'), pointer !important;
+            position:relative;
+            width:400px;
+            height:600px;
+            transition:0.5s;
+            transform-style:preserve-3d;
+            transform: rotateY(calc(var(--i) * 1deg)) translateZ(100px);
+        }
+
+        .coveritem img {
+            position:absolute;
+            top:0;
+            left:0;
+            width:100%;
+            height:100%;
+            object-fit:cover;
+        }
+
+        .coveritem::before {
+            content:'';
+            position:absolute;
+            left: 0;
+            width:150px;
+            height:100%;
+            transform-origin:left;
+            background:url("img/8954699073_d.jpg");
+            background-position:center;
+            transform:rotateY(90deg);
+            background-size:cover;
+        }
+
+        .coveritem::after {
+            content:'';
+            position:absolute;
+            left: 0;
+            width:100%;
+            height:100%;
+            transform-origin:center;
+            background:url("img/S002834999_b.jpg");
+            background-position:center;
+            transform:rotateY(180deg) translateZ(150px);
+            background-size:cover;
+        }
+
+        
+        /* 책 정보 */
+
+        .ereprodbinfowrap {
+            margin: 0 0 0 60px;
+            padding: 0;
+            float: left;
+            width: 500px;
         }
     </style>
 </head>
@@ -1348,63 +1580,47 @@
                 <div class="cover">
                     <div class="leftarrow2 new"><span>이전</span></div>
                     <div class="rightarrow2 new"><span>다음</span></div>
+                    <div class="swipercontainer" style="z-index: 2; opacity: 1;">
+                        <div class="swiperwrapper" style="height: 735px;">
+                            <div class="swiperslide coveritem" style="text-align: center; width: 502px;"><img src="img/8954699073_1 (1).jpg" alt="" class="imgbox"></div>
+                            <div class="swiperslide" style="text-align: center; width: 502px;"><img src="img/S002834999_b.jpg" alt="" class="imgbox"></div>
+                            <div class="swiperslide" style="text-align: center; width: 502px;"><img src="img/8954699073_t1.jpg" alt="" class="imgbox"></div>
+                            <div class="swiperslide" style="text-align: center; width: 502px;"><img src="img/8954699073_t2.jpg" alt="" class="imgbox"></div>
+                            <div class="swiperslide" style="text-align: center; width: 502px;"><img src="img/8954699073_t3.jpg" alt="" class="imgbox"></div>
+                            <div class="swiperslide" style="text-align: center; width: 502px;"><img src="img/8954699073_t4.jpg" alt="" class="imgbox"></div>
+                            <div class="swiperslide" style="text-align: center; width: 502px;"><img src="img/8954699073_t5.jpg" alt="" class="imgbox"></div>
+                            <div class="swiperslide" style="text-align: center; width: 502px;"><img src="img/8954699073_t6.jpg" alt="" class="imgbox"></div>
+                            <div class="swiperslide" style="text-align: center; width: 502px;"><img src="img/8954699073_t7.jpg" alt="" class="imgbox"></div>
+                            <div class="swiperslide" style="text-align: center; width: 502px;"><img src="img/8954699073_t8.jpg" alt="" class="imgbox"></div>
+                            <div class="swiperslide" style="text-align: center; width: 502px;"><img src="img/8954699073_t9.jpg" alt="" class="imgbox"></div>
+                            <div class="swiperslide" style="text-align: center; width: 502px;"><img src="img/8954699073_t10.jpg" alt="" class="imgbox"></div>
+                            <div class="swiperslide" style="text-align: center; width: 502px;"><img src="img/8954699073_t11.jpg" alt="" class="imgbox"></div>
+                            <div class="swiperslide" style="text-align: center; width: 502px;"><img src="img/8954699073_t12.jpg" alt="" class="imgbox"></div>
+                            <div class="swiperslide" style="text-align: center; width: 502px;"><img src="img/8954699073_t13.jpg" alt="" class="imgbox"></div>
+                            <div class="swiperslide" style="text-align: center; width: 502px;"><img src="img/8954699073_t14.jpg" alt="" class="imgbox"></div>
+                            <div class="swiperslide" style="text-align: center; width: 502px;">
+                                <img src="img/8954699073_t15.jpg" alt="" class="imgbox">
+                                <div class="lastpic" style="display: none;">
+                                    마지막 이미지<br>입니다
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
+                <div class="ereclear erespace10"></div>
+                <div class="prevbox" style="z-index: 10; position: absolute; top: 753px; display: block;">
+                    <a href=""><img src="img/icon_prev_book.png" alt=""> 미리보기</a>
+                </div>
+                <div class="erespace20"></div>
+            </div>
+            <!-- 서지 정보 -->
+            <div class="ereprodbinfowrap">
+
             </div>
         </div>
 
     </div>
 
-    <footer>
-        <div class="footermenu">
-            <ul>
-                <li><a href="#">회사소개</a></li>
-                <li><a href="#">채용안내</a></li>
-                <li><a href="#">이용약관</a></li>
-                <li><a href="#"><strong>개인정보처리방침</strong></a></li>
-                <li><a href="#">청소년 보호정책</a></li>
-                <li><a href="#">중고매장</a></li>
-                <li><a href="#">제휴·마케팅 안내</a></li>
-                <li><a href="#">판매자 매니저</a></li>
-                <li><a href="#">출판사·공급사 안내</a></li>
-                <li><a href="#">광고 안내</a></li>
-                <li><a href="#">학교·기업·기관 대량구매</a></li>
-            </ul>
-        </div>
-        <div class="footerinfo">
-            <div class="aladinbox">
-                <h3>(주)알라딘커뮤니케이션</h3>
-                <address>
-                    <span>대표이사 최우경</span>
-                    <span>고객정보보호 책임자 최우경</span>
-                    <span><a href="#">사업자등록 201-81-23094</a></span>
-                    <span>통신판매업신고 중구01520호</span>
-                    <span>이메일 privacy@aladin.co.kr</span>
-                    <span>호스팅 제공자 알라딘커뮤니케이션</span>
-                    <span>(본사) 서울시 중구 서소문로 89-31</span>
-                    <div class="copyright">ⓒ Aladin Communication. All Rights Reserved.</div>
-                </address>
-                <div class="certify">
-                    <a href="#" class="escrow">구매안전 에스크로<br>서비스 가입 확인</a>
-                    <a href="#" class="isms">정보보호 관리체계<br>ISMS 인증획득</a>
-                </div>
-            </div>
-            <div class="cscenterbox">
-                <h3>고객센터 1544-2514 (발신자 부담)</h3>
-                <address>
-                    <span>서울시 마포구 백범로 71 숨도빌딩 7층</span>
-                    <span>Fax 02-6926-2600</span>
-                </address>
-                <div class="cslink">
-                    <a href="#">1:1 문의</a>
-                    <a href="#">FAQ</a>
-                </div>
-                <div class="shopinfo">
-                    <a href="#">중고매장 위치, 영업시간 안내</a>
-                </div>
-            </div>
-        </div>
-        <button type="button" class="gototop"></button>
-    </footer>
-    
+
 </body>
 </html>
