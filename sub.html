@@ -16,81 +16,25 @@
     <!-- 최상단으로 가기 버튼 -->
     <script src="js/gototop.js"></script>
 
-    <!-- SNS 공유 버튼 -->
-    <script src="js/snsshare.js"></script>
+    <!-- 박스 show 버튼 -->
+    <script src="js/boxshow.js"></script>
 
-    <script>
-        /* 북 커버 슬라이드 & 마지막 페이지 알림 & 미리보기 버튼 Hide/Show */
-
-        $(function(){
-            var $index = 0
-
-            $(function () {
-                $('.leftarrow2 span').click(function(){
-                    if ($index > 0) {
-                        $index--;
-                        $('.swipercontainer .swiperwrapper').stop().animate({marginLeft:($index * -502)});
-                        if ($index < 1) {
-                        $('.prevbox a').css('opacity', '1');
-                        }   
-                    }
-                })
-            })
-
-            $(function () {
-                $('.rightarrow2 span').click(function(){
-                    if ($index < 16) {
-                        $index++;
-                        $('.swipercontainer .swiperwrapper').stop().animate({marginLeft:($index * -502)});
-                        $('.prevbox a').css('opacity', '0');
-                    }
-                    else if ($index == 16) {
-                        $(".lastpic").css('display', 'flex');
-                        setTimeout(function () {
-                            $(".lastpic").css('display', 'none');
-                        }, 2000); 
-                    }
-                })
-            })
-        })
-
-
-        /* 메인 커버 회전 */
-
-        $(function () {
-        var isRotated = false;
-
-        $(".coveritem").click(function () {
-            if (isRotated) {
-                $(this).css("transform", "rotateY(35deg)");
-                isRotated = false;
-            } else {
-                $(this).css("transform", "rotateY(180deg)");
-                isRotated = true;
-            }
-        });
-
-        $(".coveritem").hover(
-            function () {
-                if (!isRotated) {
-                    $(this).css("transform", "rotateY(35deg)");
-                }
-            },
-            function () {
-                if (!isRotated) {
-                    $(this).css("transform", "rotateY(0deg)");
-                }
-            }
-        );
-        });
-
-    </script>
+    <!-- 북 커버 -->
+    <script src="js/bookcover.js"></script>
 
     <style>
 
         #ereprodallwrap {
             margin: 0;
             padding: 0;
+        }
+
+        h3 {
+            line-height: 1.2;
+        }
+
+        a {
+            color: #333;
         }
 
 
@@ -280,10 +224,6 @@
             font-size: 15px;
         }
 
-        .erelayersharebtn a {
-            color: #333;
-        }
-
         .ereline1 {
             margin: 0;
             padding: 0;
@@ -310,6 +250,10 @@
             position: absolute;
             left: -90px;
             top: 0px;
+        }
+
+        .linkp {
+            cursor: pointer;
         }
 
         .ereprodbcoverwrap {
@@ -534,6 +478,454 @@
             float: left;
             width: 500px;
         }
+
+        .ereprodbinfowrap .info {
+            margin: 0;
+            padding: 5px 0 0 0;
+            float: left;
+            width: 500px;
+            text-align: left;
+            font-family: malgun, "Malgun Gothic", Dotum, 돋움, sans-serif;
+            font-size: 15px;
+            line-height: 1.5;
+        }
+
+        .pnewpricephs {
+            color: #f03c97;
+            font-weight: bold;
+        }
+
+        .pnewpricephs a {
+            color: #eb217c;
+        }
+
+        .ereprodbinfowrap .infolist {
+            clear: both;
+            padding: 0;
+            margin: 0 0 25px 0;
+        }
+
+        .ereprodbinfowrap .infolist ul {
+            padding: 0;
+            margin: 0;
+        }
+
+        .ereprodbinfowrap .infolist ul li {
+            list-style: none;
+            position: relative;
+            padding: 0 0 3px 0;
+            margin: 0;
+        }
+
+        .ereprodbinfowrap .infolist ul li .litem {
+            position: absolute;
+            left: 0;
+            width: 100px;
+        }
+
+        .ereprodbinfowrap .infolist ul li .ritem {
+            margin-left: 100px;
+            width: 400px;
+            padding-bottom: 3px;
+        }
+
+        .ereprodbinfowrap .infolist ul li .litemp {
+            position: absolute;
+            left: 0;
+            width: 100px;
+            top: 3px;
+        }
+
+        .ereht11 {
+            line-height: 1.1;
+        }
+
+        .erefs24 {
+            font-size: 24px;
+        }
+
+        .parrowbtn, .parrowbtn2 {
+            margin: 0 0 -3px 4px;
+        }
+
+        .nppopup, .nppopup2 {
+            margin: 0;
+            padding: 0;
+            z-index: 200;
+            background: #FFFFFF;
+        }
+
+        .erelayerstit {
+            padding: 0;
+            margin: 0;
+            text-align: left;
+            font-size: 14px;
+            color: #333;
+            font-weight: bold;
+        }
+
+        .erelayersttit2 .btlist2 {
+            margin: 5px 0 5px 0;
+            padding: 0;
+        }
+
+        .erelayersttit2 .btlist2 ul {
+            margin: 0;
+            padding: 0;
+        }
+
+        .erelayersttit2 .btlist2 ul li {
+            list-style: none !important;
+            background: url('img/icon_dot1.png') no-repeat 0 7px;
+            margin: 0 !important;
+            padding: 0 0 7px 10px !important;
+            font-size: 14px;
+            line-height: 1.4;
+            letter-spacing: -0.02em !important;
+            float: none !important;
+        }
+
+        .erebtnlayermore {
+            display: inline-block;
+            padding: 0;
+            vertical-align: middle;
+            text-align: center;
+            overflow: hidden;
+            text-decoration: none;
+            cursor: pointer;
+            background: #f8f8f8;
+            -webkit-border-radius: 3px;
+            -moz-border-radius: 3px;
+            border-radius: 3px;
+            color: #e9573f;
+            border: 1px solid #e1e1e1;
+            font-size: 8px!important;
+        }
+
+        .erebtnlayermore a {
+            outline: 0;
+            color: #e9573f;
+            font-size: 8px!important;
+            font-weight: bold;
+            font-family: malgun, "Malgun Gothic", Dotum, 돋움, sans-serif;
+            display: block;
+            white-space: nowrap;
+            margin: 0;
+            padding: 0px 3px 3px 3px;
+            letter-spacing: -0.05em;
+        }
+
+        .erespace15 {
+            margin: 0;
+            padding: 0;
+            height: 15px;
+        }
+
+        .ytzposition {
+            margin-top: 0px;
+            width: 65px;
+            height: 65px;
+        }
+
+        .ytzdelivery {
+            display: inline-block;
+            background: #ffab00;
+            text-align: center;
+            font-size: 13px;
+            line-height: 1.4em;
+            color: #fff;
+            border-radius: 15px;
+            padding: 1px 7px 2px 7px;
+            font-weight: bold;
+            margin-bottom: 3px;
+        }
+
+        .ytztxt {
+            font-weight: bold;
+        }
+
+        .erefs14 {
+            color: #333;
+            line-height: 1.5;
+            font-size: 14px;
+        }
+
+        .erefs14:hover {
+            text-decoration: underline;
+        }
+
+        .roadnamebg1 {
+            background: #41a1dd;
+            padding: 8px 0;
+        }
+
+        .roadnamebg1 table {
+            margin: 0 auto;
+        }
+
+        .roadnamesp1 {
+            padding: 25px 20px 20px 20px;
+        }
+
+        .roadnamesp1 .t1 {
+            font-weight: bold;
+            padding: 0 0 5px 0;
+            font-size: 12px;
+        }
+
+        .roadnamesp1 .left1 {
+            float: left;
+            width: 84%;
+        }
+
+        .roadnameinput {
+            width: 100%;
+            border: #41a1dd 3px solid;
+            height: 40px;
+            box-sizing: border-box;
+        }
+
+        .roadnamesp1 .right1 {
+            float: right;
+            width: 15%;
+        }
+
+        .buttonroadname {
+            display: inline-block;
+            padding: 0;
+            vertical-align: middle;
+            border: 1px solid;
+            border-color: #2076c0;
+            text-align: center;
+            overflow: hidden;
+            text-decoration: none!important;
+            cursor: pointer;
+            -webkit-border-radius: 3px;
+            -moz-border-radius: 3px;
+            border-radius: 3px;
+            background: #41a1dd;
+            width: 100%;
+        }
+
+        .buttonroadname a {
+            text-decoration: none!important;
+            outline: 0;
+            color: #FFF!important;
+            font-size: 14px;
+            font-weight: bold;
+            font-family: 'Apple SD Gothic Neo', malgun, "Malgun Gothic", Dotum, 돋움, sans-serif;
+            line-height: 16px;
+            display: block;
+            white-space: nowrap;
+            background-color: transparent;
+            border-color: #195fa5;
+            margin: 0;
+            border: 0;
+        }
+
+        .ereht18 {
+            line-height: 1.8;
+        }
+
+        .erefs15 {
+            font-size: 15px;
+        }
+
+        .erespace20 {
+            margin: 0;
+            padding: 0;
+            height: 20px;
+        }
+
+        .erelayersttit2 .btlist3 {
+            margin: 5px 0 5px 0;
+            padding: 0;
+            font-size: 14px;
+            line-height: 1.5;
+            letter-spacing: 0em;
+        }
+
+        .erelayersttit2 .btlist3 ul {
+            margin: 0;
+            padding: 0;
+        }
+
+        .erelayersttit2 .btlist3 ul li {
+            list-style: none;
+            margin: 0;
+            padding: 0 0 7px 0px;
+            font-size: 14px;
+            line-height: 1.5;
+            letter-spacing: 0em;
+            color: #333;
+            font-weight: normal;
+            position: relative;
+        }
+
+        .erelayersttit2 .btlist3 ul li a {
+            color: #333 !important;
+        }
+
+        .erelayersttit2 .btlist3 ul li:last-child {
+            padding-bottom: 0px;
+        }
+
+        .eresubpink {
+            color: #eb217c;
+            text-decoration: none;
+            line-height: 1.5;
+        }
+
+        .eresubpink:hover {
+            text-decoration: underline;
+        }
+
+        .erestr {
+            font-weight: 600;
+        }
+
+
+        .erefs16 {
+            font-size: 16px;
+        }
+
+        .erelayersttit2 .starlist {
+            margin: 0;
+            padding: 0;
+        }
+
+        .erelayersttit2 .starlist .tbleft {
+            text-align: left;
+            width: 120px;
+            padding: 5px 0;
+            vertical-align: middle;
+        }
+
+        .erelayersttit2 .starlist .tbright {
+            text-align: left;
+            padding: 5px 0;
+        }
+
+        .erelayersttit2 .starlist .tbright .bar {
+            float: left;
+            height: 20px;
+        }
+
+        .erelayersttit2 .starlist .tbright .bar img {
+            width: 100%;
+            height: 20px;
+        }
+
+        .erelayersttit2 .starlist .tbright .per {
+            float: left;
+            font-size: 14px;
+            font-family: malgun, "Malgun Gothic", Dotum, 돋움, sans-serif;
+            font-style: italic;
+            color: #111;
+            padding-left: 5px;
+        }
+
+        .erebtnthisbook {
+            display: inline-block;
+            padding: 0;
+            vertical-align: middle;
+            text-align: center;
+            overflow: hidden;
+            text-decoration: none;
+            cursor: pointer;
+            background: #0fa8ff;
+            -webkit-border-radius: 1px;
+            -moz-border-radius: 1px;
+            border-radius: 1px;
+            color: #fff!important;
+        }
+
+        .erebtnthisbook a {
+            text-decoration: none !important;
+            outline: 0;
+            color: #fff!important;
+            font-size: 13px;
+            font-weight: bold;
+            font-family: malgun, "Malgun Gothic", Dotum, 돋움, sans-serif;
+            line-height: 1.5;
+            display: block;
+            white-space: nowrap;
+            margin: 0;
+            padding: 1px 7px 4px 7px;
+            letter-spacing: -0.02em;
+        }
+
+        .infolist .erefs15 a:hover {
+            text-decoration: underline;
+        }
+
+        .ereprodbinfowrap .infolist2 {
+            clear: both;
+            padding: 0;
+            margin: 0 0 25px 0;
+        }
+
+        .ereprodbinfowrap .infolist2 ul {
+            padding: 0;
+            margin: 0;
+        }
+
+        .ereprodbinfowrap .infolist2 ul li {
+            list-style: none;
+            padding: 0 28px 0 0;
+            margin: 0;
+            float: left;
+            letter-spacing: -0.06em;
+        }
+
+        .eresubblue {
+            color: #333;
+            line-height: 1.5;
+        }
+
+        .nppopup3 {
+            margin: 0;
+            padding: 0;
+            z-index: 200;
+            background: #FFFFFF;
+        }
+
+        .infolist a:hover, .infolist2 a:hover {
+            text-decoration: underline;
+        }
+
+        .erelayertablebox {
+            margin: 10px 0 0 0;
+            padding: 0;
+        }
+
+        .erelayertablebox th {
+            font-weight: normal;
+            text-align: center;
+            margin: 0;
+            padding: 10px 10px;
+            background: #fafafa;
+            color: #222;
+            font-family: malgun, "Malgun Gothic", Dotum, 돋움, sans-serif;
+            font-size: 14px;
+            border-top: 1px solid #dfdfdf;
+            border-bottom: 1px solid #dfdfdf;
+            line-height: 1.4;
+            letter-spacing: -0.03em;
+        }
+
+        .erelayertablebox td {
+            font-weight: normal;
+            text-align: center;
+            margin: 0;
+            padding: 10px 10px;
+            background: #fff;
+            color: #222;
+            font-size: 14px;
+            border-bottom: 1px solid #dfdfdf;
+            line-height: 1.4;
+            letter-spacing: -0.03em;
+        }
     </style>
 </head>
 
@@ -543,13 +935,13 @@
         <div class="headerevent" style="background: rgb(251, 107, 163);">
             <div class="hebanner">
                 <div class="hebl">
-                    <a href="#"><img src="img/230914_september_header.jpg" alt=""></a>
+                    <a style="cursor : pointer;"><img src="img/230914_september_header.jpg" alt=""></a>
                 </div>
                 <div class="hebr">
-                    <a href="#"><img src="img/230914_september_header_r.jpg" alt=""></a>
+                    <a style="cursor : pointer;"><img src="img/230914_september_header_r.jpg" alt=""></a>
                 </div>
                 <div class="close">
-                    <a href="#">닫기</a>
+                    <a style="cursor : pointer;">닫기</a>
                 </div>
             </div>
         </div>
@@ -557,513 +949,513 @@
         <div class="headertop">
             <div class="htinner">
                 <ul class="hnav" id="htnav">
-                    <li><a href="#" class="first">HOME</a></li>
+                    <li><a style="cursor : pointer;" class="first">HOME</a></li>
 
-                    <li id="domesticlayer"><a href="#">국내도서</a>
+                    <li id="domesticlayer"><a style="cursor : pointer;">국내도서</a>
                         <div class="hlayer" style="display: none;">
                             <div class="category">
-                                <h3><a href="#">국내도서</a></h3>
+                                <h3><a style="cursor : pointer;">국내도서</a></h3>
                                 <ul>
-                                    <li><a href="#">건강/취미</a></li>
-                                    <li><a href="#"><strong>경제경영</strong></a></li>
-                                    <li><a href="#">공무원 수험서</a></li>
-                                    <li><a href="#">과학</a></li>
-                                    <li><a href="#">달력/기타</a></li>
-                                    <li><a href="#">대학교재</a></li>
-                                    <li><a href="#">만화</a></li>
-                                    <li><a href="#">사회과학</a></li>
-                                    <li><a href="#"><strong>소설/시/희곡</strong></a></li>
-                                    <li><a href="#"><strong>수험서/자격증</strong></a></li>
+                                    <li><a style="cursor : pointer;">건강/취미</a></li>
+                                    <li><a style="cursor : pointer;"><strong>경제경영</strong></a></li>
+                                    <li><a style="cursor : pointer;">공무원 수험서</a></li>
+                                    <li><a style="cursor : pointer;">과학</a></li>
+                                    <li><a style="cursor : pointer;">달력/기타</a></li>
+                                    <li><a style="cursor : pointer;">대학교재</a></li>
+                                    <li><a style="cursor : pointer;">만화</a></li>
+                                    <li><a style="cursor : pointer;">사회과학</a></li>
+                                    <li><a style="cursor : pointer;"><strong>소설/시/희곡</strong></a></li>
+                                    <li><a style="cursor : pointer;"><strong>수험서/자격증</strong></a></li>
                                 </ul>
                                 <ul>
-                                    <li><a href="#"><strong>어린이</strong></a></li>
-                                    <li><a href="#">에세이</a></li>
-                                    <li><a href="#">여행</a></li>
-                                    <li><a href="#">역사</a></li>
-                                    <li><a href="#">예술/대중문화</a></li>
-                                    <li><a href="#">외국어</a></li>
-                                    <li><a href="#">요리/살림</a></li>
-                                    <li><a href="#">유아</a></li>
-                                    <li><a href="#"><strong>인문학</strong></a></li>
-                                    <li><a href="#">자기계발</a></li>
+                                    <li><a style="cursor : pointer;"><strong>어린이</strong></a></li>
+                                    <li><a style="cursor : pointer;">에세이</a></li>
+                                    <li><a style="cursor : pointer;">여행</a></li>
+                                    <li><a style="cursor : pointer;">역사</a></li>
+                                    <li><a style="cursor : pointer;">예술/대중문화</a></li>
+                                    <li><a style="cursor : pointer;">외국어</a></li>
+                                    <li><a style="cursor : pointer;">요리/살림</a></li>
+                                    <li><a style="cursor : pointer;">유아</a></li>
+                                    <li><a style="cursor : pointer;"><strong>인문학</strong></a></li>
+                                    <li><a style="cursor : pointer;">자기계발</a></li>
                                 </ul>
                                 <ul>
-                                    <li><a href="#">잡지</a></li>
-                                    <li><a href="#">장르소설</a></li>
-                                    <li><a href="#">전집/중고전집</a></li>
-                                    <li><a href="#">종교/역학</a></li>
-                                    <li><a href="#">좋은부모</a></li>
-                                    <li><a href="#">청소년</a></li>
-                                    <li><a href="#">컴퓨터/모바일</a></li>
-                                    <li><a href="#"><strong>초등학교참고서</strong></a></li>
-                                    <li><a href="#">중학교참고서</a></li>
-                                    <li><a href="#"><strong>고등학교참고서</strong></a></li>
+                                    <li><a style="cursor : pointer;">잡지</a></li>
+                                    <li><a style="cursor : pointer;">장르소설</a></li>
+                                    <li><a style="cursor : pointer;">전집/중고전집</a></li>
+                                    <li><a style="cursor : pointer;">종교/역학</a></li>
+                                    <li><a style="cursor : pointer;">좋은부모</a></li>
+                                    <li><a style="cursor : pointer;">청소년</a></li>
+                                    <li><a style="cursor : pointer;">컴퓨터/모바일</a></li>
+                                    <li><a style="cursor : pointer;"><strong>초등학교참고서</strong></a></li>
+                                    <li><a style="cursor : pointer;">중학교참고서</a></li>
+                                    <li><a style="cursor : pointer;"><strong>고등학교참고서</strong></a></li>
                                 </ul>
                                 <ul>
-                                    <li><a href="#">베스트셀러</a></li>
-                                    <li><a href="#">새로나온책</a></li>
-                                    <li><a href="#">재정가도서</a></li>
-                                    <li><a href="#">이벤트</a></li>
-                                    <li><a href="#">독자북펀드</a></li>
+                                    <li><a style="cursor : pointer;">베스트셀러</a></li>
+                                    <li><a style="cursor : pointer;">새로나온책</a></li>
+                                    <li><a style="cursor : pointer;">재정가도서</a></li>
+                                    <li><a style="cursor : pointer;">이벤트</a></li>
+                                    <li><a style="cursor : pointer;">독자북펀드</a></li>
                                 </ul>
                             </div>
                             <div>
                                 <div class="banner">
-                                    <a href="#"><img src="img/230914_september_hlayer.png"  alt="" style="width: 300px; height: 290px;"></a>
+                                    <a style="cursor : pointer;"><img src="img/230914_september_hlayer.png"  alt="" style="width: 300px; height: 290px;"></a>
                                 </div>
                             </div>
                         </div>
                     </li>
 
-                    <li id="foreignlayer"><a href="#">외국도서</a>
+                    <li id="foreignlayer"><a style="cursor : pointer;">외국도서</a>
                         <div class="hlayer" style="display: none;">
                             <div class="category stitle">
-                                <h3><a href="#">외국도서</a></h3>
+                                <h3><a style="cursor : pointer;">외국도서</a></h3>
                                 <div>
-                                    <h4><a href="#">영미도서</a></h4>
+                                    <h4><a style="cursor : pointer;">영미도서</a></h4>
                                     <ul>
-                                        <li><a href="#">ELT/어학/사전</a></li>
-                                        <li><a href="#">가정/원예/인테리어</a></li>
-                                        <li><a href="#">건강/스포츠</a></li>
-                                        <li><a href="#">경제경영</a></li>
-                                        <li><a href="#">공예/취미/수집</a></li>
-                                        <li><a href="#">만화</a></li>
-                                        <li><a href="#">소설/시/희곡</a></li>
-                                        <li><a href="#">여행</a></li>
-                                        <li><a href="#">역사</a></li>
-                                        <li><a href="#">요리</a></li>
-                                        <li><a href="#">인문/사회</a></li>
-                                        <li><a href="#">종교/명상/점술</a></li>
-                                        <li><a href="#">청소년</a></li>
-                                        <li><a href="#">해외잡지</a></li>
+                                        <li><a style="cursor : pointer;">ELT/어학/사전</a></li>
+                                        <li><a style="cursor : pointer;">가정/원예/인테리어</a></li>
+                                        <li><a style="cursor : pointer;">건강/스포츠</a></li>
+                                        <li><a style="cursor : pointer;">경제경영</a></li>
+                                        <li><a style="cursor : pointer;">공예/취미/수집</a></li>
+                                        <li><a style="cursor : pointer;">만화</a></li>
+                                        <li><a style="cursor : pointer;">소설/시/희곡</a></li>
+                                        <li><a style="cursor : pointer;">여행</a></li>
+                                        <li><a style="cursor : pointer;">역사</a></li>
+                                        <li><a style="cursor : pointer;">요리</a></li>
+                                        <li><a style="cursor : pointer;">인문/사회</a></li>
+                                        <li><a style="cursor : pointer;">종교/명상/점술</a></li>
+                                        <li><a style="cursor : pointer;">청소년</a></li>
+                                        <li><a style="cursor : pointer;">해외잡지</a></li>
                                     </ul>
                                 </div>
                                 <div>
-                                    <h4><a href="#">대학교재/전문서</a></h4>
+                                    <h4><a style="cursor : pointer;">대학교재/전문서</a></h4>
                                     <ul>
-                                        <li><a href="#">건축/디자인</a></li>
-                                        <li><a href="#">교육/자료</a></li>
-                                        <li><a href="#">기술공학</a></li>
-                                        <li><a href="#">법률</a></li>
-                                        <li><a href="#">수험서</a></li>
-                                        <li><a href="#">언어학</a></li>
-                                        <li><a href="#">예술/대중문화</a></li>
-                                        <li><a href="#">의학</a></li>
-                                        <li><a href="#">자연과학</a></li>
-                                        <li><a href="#">컴퓨터</a></li>
+                                        <li><a style="cursor : pointer;">건축/디자인</a></li>
+                                        <li><a style="cursor : pointer;">교육/자료</a></li>
+                                        <li><a style="cursor : pointer;">기술공학</a></li>
+                                        <li><a style="cursor : pointer;">법률</a></li>
+                                        <li><a style="cursor : pointer;">수험서</a></li>
+                                        <li><a style="cursor : pointer;">언어학</a></li>
+                                        <li><a style="cursor : pointer;">예술/대중문화</a></li>
+                                        <li><a style="cursor : pointer;">의학</a></li>
+                                        <li><a style="cursor : pointer;">자연과학</a></li>
+                                        <li><a style="cursor : pointer;">컴퓨터</a></li>
                                     </ul>
                                 </div>
                                 <div>
-                                    <h4><a href="#" class="arr">기타 언어권</a></h4>
+                                    <h4><a style="cursor : pointer;" class="arr">기타 언어권</a></h4>
                                     <ul>
-                                        <li><a href="#">독일 도서</a></li>
-                                        <li><a href="#">스페인 도서</a></li>
-                                        <li><a href="#">중국 도서</a></li>
+                                        <li><a style="cursor : pointer;">독일 도서</a></li>
+                                        <li><a style="cursor : pointer;">스페인 도서</a></li>
+                                        <li><a style="cursor : pointer;">중국 도서</a></li>
                                     </ul>
                                 </div>
                                 <div>
-                                    <h4><a href="#" class="arr">어린이</a></h4>
+                                    <h4><a style="cursor : pointer;" class="arr">어린이</a></h4>
                                     <ul>
-                                        <li><a href="#">그림책</a></li>
-                                        <li><a href="#">동화책</a></li>
-                                        <li><a href="#">리더스</a></li>
-                                        <li><a href="#">영어학습</a></li>
-                                        <li><a href="#">챕터북</a></li>
-                                        <li><a href="#">코스북</a></li>
+                                        <li><a style="cursor : pointer;">그림책</a></li>
+                                        <li><a style="cursor : pointer;">동화책</a></li>
+                                        <li><a style="cursor : pointer;">리더스</a></li>
+                                        <li><a style="cursor : pointer;">영어학습</a></li>
+                                        <li><a style="cursor : pointer;">챕터북</a></li>
+                                        <li><a style="cursor : pointer;">코스북</a></li>
                                     </ul>
                                 </div>
                                 <div>
-                                    <h4><a href="#" class="arr">일본도서</a></h4>
+                                    <h4><a style="cursor : pointer;" class="arr">일본도서</a></h4>
                                     <ul>
-                                        <li><a href="#">문학</a></li>
-                                        <li><a href="#">애니메이션 굿즈</a></li>
-                                        <li><a href="#">잡지</a></li>
-                                        <li><a href="#">코믹</a></li>
-                                        <li><a href="#">베스트셀러</a></li>
-                                        <li><a href="#">새로나온책</a></li>
-                                        <li><a href="#">특가도서</a></li>
-                                        <li><a href="#">이벤트</a></li>
-                                        <li><a href="#" class="pinkt"><strong>LEXILE 지수별<br>원서 읽기</strong></a></li>
+                                        <li><a style="cursor : pointer;">문학</a></li>
+                                        <li><a style="cursor : pointer;">애니메이션 굿즈</a></li>
+                                        <li><a style="cursor : pointer;">잡지</a></li>
+                                        <li><a style="cursor : pointer;">코믹</a></li>
+                                        <li><a style="cursor : pointer;">베스트셀러</a></li>
+                                        <li><a style="cursor : pointer;">새로나온책</a></li>
+                                        <li><a style="cursor : pointer;">특가도서</a></li>
+                                        <li><a style="cursor : pointer;">이벤트</a></li>
+                                        <li><a style="cursor : pointer;" class="pinkt"><strong>LEXILE 지수별<br>원서 읽기</strong></a></li>
                                     </ul>
                                 </div>
                             </div>
                             <div>
                                 <div class="banner">
-                                    <a href="#"><img src="img/230816_sale_hlayer.jpg" alt=""></a>
+                                    <a style="cursor : pointer;"><img src="img/230816_sale_hlayer.jpg" alt=""></a>
                                 </div>
                             </div>
                         </div>
                     </li>
 
-                    <li id="ebooklayer"><a href="#">eBook</a>
+                    <li id="ebooklayer"><a style="cursor : pointer;">eBook</a>
                         <div class="hlayer" style="display: none;">
                             <div class="category">
-                                <h3><a href="#">eBook</a></h3>
+                                <h3><a style="cursor : pointer;">eBook</a></h3>
                                 <ul>
-                                    <li><a href="#">건강/취미</a></li>
-                                    <li><a href="#"><strong>경제경영</strong></a></li>
-                                    <li><a href="#">과학</a></li>
-                                    <li><a href="#"><strong>라이트노벨</strong></a></li>
-                                    <li><a href="#"><strong>로맨스</strong></a></li>
-                                    <li><a href="#"><strong>만화</strong></a></li>
-                                    <li><a href="#"><strong>사회과학</strong></a></li>
-                                    <li><a href="#"><strong>소설/시/희곡</strong></a></li>
-                                    <li><a href="#">어린이</a></li>
+                                    <li><a style="cursor : pointer;">건강/취미</a></li>
+                                    <li><a style="cursor : pointer;"><strong>경제경영</strong></a></li>
+                                    <li><a style="cursor : pointer;">과학</a></li>
+                                    <li><a style="cursor : pointer;"><strong>라이트노벨</strong></a></li>
+                                    <li><a style="cursor : pointer;"><strong>로맨스</strong></a></li>
+                                    <li><a style="cursor : pointer;"><strong>만화</strong></a></li>
+                                    <li><a style="cursor : pointer;"><strong>사회과학</strong></a></li>
+                                    <li><a style="cursor : pointer;"><strong>소설/시/희곡</strong></a></li>
+                                    <li><a style="cursor : pointer;">어린이</a></li>
                                 </ul>
                                 <ul>
-                                    <li><a href="#"><strong>에세이</strong></a></li>
-                                    <li><a href="#">여행</a></li>
-                                    <li><a href="#">역사</a></li>
-                                    <li><a href="#">예술/대중문화</a></li>
-                                    <li><a href="#">외국어</a></li>
-                                    <li><a href="#">요리/살림</a></li>
-                                    <li><a href="#"><strong>인문학</strong></a></li>
-                                    <li><a href="#"><strong>자기계발</strong></a></li>
-                                    <li><a href="#">좋은부모</a></li>
-                                    <li><a href="#">좋은부모</a></li>
+                                    <li><a style="cursor : pointer;"><strong>에세이</strong></a></li>
+                                    <li><a style="cursor : pointer;">여행</a></li>
+                                    <li><a style="cursor : pointer;">역사</a></li>
+                                    <li><a style="cursor : pointer;">예술/대중문화</a></li>
+                                    <li><a style="cursor : pointer;">외국어</a></li>
+                                    <li><a style="cursor : pointer;">요리/살림</a></li>
+                                    <li><a style="cursor : pointer;"><strong>인문학</strong></a></li>
+                                    <li><a style="cursor : pointer;"><strong>자기계발</strong></a></li>
+                                    <li><a style="cursor : pointer;">좋은부모</a></li>
+                                    <li><a style="cursor : pointer;">좋은부모</a></li>
                                 </ul>
                                 <ul>
-                                    <li><a href="#">판타지/무협</a></li>
-                                    <li><a href="#"><strong>BL</strong></a></li>
-                                    <li><a href="#"><strong>오디오북</strong></a></li>
+                                    <li><a style="cursor : pointer;">판타지/무협</a></li>
+                                    <li><a style="cursor : pointer;"><strong>BL</strong></a></li>
+                                    <li><a style="cursor : pointer;"><strong>오디오북</strong></a></li>
                                 </ul>
                                 <ul>
-                                    <li><a href="#">베스트셀러</a></li>
-                                    <li><a href="#">새로나온eBook</a></li>
-                                    <li><a href="#">대여eBook</a></li>
-                                    <li><a href="#">연재eBook</a></li>
+                                    <li><a style="cursor : pointer;">베스트셀러</a></li>
+                                    <li><a style="cursor : pointer;">새로나온eBook</a></li>
+                                    <li><a style="cursor : pointer;">대여eBook</a></li>
+                                    <li><a style="cursor : pointer;">연재eBook</a></li>
                                 </ul>
                             </div>
                             <div>
                                 <div class="banner">
-                                    <a href="#"><img src="img/210629_eonly_hlayer.jpg" alt=""></a>
+                                    <a style="cursor : pointer;"><img src="img/210629_eonly_hlayer.jpg" alt=""></a>
                                 </div>
                             </div>
                         </div>
                     </li>
 
-                    <li id="goodslayer"><a href="#">알라딘굿즈</a>
+                    <li id="goodslayer"><a style="cursor : pointer;">알라딘굿즈</a>
                         <div class="hlayer" style="display: none;">
                             <div class="category">
-                                <h3><a href="#">알라딘굿즈</a></h3>
+                                <h3><a style="cursor : pointer;">알라딘굿즈</a></h3>
                                 <ul>
-                                    <li><a href="#">가방·파우치</a></li>
-                                    <li><a href="#">데스크용품</a></li>
-                                    <li><a href="#">독서용품</a></li>
-                                    <li><a href="#">디지털</a></li>
-                                    <li><a href="#">리빙·키친</a></li>
-                                    <li><a href="#">문구</a></li>
-                                    <li><a href="#">생활용품</a></li>
-                                    <li><a href="#">의류·잡화</a></li>
+                                    <li><a style="cursor : pointer;">가방·파우치</a></li>
+                                    <li><a style="cursor : pointer;">데스크용품</a></li>
+                                    <li><a style="cursor : pointer;">독서용품</a></li>
+                                    <li><a style="cursor : pointer;">디지털</a></li>
+                                    <li><a style="cursor : pointer;">리빙·키친</a></li>
+                                    <li><a style="cursor : pointer;">문구</a></li>
+                                    <li><a style="cursor : pointer;">생활용품</a></li>
+                                    <li><a style="cursor : pointer;">의류·잡화</a></li>
                                 </ul>
                                 <ul>
-                                    <li><a href="#">노트</a></li>
-                                    <li><a href="#">독서대</a></li>
-                                    <li><a href="#">북마크</a></li>
-                                    <li><a href="#">북커버</a></li>
-                                    <li><a href="#">사무용품</a></li>
-                                    <li><a href="#">조명</a></li>
-                                    <li><a href="#">파우치</a></li>
-                                    <li><a href="#">필기구</a></li>
+                                    <li><a style="cursor : pointer;">노트</a></li>
+                                    <li><a style="cursor : pointer;">독서대</a></li>
+                                    <li><a style="cursor : pointer;">북마크</a></li>
+                                    <li><a style="cursor : pointer;">북커버</a></li>
+                                    <li><a style="cursor : pointer;">사무용품</a></li>
+                                    <li><a style="cursor : pointer;">조명</a></li>
+                                    <li><a style="cursor : pointer;">파우치</a></li>
+                                    <li><a style="cursor : pointer;">필기구</a></li>
                                 </ul>
                                 <ul>
-                                    <li><a href="#">피너츠</a></li>
-                                    <li><a href="#">어린왕자</a></li>
-                                    <li><a href="#">우주</a></li>
-                                    <li><a href="#">앨리스</a></li>
-                                    <li><a href="#">빨강머리 앤</a></li>
-                                    <li><a href="#">고양이</a></li>
-                                    <li><a href="#">모비딕</a></li>
+                                    <li><a style="cursor : pointer;">피너츠</a></li>
+                                    <li><a style="cursor : pointer;">어린왕자</a></li>
+                                    <li><a style="cursor : pointer;">우주</a></li>
+                                    <li><a style="cursor : pointer;">앨리스</a></li>
+                                    <li><a style="cursor : pointer;">빨강머리 앤</a></li>
+                                    <li><a style="cursor : pointer;">고양이</a></li>
+                                    <li><a style="cursor : pointer;">모비딕</a></li>
                                 </ul>
                                 <ul>
-                                    <li><a href="#">베스트셀러</a></li>
-                                    <li><a href="#"><strong>생활용품연구소</strong></a></li>
-                                    <li><a href="#">알라딘 문방구</a></li>
-                                    <li><a href="#">굿즈한정할인</a></li>
+                                    <li><a style="cursor : pointer;">베스트셀러</a></li>
+                                    <li><a style="cursor : pointer;"><strong>생활용품연구소</strong></a></li>
+                                    <li><a style="cursor : pointer;">알라딘 문방구</a></li>
+                                    <li><a style="cursor : pointer;">굿즈한정할인</a></li>
                                 </ul>
                             </div>
                             <div>
                                 <div class="banner">
-                                    <a href="#"><img src="img/sep_goods_hlayer.jpg" alt=""></a>
+                                    <a style="cursor : pointer;"><img src="img/sep_goods_hlayer.jpg" alt=""></a>
                                 </div>
                             </div>
                         </div>
                     </li>
 
-                    <li id="usedlayer"><a href="#">온라인중고</a>
+                    <li id="usedlayer"><a style="cursor : pointer;">온라인중고</a>
                         <div class="hlayer" style="display: none;">
                             <div class="category">
-                                <h3><a href="#">온라인중고</a></h3>
+                                <h3><a style="cursor : pointer;">온라인중고</a></h3>
                                 <div>
                                     <ul>
-                                        <li><a href="#">경제경영</a></li>
-                                        <li><a href="#">만화</a></li>
-                                        <li><a href="#">사회과학</a></li>
-                                        <li><a href="#">소설/시/희곡</a></li>
-                                        <li><a href="#">수험서/자격증</a></li>
-                                        <li><a href="#">어린이</a></li>
-                                        <li><a href="#"><strong>에세이</strong></a></li>
-                                        <li><a href="#">역사</a></li>
-                                        <li><a href="#">예술/대중문화</a></li>
+                                        <li><a style="cursor : pointer;">경제경영</a></li>
+                                        <li><a style="cursor : pointer;">만화</a></li>
+                                        <li><a style="cursor : pointer;">사회과학</a></li>
+                                        <li><a style="cursor : pointer;">소설/시/희곡</a></li>
+                                        <li><a style="cursor : pointer;">수험서/자격증</a></li>
+                                        <li><a style="cursor : pointer;">어린이</a></li>
+                                        <li><a style="cursor : pointer;"><strong>에세이</strong></a></li>
+                                        <li><a style="cursor : pointer;">역사</a></li>
+                                        <li><a style="cursor : pointer;">예술/대중문화</a></li>
                                     </ul>
                                 </div>
                                 <div>
                                     <ul>
-                                        <li><a href="#">외국어</a></li>
-                                        <li><a href="#">요리/살림</a></li>
-                                        <li><a href="#">유아</a></li>
-                                        <li><a href="#">인문학</a></li>
-                                        <li><a href="#">자기계발</a></li>
-                                        <li><a href="#">종교/역학</a></li>
-                                        <li><a href="#">좋은부모</a></li>
-                                        <li><a href="#">청소년</a></li>
-                                        <li><a href="#">컴퓨터/모바일</a></li>
+                                        <li><a style="cursor : pointer;">외국어</a></li>
+                                        <li><a style="cursor : pointer;">요리/살림</a></li>
+                                        <li><a style="cursor : pointer;">유아</a></li>
+                                        <li><a style="cursor : pointer;">인문학</a></li>
+                                        <li><a style="cursor : pointer;">자기계발</a></li>
+                                        <li><a style="cursor : pointer;">종교/역학</a></li>
+                                        <li><a style="cursor : pointer;">좋은부모</a></li>
+                                        <li><a style="cursor : pointer;">청소년</a></li>
+                                        <li><a style="cursor : pointer;">컴퓨터/모바일</a></li>
                                     </ul>
                                 </div>
                                 <div>
                                     <ul>
-                                        <li><a href="#" class="arr"><strong>중고 국내도서</strong></a></li>
-                                        <li><a href="#" class="arr"><strong>중고 음반</strong></a></li>
-                                        <li><a href="#" class="arr"><strong>중고 DVD/블루레이</strong></a></li>
-                                        <li><a href="#" class="arr"><strong>중고 외국도서</strong></a></li>
+                                        <li><a style="cursor : pointer;" class="arr"><strong>중고 국내도서</strong></a></li>
+                                        <li><a style="cursor : pointer;" class="arr"><strong>중고 음반</strong></a></li>
+                                        <li><a style="cursor : pointer;" class="arr"><strong>중고 DVD/블루레이</strong></a></li>
+                                        <li><a style="cursor : pointer;" class="arr"><strong>중고 외국도서</strong></a></li>
                                     </ul>
                                 </div>
                                 <div>
                                     <ul>
-                                        <li><a href="#">많이 판매된 중고</a></li>
-                                        <li><a href="#">새로 등록된 상품</a></li>
-                                        <li><a href="#">어제 베스트 중고</a></li>
-                                        <li><a href="#">역대 베스트 중고</a></li>
-                                        <li><a href="#">최종 땡처리</a></li>
-                                        <li><a href="#">단골 판매자 보기</a></li>
+                                        <li><a style="cursor : pointer;">많이 판매된 중고</a></li>
+                                        <li><a style="cursor : pointer;">새로 등록된 상품</a></li>
+                                        <li><a style="cursor : pointer;">어제 베스트 중고</a></li>
+                                        <li><a style="cursor : pointer;">역대 베스트 중고</a></li>
+                                        <li><a style="cursor : pointer;">최종 땡처리</a></li>
+                                        <li><a style="cursor : pointer;">단골 판매자 보기</a></li>
                                     </ul>
                                 </div>
                                 <div>
                                     <ul>
-                                        <li><a href="#" class="pinkt"><strong>판매자매니저</strong></a></li>
-                                        <li><a href="#">알라딘에 중고팔기</a></li>
-                                        <li><a href="#">판매가능여부 &<br>판매가격 확인하기</a></li>
-                                        <li><a href="#">온라인중고FAQ</a></li>
+                                        <li><a style="cursor : pointer;" class="pinkt"><strong>판매자매니저</strong></a></li>
+                                        <li><a style="cursor : pointer;">알라딘에 중고팔기</a></li>
+                                        <li><a style="cursor : pointer;">판매가능여부 &<br>판매가격 확인하기</a></li>
+                                        <li><a style="cursor : pointer;">온라인중고FAQ</a></li>
                                     </ul>
                                 </div>
                             </div>
                             <div>
                                 <div class="banner">
-                                    <a href="#"><img src="img/221111_usedshop_hlayer.jpg" alt=""></a>
+                                    <a style="cursor : pointer;"><img src="img/221111_usedshop_hlayer.jpg" alt=""></a>
                                 </div>
                             </div>
                         </div>
                     </li>
 
-                    <li id="spacelayer"><a href="#">우주점</a>
+                    <li id="spacelayer"><a style="cursor : pointer;">우주점</a>
                     </li>
 
-                    <li id="usedshoplayer"><a href="#">중고매장</a>
+                    <li id="usedshoplayer"><a style="cursor : pointer;">중고매장</a>
                         <div class="hlayer" style="display: none;">
                             <div class="category stitle">
-                                <h3><a href="#">중고매장</a></h3>
+                                <h3><a style="cursor : pointer;">중고매장</a></h3>
                                 <div>
-                                    <h4><a href="#">서울</a></h4>
+                                    <h4><a style="cursor : pointer;">서울</a></h4>
                                     <ul>
-                                        <li><a href="#">가로수길점</a></li>
-                                        <li><a href="#">강남점</a></li>
-                                        <li><a href="#">강서홈플러스점</a></li>
-                                        <li><a href="#">건대점</a></li>
-                                        <li><a href="#">노원역점</a></li>
-                                        <li><a href="#">대학로점</a></li>
-                                        <li><a href="#" class="new">목동점</a></li>
-                                        <li><a href="#">서울대입구역점</a></li>
-                                        <li><a href="#">수유점</a></li>
-                                        <li><a href="#">신림점</a></li>
-                                        <li><a href="#">신촌점</a></li>
-                                        <li><a href="#">연신내점</a></li>
-                                        <li><a href="#">영등포점</a></li>
+                                        <li><a style="cursor : pointer;">가로수길점</a></li>
+                                        <li><a style="cursor : pointer;">강남점</a></li>
+                                        <li><a style="cursor : pointer;">강서홈플러스점</a></li>
+                                        <li><a style="cursor : pointer;">건대점</a></li>
+                                        <li><a style="cursor : pointer;">노원역점</a></li>
+                                        <li><a style="cursor : pointer;">대학로점</a></li>
+                                        <li><a style="cursor : pointer;" class="new">목동점</a></li>
+                                        <li><a style="cursor : pointer;">서울대입구역점</a></li>
+                                        <li><a style="cursor : pointer;">수유점</a></li>
+                                        <li><a style="cursor : pointer;">신림점</a></li>
+                                        <li><a style="cursor : pointer;">신촌점</a></li>
+                                        <li><a style="cursor : pointer;">연신내점</a></li>
+                                        <li><a style="cursor : pointer;">영등포점</a></li>
                                     </ul>
                                     <ul>
-                                        <li><a href="#">이수역점</a></li>
-                                        <li><a href="#">잠실롯데월드타워점</a></li>
-                                        <li><a href="#">잠실새내역점</a></li>
-                                        <li><a href="#">종로점</a></li>
-                                        <li><a href="#">천호점</a></li>
-                                        <li><a href="#">합정점</a></li>
+                                        <li><a style="cursor : pointer;">이수역점</a></li>
+                                        <li><a style="cursor : pointer;">잠실롯데월드타워점</a></li>
+                                        <li><a style="cursor : pointer;">잠실새내역점</a></li>
+                                        <li><a style="cursor : pointer;">종로점</a></li>
+                                        <li><a style="cursor : pointer;">천호점</a></li>
+                                        <li><a style="cursor : pointer;">합정점</a></li>
                                     </ul>
                                 </div>
                                 <div>
-                                    <h4><a href="#">경기</a></h4>
+                                    <h4><a style="cursor : pointer;">경기</a></h4>
                                     <ul>
-                                        <li><a href="#">동탄2하나로마트점</a></li>
-                                        <li><a href="#">동탄점</a></li>
-                                        <li><a href="#" class="new">범계점</a></li>
-                                        <li><a href="#">부천점</a></li>
-                                        <li><a href="#">분당서현점</a></li>
-                                        <li><a href="#">분당야탑점</a></li>
-                                        <li><a href="#">산본점</a></li>
-                                        <li><a href="#">수원시청역점</a></li>
-                                        <li><a href="#">수원점</a></li>
-                                        <li><a href="#" class="new">수지점</a></li>
-                                        <li><a href="#">의정부홈플러스점</a></li>
-                                        <li><a href="#">일산점</a></li>
-                                        <li><a href="#">평택점</a></li>
-                                        <li><a href="#">화정점</a></li>
+                                        <li><a style="cursor : pointer;">동탄2하나로마트점</a></li>
+                                        <li><a style="cursor : pointer;">동탄점</a></li>
+                                        <li><a style="cursor : pointer;" class="new">범계점</a></li>
+                                        <li><a style="cursor : pointer;">부천점</a></li>
+                                        <li><a style="cursor : pointer;">분당서현점</a></li>
+                                        <li><a style="cursor : pointer;">분당야탑점</a></li>
+                                        <li><a style="cursor : pointer;">산본점</a></li>
+                                        <li><a style="cursor : pointer;">수원시청역점</a></li>
+                                        <li><a style="cursor : pointer;">수원점</a></li>
+                                        <li><a style="cursor : pointer;" class="new">수지점</a></li>
+                                        <li><a style="cursor : pointer;">의정부홈플러스점</a></li>
+                                        <li><a style="cursor : pointer;">일산점</a></li>
+                                        <li><a style="cursor : pointer;">평택점</a></li>
+                                        <li><a style="cursor : pointer;">화정점</a></li>
                                     </ul>
                                 </div>
                                 <div>
-                                    <h4><a href="#">광역시 등</a></h4>
+                                    <h4><a style="cursor : pointer;">광역시 등</a></h4>
                                     <ul>
-                                        <li><a href="#">광주상무점</a></li>
-                                        <li><a href="#">광주충장로점</a></li>
-                                        <li><a href="#">김해점</a></li>
-                                        <li><a href="#">대구동성로점</a></li>
-                                        <li><a href="#">대구상인점</a></li>
-                                        <li><a href="#">대전시청역점</a></li>
-                                        <li><a href="#">대전은행점</a></li>
-                                        <li><a href="#">동대구역점</a></li>
-                                        <li><a href="#">마산합성점</a></li>
-                                        <li><a href="#">부산경성대 부경대역점</a></li>
-                                        <li><a href="#">부산덕천점</a></li>
-                                        <li><a href="#">부산서면점</a></li>
-                                        <li><a href="#">부산센텀점</a></li>
+                                        <li><a style="cursor : pointer;">광주상무점</a></li>
+                                        <li><a style="cursor : pointer;">광주충장로점</a></li>
+                                        <li><a style="cursor : pointer;">김해점</a></li>
+                                        <li><a style="cursor : pointer;">대구동성로점</a></li>
+                                        <li><a style="cursor : pointer;">대구상인점</a></li>
+                                        <li><a style="cursor : pointer;">대전시청역점</a></li>
+                                        <li><a style="cursor : pointer;">대전은행점</a></li>
+                                        <li><a style="cursor : pointer;">동대구역점</a></li>
+                                        <li><a style="cursor : pointer;">마산합성점</a></li>
+                                        <li><a style="cursor : pointer;">부산경성대 부경대역점</a></li>
+                                        <li><a style="cursor : pointer;">부산덕천점</a></li>
+                                        <li><a style="cursor : pointer;">부산서면점</a></li>
+                                        <li><a style="cursor : pointer;">부산센텀점</a></li>
                                     </ul>
                                     <ul>
-                                        <li><a href="#">울산점</a></li>
-                                        <li><a href="#">인천계산점</a></li>
-                                        <li><a href="#">인천구월점</a></li>
-                                        <li><a href="#">인천송도점</a></li>
-                                        <li><a href="#">인천청라점</a></li>
-                                        <li><a href="#">전주점</a></li>
-                                        <li><a href="#">창원상남점</a></li>
-                                        <li><a href="#">천안신불당점</a></li>
-                                        <li><a href="#">청주점</a></li>
+                                        <li><a style="cursor : pointer;">울산점</a></li>
+                                        <li><a style="cursor : pointer;">인천계산점</a></li>
+                                        <li><a style="cursor : pointer;">인천구월점</a></li>
+                                        <li><a style="cursor : pointer;">인천송도점</a></li>
+                                        <li><a style="cursor : pointer;">인천청라점</a></li>
+                                        <li><a style="cursor : pointer;">전주점</a></li>
+                                        <li><a style="cursor : pointer;">창원상남점</a></li>
+                                        <li><a style="cursor : pointer;">천안신불당점</a></li>
+                                        <li><a style="cursor : pointer;">청주점</a></li>
                                     </ul>
                                 </div>
                             </div>
                             <div>
                                 <ul class="usedfaq">
-                                    <li><a href="#" class="pinkt"><strong>중고매장 FAQ</strong></a></li>
-                                    <li><a href="#" class="pinkt"><strong>판매가이드</strong></a></li>
-                                    <li><a href="#" class="pinkt"><strong>판매가능여부 & 판매가격 확인하기</strong></a></li>
+                                    <li><a style="cursor : pointer;" class="pinkt"><strong>중고매장 FAQ</strong></a></li>
+                                    <li><a style="cursor : pointer;" class="pinkt"><strong>판매가이드</strong></a></li>
+                                    <li><a style="cursor : pointer;" class="pinkt"><strong>판매가능여부 & 판매가격 확인하기</strong></a></li>
                                 </ul>
                                 <div class="banner">
-                                    <a href="#"><img src="img/200327_free_layer.jpg" alt=""></a>
+                                    <a style="cursor : pointer;"><img src="img/200327_free_layer.jpg" alt=""></a>
                                 </div>
                             </div>
                         </div>
                     </li>
 
-                    <li id="coffeelayer"><a href="#">커피</a>
+                    <li id="coffeelayer"><a style="cursor : pointer;">커피</a>
                         <div id="clayer" class="hlayer" style="display: none;">
                             <div class="category">
-                                <h3><a href="#">커피</a></h3>
+                                <h3><a style="cursor : pointer;">커피</a></h3>
                                 <ul>
-                                    <li><a href="#">원두</a></li>
-                                    <li><a href="#">드립백</a></li>
-                                    <li><a href="#">콜드브루</a></li>
-                                    <li><a href="#">커피 도구</a></li>
-                                    <li><a href="#">스템프 이벤트</a></li>
+                                    <li><a style="cursor : pointer;">원두</a></li>
+                                    <li><a style="cursor : pointer;">드립백</a></li>
+                                    <li><a style="cursor : pointer;">콜드브루</a></li>
+                                    <li><a style="cursor : pointer;">커피 도구</a></li>
+                                    <li><a style="cursor : pointer;">스템프 이벤트</a></li>
                                 </ul>
                                 <ul>
-                                    <li><a href="#">매장 메뉴</a></li>
-                                    <li><a href="#">커피 매장</a></li>
+                                    <li><a style="cursor : pointer;">매장 메뉴</a></li>
+                                    <li><a style="cursor : pointer;">커피 매장</a></li>
                                 </ul>
                             </div>
                             <div>
                                 <div class="banner">
-                                    <a href="#"><img src="img/VPack_hlayer.png"  alt=""></a>
+                                    <a style="cursor : pointer;"><img src="img/VPack_hlayer.png"  alt=""></a>
                                 </div>
                             </div>
                         </div>
                     </li>
 
-                    <li id="recordlayer"><a href="#">음반</a>
+                    <li id="recordlayer"><a style="cursor : pointer;">음반</a>
                         <div id="clayer" class="hlayer" style="display: none;">
                             <div class="category">
-                                <h3><a href="#">음반</a></h3>
+                                <h3><a style="cursor : pointer;">음반</a></h3>
                                 <ul>
-                                    <li><a href="#">가요</a></li>
-                                    <li><a href="#">국악</a></li>
-                                    <li><a href="#">월드뮤직</a></li>
-                                    <li><a href="#">재즈</a></li>
-                                    <li><a href="#">종교/명상/기타</a></li>
-                                    <li><a href="#">클래식</a></li>
-                                    <li><a href="#">팝</a></li>
-                                    <li><a href="#">J-POP</a></li>
-                                    <li><a href="#"><strong>LP</strong></a></li>
-                                    <li><a href="#">OST</a></li>
+                                    <li><a style="cursor : pointer;">가요</a></li>
+                                    <li><a style="cursor : pointer;">국악</a></li>
+                                    <li><a style="cursor : pointer;">월드뮤직</a></li>
+                                    <li><a style="cursor : pointer;">재즈</a></li>
+                                    <li><a style="cursor : pointer;">종교/명상/기타</a></li>
+                                    <li><a style="cursor : pointer;">클래식</a></li>
+                                    <li><a style="cursor : pointer;">팝</a></li>
+                                    <li><a style="cursor : pointer;">J-POP</a></li>
+                                    <li><a style="cursor : pointer;"><strong>LP</strong></a></li>
+                                    <li><a style="cursor : pointer;">OST</a></li>
                                 </ul>
                                 <ul>
-                                    <li><a href="#">베스트셀러</a></li>
-                                    <li><a href="#">예약음반</a></li>
-                                    <li><a href="#">새로나온음악</a></li>
-                                    <li><a href="#">이벤트</a></li>
-                                    <li><a href="#">해외구매</a></li>
+                                    <li><a style="cursor : pointer;">베스트셀러</a></li>
+                                    <li><a style="cursor : pointer;">예약음반</a></li>
+                                    <li><a style="cursor : pointer;">새로나온음악</a></li>
+                                    <li><a style="cursor : pointer;">이벤트</a></li>
+                                    <li><a style="cursor : pointer;">해외구매</a></li>
                                 </ul>
                             </div>
                             <div>
                                 <div class="banner">
-                                    <a href="#"><img src="img/layer_230908_Keith.jpg"  alt=""></a>
+                                    <a style="cursor : pointer;"><img src="img/layer_230908_Keith.jpg"  alt=""></a>
                                 </div>
                             </div>
                         </div>
                     </li>
 
-                    <li id="bluraylayer"><a href="#">블루레이</a>
+                    <li id="bluraylayer"><a style="cursor : pointer;">블루레이</a>
                         <div class="hlayer" style="display: none;">
                             <div class="category stitle">
-                                <h3><a href="#">블루레이</a></h3>
+                                <h3><a style="cursor : pointer;">블루레이</a></h3>
                                 <div>
-                                    <h4><a href="#" class="arr">기타 언어권</a></h4>
+                                    <h4><a style="cursor : pointer;" class="arr">기타 언어권</a></h4>
                                     <ul>
-                                        <li><a href="#">3D 블루레이</a></li>
-                                        <li><a href="#">공포/스릴러</a></li>
-                                        <li><a href="#">다큐멘터리</a></li>
-                                        <li><a href="#">드라마/코미디</a></li>
-                                        <li><a href="#">애니메이션</a></li>
-                                        <li><a href="#">액션/SF</a></li>
-                                        <li><a href="#">음악</a></li>
+                                        <li><a style="cursor : pointer;">3D 블루레이</a></li>
+                                        <li><a style="cursor : pointer;">공포/스릴러</a></li>
+                                        <li><a style="cursor : pointer;">다큐멘터리</a></li>
+                                        <li><a style="cursor : pointer;">드라마/코미디</a></li>
+                                        <li><a style="cursor : pointer;">애니메이션</a></li>
+                                        <li><a style="cursor : pointer;">액션/SF</a></li>
+                                        <li><a style="cursor : pointer;">음악</a></li>
                                     </ul>
                                 </div>
                                 <div>
-                                    <h4><a href="#">DVD</a></h4>
+                                    <h4><a style="cursor : pointer;">DVD</a></h4>
                                     <ul>
-                                        <li><a href="#">공포/스릴러</a></li>
-                                        <li><a href="#">교양/다큐멘터리</a></li>
-                                        <li><a href="#">드라마/코미디</a></li>
-                                        <li><a href="#">박스세트</a></li>
-                                        <li><a href="#">성인</a></li>
-                                        <li><a href="#">애니메이션</a></li>
-                                        <li><a href="#">액션/어드벤쳐</a></li>
-                                        <li><a href="#">유아/아동</a></li>
+                                        <li><a style="cursor : pointer;">공포/스릴러</a></li>
+                                        <li><a style="cursor : pointer;">교양/다큐멘터리</a></li>
+                                        <li><a style="cursor : pointer;">드라마/코미디</a></li>
+                                        <li><a style="cursor : pointer;">박스세트</a></li>
+                                        <li><a style="cursor : pointer;">성인</a></li>
+                                        <li><a style="cursor : pointer;">애니메이션</a></li>
+                                        <li><a style="cursor : pointer;">액션/어드벤쳐</a></li>
+                                        <li><a style="cursor : pointer;">유아/아동</a></li>
                                     </ul>
                                     <ul>
-                                        <li><a href="#">음악DVD</a></li>
-                                        <li><a href="#">제작국가별</a></li>
-                                        <li><a href="#">취미/스포츠</a></li>
-                                        <li><a href="#">S.F./판타지</a></li>
-                                        <li><a href="#">TV시리즈</a></li>
-                                        <li><a href="#">VCD</a></li>
-                                        <li><a href="#">VHS</a></li>
+                                        <li><a style="cursor : pointer;">음악DVD</a></li>
+                                        <li><a style="cursor : pointer;">제작국가별</a></li>
+                                        <li><a style="cursor : pointer;">취미/스포츠</a></li>
+                                        <li><a style="cursor : pointer;">S.F./판타지</a></li>
+                                        <li><a style="cursor : pointer;">TV시리즈</a></li>
+                                        <li><a style="cursor : pointer;">VCD</a></li>
+                                        <li><a style="cursor : pointer;">VHS</a></li>
                                     </ul>
                                 </div>
                                 <ul>
-                                    <li><a href="#">베스트셀러</a></li>
-                                    <li><a href="#">예약 블루레이</a></li>
-                                    <li><a href="#">새로나온 블루레이</a></li>
-                                    <li><a href="#">예약알림 신청</a></li>
-                                    <li><a href="#">이벤트</a></li>
-                                    <li><a href="#">초특가아울렛</a></li>
-                                    <li><a href="#">단독특가</a></li>
-                                    <li><a href="#">중고블루레이</a></li>
+                                    <li><a style="cursor : pointer;">베스트셀러</a></li>
+                                    <li><a style="cursor : pointer;">예약 블루레이</a></li>
+                                    <li><a style="cursor : pointer;">새로나온 블루레이</a></li>
+                                    <li><a style="cursor : pointer;">예약알림 신청</a></li>
+                                    <li><a style="cursor : pointer;">이벤트</a></li>
+                                    <li><a style="cursor : pointer;">초특가아울렛</a></li>
+                                    <li><a style="cursor : pointer;">단독특가</a></li>
+                                    <li><a style="cursor : pointer;">중고블루레이</a></li>
                                 </ul>
                             </div>
                             <div>
                                 <div class="banner">
-                                    <a href="#"><img src="img/0803_light_hlayer.jfif" alt=""></a>
+                                    <a style="cursor : pointer;"><img src="img/0803_light_hlayer.jfif" alt=""></a>
                                 </div>
                             </div>
                         </div>
                     </li>
 
-                    <li id="bookplelayer"><a href="#">북플 · 서재</a>
+                    <li id="bookplelayer"><a style="cursor : pointer;">북플 · 서재</a>
                         <div id="bolayer" class="slayer" style="display: none;">
                             <ul>
                                 <li><a href="">북플</a></li>
@@ -1075,9 +1467,9 @@
 
                 </ul>
                 <ul class="mytool">
-                    <li><a href="#">로그인</a></li>
-                    <li><a href="#">회원가입</a></li>
-                    <li><a href="#" class="dropbtn">마이페이지</a>
+                    <li><a style="cursor : pointer;">로그인</a></li>
+                    <li><a style="cursor : pointer;">회원가입</a></li>
+                    <li><a style="cursor : pointer;" class="dropbtn">마이페이지</a>
                         <div id="malayer" class="slayer" style="display: none;">
                             <ul>
                                 <li><a href="">나의계정</a></li>
@@ -1088,8 +1480,8 @@
                             </ul>
                         </div>
                     </li>
-                    <li><a href="#">고객센터</a></li>
-                    <li><a href="#">장바구니<span>(0)</span></a>
+                    <li><a style="cursor : pointer;">고객센터</a></li>
+                    <li><a style="cursor : pointer;">장바구니<span>(0)</span></a>
                         <div id="cartlayer" class="slayer" style="display: none;">
                             장바구니에 담은<br>상품이 없습니다.
                         </div>
@@ -1116,52 +1508,52 @@
                                 <tbody>
                                     <tr>
                                         <td>
-                                            <a href="#" class="blue02">통합검색</a>
+                                            <a style="cursor : pointer;" class="blue02">통합검색</a>
                                         </td>
                                     </tr>
                                     <tr>
                                         <td>
-                                            <a href="#" class="blue02">국내도서</a>
+                                            <a style="cursor : pointer;" class="blue02">국내도서</a>
                                         </td>
                                     </tr>
                                     <tr>
                                         <td>
-                                            <a href="#" class="blue02">외국도서</a>
+                                            <a style="cursor : pointer;" class="blue02">외국도서</a>
                                         </td>
                                     </tr>
                                     <tr>
                                         <td>
-                                            <a href="#" class="blue02">eBook</a>
+                                            <a style="cursor : pointer;" class="blue02">eBook</a>
                                         </td>
                                     </tr>
                                     <tr>
                                         <td>
-                                            <a href="#" class="blue02">알라딘굿즈</a>
+                                            <a style="cursor : pointer;" class="blue02">알라딘굿즈</a>
                                         </td>
                                     </tr>
                                     <tr>
                                         <td>
-                                            <a href="#" class="blue02">온라인중고</a>
+                                            <a style="cursor : pointer;" class="blue02">온라인중고</a>
                                         </td>
                                     </tr>
                                     <tr>
                                         <td>
-                                            <a href="#" class="blue02">중고매장</a>
+                                            <a style="cursor : pointer;" class="blue02">중고매장</a>
                                         </td>
                                     </tr>
                                     <tr>
                                         <td>
-                                            <a href="#" class="blue02">커피</a>
+                                            <a style="cursor : pointer;" class="blue02">커피</a>
                                         </td>
                                     </tr>
                                     <tr>
                                         <td>
-                                            <a href="#" class="blue02">음반</a>
+                                            <a style="cursor : pointer;" class="blue02">음반</a>
                                         </td>
                                     </tr>
                                     <tr>
                                         <td>
-                                            <a href="#" class="blue02">블루레이</a>
+                                            <a style="cursor : pointer;" class="blue02">블루레이</a>
                                         </td>
                                     </tr>
                                     <tr>
@@ -1171,32 +1563,32 @@
                                     </tr>
                                     <tr>
                                         <td>
-                                            <a href="#" class="blue02">서재검색</a>
+                                            <a style="cursor : pointer;" class="blue02">서재검색</a>
                                         </td>
                                     </tr>
                                     <tr>
                                         <td>
-                                            <a href="#" class="blue02">서재태그</a>
+                                            <a style="cursor : pointer;" class="blue02">서재태그</a>
                                         </td>
                                     </tr>
                                     <tr>
                                         <td>
-                                            <a href="#" class="blue02">마이리뷰</a>
+                                            <a style="cursor : pointer;" class="blue02">마이리뷰</a>
                                         </td>
                                     </tr>
                                     <tr>
                                         <td>
-                                            <a href="#" class="blue02">마이리스트</a>
+                                            <a style="cursor : pointer;" class="blue02">마이리스트</a>
                                         </td>
                                     </tr>
                                     <tr>
                                         <td>
-                                            <a href="#" class="blue02">마이페이퍼</a>
+                                            <a style="cursor : pointer;" class="blue02">마이페이퍼</a>
                                         </td>
                                     </tr>
                                     <tr>
                                         <td>
-                                            <a href="#" class="blue02">서재</a>
+                                            <a style="cursor : pointer;" class="blue02">서재</a>
                                         </td>
                                     </tr>
                                 </tbody>
@@ -1207,15 +1599,15 @@
                         <input type="text" class="searchon" name="searchon" style="border: 0px solid white; ime-mode: active;">
                     </div>
                     <div class="arrowicon" style="float: left; width: 29px;">
-                        <a href="#"><img src="img/btn_search_drop2.gif" alt=""></a>
+                        <a style="cursor : pointer;"><img src="img/btn_search_drop2.gif" alt=""></a>
                     </div>
                     <button type="submit" class="searchbtn">검색</button>
-                    <a href="#" class="detailsearch">상세검색</a>
+                    <a style="cursor : pointer;" class="detailsearch">상세검색</a>
                 </div>
             </div>
 
             <div class="adbox">
-                <a href="#"><img src="img/230908_thanks_hright.jpg" alt=""></a>
+                <a style="cursor : pointer;"><img src="img/230908_thanks_hright.jpg" alt=""></a>
             </div>
         </div>
 
@@ -1223,199 +1615,199 @@
 
             <ul class="hbotleft">
 
-                <li class="allcate"><a href="#">분야보기</a>
+                <li class="allcate"><a style="cursor : pointer;">분야보기</a>
                     <div id="alllayer" class="alr" style="width: 1030px; display: none;">
                         <table style="width: 1030px; border: 0;">
                             <tbody>
                                 <tr>
                                     <td style="width: 280px; vertical-align: top;">
-                                        <div class="alrt"><a href="#">국내도서</a></div>
+                                        <div class="alrt"><a style="cursor : pointer;">국내도서</a></div>
                                         <div class="alrs1">
                                             <ul>
-                                                <li><a href="#" class="cate1">건강/취미</a></li>
-                                                <li><a href="#" class="cate1"><strong>경제경영</strong></a></li>
-                                                <li><a href="#" class="cate1">공무원 수험서</a></li>
-                                                <li><a href="#" class="cate1">과학</a></li>
-                                                <li><a href="#" class="cate1">달력/기타</a></li>
-                                                <li><a href="#" class="cate1">대학교재</a></li>
-                                                <li><a href="#" class="cate1">만화</a></li>
-                                                <li><a href="#" class="cate1">사회과학</a></li>
-                                                <li><a href="#" class="cate1"><strong>소설/시/희곡</strong></a></li>
-                                                <li><a href="#" class="cate1"><strong>수험서/자격증</strong></a></li>
-                                                <li><a href="#" class="cate1"><strong>어린이</strong></a></li>
-                                                <li><a href="#" class="cate1">에세이</a></li>
-                                                <li><a href="#" class="cate1">여행</a></li>
-                                                <li><a href="#" class="cate1">역사</a></li>
-                                                <li><a href="#" class="cate1">예술/대중문화</a></li>
+                                                <li><a style="cursor : pointer;" class="cate1">건강/취미</a></li>
+                                                <li><a style="cursor : pointer;" class="cate1"><strong>경제경영</strong></a></li>
+                                                <li><a style="cursor : pointer;" class="cate1">공무원 수험서</a></li>
+                                                <li><a style="cursor : pointer;" class="cate1">과학</a></li>
+                                                <li><a style="cursor : pointer;" class="cate1">달력/기타</a></li>
+                                                <li><a style="cursor : pointer;" class="cate1">대학교재</a></li>
+                                                <li><a style="cursor : pointer;" class="cate1">만화</a></li>
+                                                <li><a style="cursor : pointer;" class="cate1">사회과학</a></li>
+                                                <li><a style="cursor : pointer;" class="cate1"><strong>소설/시/희곡</strong></a></li>
+                                                <li><a style="cursor : pointer;" class="cate1"><strong>수험서/자격증</strong></a></li>
+                                                <li><a style="cursor : pointer;" class="cate1"><strong>어린이</strong></a></li>
+                                                <li><a style="cursor : pointer;" class="cate1">에세이</a></li>
+                                                <li><a style="cursor : pointer;" class="cate1">여행</a></li>
+                                                <li><a style="cursor : pointer;" class="cate1">역사</a></li>
+                                                <li><a style="cursor : pointer;" class="cate1">예술/대중문화</a></li>
                                             </ul>
                                             <ul>
-                                                <li><a href="#" class="cate1">외국어</a></li>
-                                                <li><a href="#" class="cate1">요리/살림</a></li>
-                                                <li><a href="#" class="cate1">유아</a></li>
-                                                <li><a href="#" class="cate1"><strong>인문학</strong></a></li>
-                                                <li><a href="#" class="cate1">자기계발</a></li>
-                                                <li><a href="#" class="cate1">잡지</a></li>
-                                                <li><a href="#" class="cate1">장르소설</a></li>
-                                                <li><a href="#" class="cate1">전집/중고전집</a></li>
-                                                <li><a href="#" class="cate1">종교/역학</a></li>
-                                                <li><a href="#" class="cate1">좋은부모</a></li>
-                                                <li><a href="#" class="cate1">청소년</a></li>
-                                                <li><a href="#" class="cate1">컴퓨터/모바일</a></li>
-                                                <li><a href="#" class="cate1"><strong>초등학교참고서</strong></a></li>
-                                                <li><a href="#">중학교참고서</a></li>
-                                                <li><a href="#"><strong>고등학교참고서</strong></a></li>
+                                                <li><a style="cursor : pointer;" class="cate1">외국어</a></li>
+                                                <li><a style="cursor : pointer;" class="cate1">요리/살림</a></li>
+                                                <li><a style="cursor : pointer;" class="cate1">유아</a></li>
+                                                <li><a style="cursor : pointer;" class="cate1"><strong>인문학</strong></a></li>
+                                                <li><a style="cursor : pointer;" class="cate1">자기계발</a></li>
+                                                <li><a style="cursor : pointer;" class="cate1">잡지</a></li>
+                                                <li><a style="cursor : pointer;" class="cate1">장르소설</a></li>
+                                                <li><a style="cursor : pointer;" class="cate1">전집/중고전집</a></li>
+                                                <li><a style="cursor : pointer;" class="cate1">종교/역학</a></li>
+                                                <li><a style="cursor : pointer;" class="cate1">좋은부모</a></li>
+                                                <li><a style="cursor : pointer;" class="cate1">청소년</a></li>
+                                                <li><a style="cursor : pointer;" class="cate1">컴퓨터/모바일</a></li>
+                                                <li><a style="cursor : pointer;" class="cate1"><strong>초등학교참고서</strong></a></li>
+                                                <li><a style="cursor : pointer;">중학교참고서</a></li>
+                                                <li><a style="cursor : pointer;"><strong>고등학교참고서</strong></a></li>
                                             </ul>
                                         </div>
                                         <br clear="all">
                                         <div style="padding: 12px 0 0 0;"></div>
-                                        <div class="alrt"><a href="#">알라딘 굿즈</a></div>
+                                        <div class="alrt"><a style="cursor : pointer;">알라딘 굿즈</a></div>
                                         <div class="alrs1">
                                             <ul>
-                                                <li><a href="#" class="cate1">가방.파우치</a></li>
-                                                <li><a href="#" class="cate1">데스크용품</a></li>
-                                                <li><a href="#" class="cate1"><strong>독서용품</strong></a></li>
-                                                <li><a href="#" class="cate1">디지털</a></li>
+                                                <li><a style="cursor : pointer;" class="cate1">가방.파우치</a></li>
+                                                <li><a style="cursor : pointer;" class="cate1">데스크용품</a></li>
+                                                <li><a style="cursor : pointer;" class="cate1"><strong>독서용품</strong></a></li>
+                                                <li><a style="cursor : pointer;" class="cate1">디지털</a></li>
                                             </ul>
                                             <ul>
-                                                <li><a href="#" class="cate1"><strong>문구</strong></a></li>
-                                                <li><a href="#" class="cate1">생활용품</a></li>
-                                                <li><a href="#" class="cate1">의류.잡화</a></li>
-                                                <li><a href="#" class="cate1">리빙.키친</a></li>
+                                                <li><a style="cursor : pointer;" class="cate1"><strong>문구</strong></a></li>
+                                                <li><a style="cursor : pointer;" class="cate1">생활용품</a></li>
+                                                <li><a style="cursor : pointer;" class="cate1">의류.잡화</a></li>
+                                                <li><a style="cursor : pointer;" class="cate1">리빙.키친</a></li>
                                             </ul>
                                         </div>
                                     </td>
                                     <td style="width: 8px; background: url('img/icon_line.gif');"></td>
 
                                     <td style="width: 280px; vertical-align: top;">
-                                        <div class="alrt"><a href="#">외국도서</a></div>
+                                        <div class="alrt"><a style="cursor : pointer;">외국도서</a></div>
                                         <div class="alrs1">
                                             <ul>
                                                 <li><strong>영미도서</strong></li>
-                                                <li><a href="#" class="cate1">ELT/어학/사전</a></li>
-                                                <li><a href="#" class="cate1">가정/원예/인테리어</a></li>
-                                                <li><a href="#" class="cate1">건강/스포츠</a></li>
-                                                <li><a href="#" class="cate1">경제경영</a></li>
-                                                <li><a href="#" class="cate1">공예/취미/수집</a></li>
-                                                <li><a href="#" class="cate1">만화</a></li>
-                                                <li><a href="#" class="cate1">소설/시/희곡</a></li>
-                                                <li><a href="#" class="cate1">여행</a></li>
-                                                <li><a href="#" class="cate1">역사</a></li>
-                                                <li><a href="#" class="cate1">요리</a></li>
-                                                <li><a href="#" class="cate1">인문/사회</a></li>
-                                                <li><a href="#" class="cate1">종교/명상/점술</a></li>
-                                                <li><a href="#" class="cate1">청소년</a></li>
-                                                <li><a href="#" class="cate1">해외잡지</a></li>
-                                                <li style="padding-top: 7px;"><a href="#" class="cate1"><strong>일본도서</strong><img src="img/bn_more.gif" style="width: 14px; height: 11; border: 0;" alt=""></a></li>
-                                                <li><a href="#" class="cate1">문학</a></li>
-                                                <li><a href="#" class="cate1">애니메이션 굿즈</a></li>
+                                                <li><a style="cursor : pointer;" class="cate1">ELT/어학/사전</a></li>
+                                                <li><a style="cursor : pointer;" class="cate1">가정/원예/인테리어</a></li>
+                                                <li><a style="cursor : pointer;" class="cate1">건강/스포츠</a></li>
+                                                <li><a style="cursor : pointer;" class="cate1">경제경영</a></li>
+                                                <li><a style="cursor : pointer;" class="cate1">공예/취미/수집</a></li>
+                                                <li><a style="cursor : pointer;" class="cate1">만화</a></li>
+                                                <li><a style="cursor : pointer;" class="cate1">소설/시/희곡</a></li>
+                                                <li><a style="cursor : pointer;" class="cate1">여행</a></li>
+                                                <li><a style="cursor : pointer;" class="cate1">역사</a></li>
+                                                <li><a style="cursor : pointer;" class="cate1">요리</a></li>
+                                                <li><a style="cursor : pointer;" class="cate1">인문/사회</a></li>
+                                                <li><a style="cursor : pointer;" class="cate1">종교/명상/점술</a></li>
+                                                <li><a style="cursor : pointer;" class="cate1">청소년</a></li>
+                                                <li><a style="cursor : pointer;" class="cate1">해외잡지</a></li>
+                                                <li style="padding-top: 7px;"><a style="cursor : pointer;" class="cate1"><strong>일본도서</strong><img src="img/bn_more.gif" style="width: 14px; height: 11; border: 0;" alt=""></a></li>
+                                                <li><a style="cursor : pointer;" class="cate1">문학</a></li>
+                                                <li><a style="cursor : pointer;" class="cate1">애니메이션 굿즈</a></li>
                                             </ul>
 
                                             <ul>
-                                                <li style="padding-top: 7px;"><a href="#" class="cate1"><strong>어린이</strong><img src="img/bn_more.gif" style="width: 14px; height: 11; border: 0;" alt=""></a></li>
-                                                <li><a href="#" class="cate1">그림책</a></li>
-                                                <li><a href="#" class="cate1">동화책</a></li>
-                                                <li><a href="#" class="cate1">리더스</a></li>
-                                                <li><a href="#" class="cate1">영어학습</a></li>
-                                                <li><a href="#" class="cate1">챕터북</a></li>
-                                                <li><a href="#" class="cate1">코스북</a></li>
-                                                <li style="padding-top: 7px;"><a href="#" class="cate1"><strong>중국소설</strong><img src="img/bn_more.gif" style="width: 14px; height: 11; border: 0;" alt=""></a></li>
-                                                <li><a href="#" class="cate1">소설</a></li>
-                                                <li><a href="#" class="cate1">중국어 교재</a></li>
-                                                <li style="padding-top: 7px;"><a href="#" class="cate1"><strong>기타 언어권</strong><img src="img/bn_more.gif" style="width: 14px; height: 11; border: 0;" alt=""></a></li>
-                                                <li><a href="#" class="cate1">독일 도서</a></li>
-                                                <li><a href="#" class="cate1">베트남 도서</a></li>
-                                                <li><a href="#" class="cate1">스페인 도서</a></li>
-                                                <li><a href="#" class="cate1">프랑스 도서</a></li>
-                                                <li><a href="#" class="cate1">기타도서</a></li>
-                                                <li><a href="#" class="cate1">잡지</a></li>
-                                                <li><a href="#" class="cate1">코믹</a></li>
-                                            </ul>
-                                        </div>
-                                    </td>
-                                    <td style="width: 8px; background: url('img/icon_line.gif');"></td>
-
-                                    <td style="width: 140px; vertical-align: top;">
-                                        <div class="alrt"><a href="#">eBook</a></div>
-                                        <div class="alrs1">
-                                            <ul>
-                                                <li><a href="#" class="cate1"><strong>경제경영</strong></a></li>
-                                                <li><a href="#" class="cate1">라이트노벨</a></li>
-                                                <li><a href="#" class="cate1"><strong>로맨스</strong></a></li>
-                                                <li><a href="#" class="cate1"><strong>만화</strong></a></li>
-                                                <li><a href="#" class="cate1">사회과학</a></li>
-                                                <li><a href="#" class="cate1"><strong>소설/시</strong></a></li>
-                                                <li><a href="#" class="cate1">어린이</a></li>
-                                                <li><a href="#" class="cate1"><strong>에세이</strong></a></li>
-                                                <li><a href="#" class="cate1">역사</a></li>
-                                                <li><a href="#" class="cate1">예술/대중문화</a></li>
-                                                <li><a href="#" class="cate1"><strong>인문학</strong></a></li>
-                                                <li><a href="#" class="cate1"><strong>자기계발</strong></a></li>
-                                                <li><a href="#" class="cate1">종교/역학</a></li>
-                                                <li><a href="#" class="cate1">청소년</a></li>
-                                                <li><a href="#" class="cate1">판타지/무협</a></li>
-                                                <li><a href="#" class="cate1"><strong>BL</strong></a></li>
-                                                <li><a href="#" class="cate1"><strong>오디오북</strong></a></li>
+                                                <li style="padding-top: 7px;"><a style="cursor : pointer;" class="cate1"><strong>어린이</strong><img src="img/bn_more.gif" style="width: 14px; height: 11; border: 0;" alt=""></a></li>
+                                                <li><a style="cursor : pointer;" class="cate1">그림책</a></li>
+                                                <li><a style="cursor : pointer;" class="cate1">동화책</a></li>
+                                                <li><a style="cursor : pointer;" class="cate1">리더스</a></li>
+                                                <li><a style="cursor : pointer;" class="cate1">영어학습</a></li>
+                                                <li><a style="cursor : pointer;" class="cate1">챕터북</a></li>
+                                                <li><a style="cursor : pointer;" class="cate1">코스북</a></li>
+                                                <li style="padding-top: 7px;"><a style="cursor : pointer;" class="cate1"><strong>중국소설</strong><img src="img/bn_more.gif" style="width: 14px; height: 11; border: 0;" alt=""></a></li>
+                                                <li><a style="cursor : pointer;" class="cate1">소설</a></li>
+                                                <li><a style="cursor : pointer;" class="cate1">중국어 교재</a></li>
+                                                <li style="padding-top: 7px;"><a style="cursor : pointer;" class="cate1"><strong>기타 언어권</strong><img src="img/bn_more.gif" style="width: 14px; height: 11; border: 0;" alt=""></a></li>
+                                                <li><a style="cursor : pointer;" class="cate1">독일 도서</a></li>
+                                                <li><a style="cursor : pointer;" class="cate1">베트남 도서</a></li>
+                                                <li><a style="cursor : pointer;" class="cate1">스페인 도서</a></li>
+                                                <li><a style="cursor : pointer;" class="cate1">프랑스 도서</a></li>
+                                                <li><a style="cursor : pointer;" class="cate1">기타도서</a></li>
+                                                <li><a style="cursor : pointer;" class="cate1">잡지</a></li>
+                                                <li><a style="cursor : pointer;" class="cate1">코믹</a></li>
                                             </ul>
                                         </div>
                                     </td>
                                     <td style="width: 8px; background: url('img/icon_line.gif');"></td>
 
                                     <td style="width: 140px; vertical-align: top;">
-                                        <div class="alrt"><a href="#">온라인중고</a></div>
+                                        <div class="alrt"><a style="cursor : pointer;">eBook</a></div>
                                         <div class="alrs1">
                                             <ul>
-                                                <li><a href="#" class="cate1"><strong style="color: #e9308e;">중고매장</strong></a></li>
-                                                <li style="padding-top: 7px;"><a href="#" class="cate1"><strong>중고국내도서</strong><img src="img/bn_more.gif" style="width: 14px; height: 11; border: 0;" alt=""></a></li>
-                                                <li><a href="#" class="cate1">경제경영</a></li>
-                                                <li><a href="#" class="cate1">만화</a></li>
-                                                <li><a href="#" class="cate1">사회과학</a></li>
-                                                <li><a href="#" class="cate1">소설/시/희곡</a></li>
-                                                <li><a href="#" class="cate1"><strong>어린이</strong></a></li>
-                                                <li><a href="#" class="cate1">에세이</a></li>
-                                                <li><a href="#" class="cate1">유아</a></li>
-                                                <li><a href="#" class="cate1">인문학</a></li>
-                                                <li style="padding-top: 7px;"><a href="#" class="cate1"><strong>중고 음반</strong><img src="img/bn_more.gif" style="width: 14px; height: 11; border: 0;" alt=""></a></li>
-                                                <li><a href="#" class="cate1">가요</a></li>
-                                                <li><a href="#" class="cate1">국악</a></li>
-                                                <li><a href="#" class="cate1">월드뮤직</a></li>
-                                                <li><a href="#" class="cate1"><strong>클래식</strong></a></li>
-                                                <li><a href="#" class="cate1">팝</a></li>
-                                                <li><a href="#" class="cate1"><strong>중고 DVD/블루레이</strong><img src="img/bn_more.gif" style="width: 14px; height: 11; border: 0;" alt=""></a></li>
-                                                <li><a href="#" class="cate1"><strong>중고 외국도서</strong><img src="img/bn_more.gif" style="width: 14px; height: 11; border: 0;" alt=""></a></li>
+                                                <li><a style="cursor : pointer;" class="cate1"><strong>경제경영</strong></a></li>
+                                                <li><a style="cursor : pointer;" class="cate1">라이트노벨</a></li>
+                                                <li><a style="cursor : pointer;" class="cate1"><strong>로맨스</strong></a></li>
+                                                <li><a style="cursor : pointer;" class="cate1"><strong>만화</strong></a></li>
+                                                <li><a style="cursor : pointer;" class="cate1">사회과학</a></li>
+                                                <li><a style="cursor : pointer;" class="cate1"><strong>소설/시</strong></a></li>
+                                                <li><a style="cursor : pointer;" class="cate1">어린이</a></li>
+                                                <li><a style="cursor : pointer;" class="cate1"><strong>에세이</strong></a></li>
+                                                <li><a style="cursor : pointer;" class="cate1">역사</a></li>
+                                                <li><a style="cursor : pointer;" class="cate1">예술/대중문화</a></li>
+                                                <li><a style="cursor : pointer;" class="cate1"><strong>인문학</strong></a></li>
+                                                <li><a style="cursor : pointer;" class="cate1"><strong>자기계발</strong></a></li>
+                                                <li><a style="cursor : pointer;" class="cate1">종교/역학</a></li>
+                                                <li><a style="cursor : pointer;" class="cate1">청소년</a></li>
+                                                <li><a style="cursor : pointer;" class="cate1">판타지/무협</a></li>
+                                                <li><a style="cursor : pointer;" class="cate1"><strong>BL</strong></a></li>
+                                                <li><a style="cursor : pointer;" class="cate1"><strong>오디오북</strong></a></li>
                                             </ul>
                                         </div>
                                     </td>
                                     <td style="width: 8px; background: url('img/icon_line.gif');"></td>
 
                                     <td style="width: 140px; vertical-align: top;">
-                                        <div class="alrt"><a href="#">음반</a></div>
+                                        <div class="alrt"><a style="cursor : pointer;">온라인중고</a></div>
                                         <div class="alrs1">
                                             <ul>
-                                                <li><a href="#" class="cate1">가요</a></li>
-                                                <li><a href="#" class="cate1">국악</a></li>
-                                                <li><a href="#" class="cate1">월드뮤직</a></li>
-                                                <li><a href="#" class="cate1">재즈</a></li>
-                                                <li><a href="#" class="cate1">종교/명상/기타</a></li>
-                                                <li><a href="#" class="cate1"><strong>클래식</strong></a></li>
-                                                <li><a href="#" class="cate1">팝</a></li>
-                                                <li><a href="#" class="cate1">J-POP</a></li>
-                                                <li><a href="#" class="cate1"><strong>LP</strong></a></li>
-                                                <li><a href="#" class="cate1">OST</a></li>
+                                                <li><a style="cursor : pointer;" class="cate1"><strong style="color: #e9308e;">중고매장</strong></a></li>
+                                                <li style="padding-top: 7px;"><a style="cursor : pointer;" class="cate1"><strong>중고국내도서</strong><img src="img/bn_more.gif" style="width: 14px; height: 11; border: 0;" alt=""></a></li>
+                                                <li><a style="cursor : pointer;" class="cate1">경제경영</a></li>
+                                                <li><a style="cursor : pointer;" class="cate1">만화</a></li>
+                                                <li><a style="cursor : pointer;" class="cate1">사회과학</a></li>
+                                                <li><a style="cursor : pointer;" class="cate1">소설/시/희곡</a></li>
+                                                <li><a style="cursor : pointer;" class="cate1"><strong>어린이</strong></a></li>
+                                                <li><a style="cursor : pointer;" class="cate1">에세이</a></li>
+                                                <li><a style="cursor : pointer;" class="cate1">유아</a></li>
+                                                <li><a style="cursor : pointer;" class="cate1">인문학</a></li>
+                                                <li style="padding-top: 7px;"><a style="cursor : pointer;" class="cate1"><strong>중고 음반</strong><img src="img/bn_more.gif" style="width: 14px; height: 11; border: 0;" alt=""></a></li>
+                                                <li><a style="cursor : pointer;" class="cate1">가요</a></li>
+                                                <li><a style="cursor : pointer;" class="cate1">국악</a></li>
+                                                <li><a style="cursor : pointer;" class="cate1">월드뮤직</a></li>
+                                                <li><a style="cursor : pointer;" class="cate1"><strong>클래식</strong></a></li>
+                                                <li><a style="cursor : pointer;" class="cate1">팝</a></li>
+                                                <li><a style="cursor : pointer;" class="cate1"><strong>중고 DVD/블루레이</strong><img src="img/bn_more.gif" style="width: 14px; height: 11; border: 0;" alt=""></a></li>
+                                                <li><a style="cursor : pointer;" class="cate1"><strong>중고 외국도서</strong><img src="img/bn_more.gif" style="width: 14px; height: 11; border: 0;" alt=""></a></li>
+                                            </ul>
+                                        </div>
+                                    </td>
+                                    <td style="width: 8px; background: url('img/icon_line.gif');"></td>
+
+                                    <td style="width: 140px; vertical-align: top;">
+                                        <div class="alrt"><a style="cursor : pointer;">음반</a></div>
+                                        <div class="alrs1">
+                                            <ul>
+                                                <li><a style="cursor : pointer;" class="cate1">가요</a></li>
+                                                <li><a style="cursor : pointer;" class="cate1">국악</a></li>
+                                                <li><a style="cursor : pointer;" class="cate1">월드뮤직</a></li>
+                                                <li><a style="cursor : pointer;" class="cate1">재즈</a></li>
+                                                <li><a style="cursor : pointer;" class="cate1">종교/명상/기타</a></li>
+                                                <li><a style="cursor : pointer;" class="cate1"><strong>클래식</strong></a></li>
+                                                <li><a style="cursor : pointer;" class="cate1">팝</a></li>
+                                                <li><a style="cursor : pointer;" class="cate1">J-POP</a></li>
+                                                <li><a style="cursor : pointer;" class="cate1"><strong>LP</strong></a></li>
+                                                <li><a style="cursor : pointer;" class="cate1">OST</a></li>
                                             </ul>
                                         </div>
                                         <br clear="all">
                                         <div style="padding: 12px 0 0 0;"></div>
-                                        <div class="alrt"><a href="#">블루레이</a></div>
+                                        <div class="alrt"><a style="cursor : pointer;">블루레이</a></div>
                                         <div class="alrs1">
                                             <ul>
-                                                <li><a href="#" class="cate1">공포/스릴러</a></li>
-                                                <li><a href="#" class="cate1">드라마/코미디</a></li>
-                                                <li><a href="#" class="cate1"><strong>블루레이</strong></a></li>
-                                                <li><a href="#" class="cate1">애니메이션</a></li>
-                                                <li><a href="#" class="cate1">액션/어드벤쳐</a></li>
-                                                <li><a href="#" class="cate1">음악DVD</a></li>
-                                                <li><a href="#" class="cate1">S.F./판타지</a></li>
-                                                <li><a href="#" class="cate1">TV시리즈</a></li>
+                                                <li><a style="cursor : pointer;" class="cate1">공포/스릴러</a></li>
+                                                <li><a style="cursor : pointer;" class="cate1">드라마/코미디</a></li>
+                                                <li><a style="cursor : pointer;" class="cate1"><strong>블루레이</strong></a></li>
+                                                <li><a style="cursor : pointer;" class="cate1">애니메이션</a></li>
+                                                <li><a style="cursor : pointer;" class="cate1">액션/어드벤쳐</a></li>
+                                                <li><a style="cursor : pointer;" class="cate1">음악DVD</a></li>
+                                                <li><a style="cursor : pointer;" class="cate1">S.F./판타지</a></li>
+                                                <li><a style="cursor : pointer;" class="cate1">TV시리즈</a></li>
                                             </ul>
                                         </div>
                                     </td>
@@ -1423,11 +1815,11 @@
                             </tbody>
                         </table>
                         <div style="width: 1020px; text-align: right; margin: 15px 0 0 0;">
-                            <a href="#"><img src="img/btn_close.gif"></a>
+                            <a style="cursor : pointer;"><img src="img/btn_close.gif"></a>
                         </div>
                     </div>
                 </li>
-                <li><a href="#" class="arrow">추천마법사</a>
+                <li><a style="cursor : pointer;" class="arrow">추천마법사</a>
                     <div id="jinylayer" class="slayer" style="width: 130px; display: none;">
                         <ul>
                             <li><a href="">마법사의 선택</a></li>
@@ -1437,8 +1829,8 @@
                         </ul>
                     </div>
                 </li>
-                <li><a href="#">베스트셀러</a></li>
-                <li><a href="#" class="arrow">새로나온 책</a>
+                <li><a style="cursor : pointer;">베스트셀러</a></li>
+                <li><a style="cursor : pointer;" class="arrow">새로나온 책</a>
                     <div id="newlayer" class="slayer" style="width: 105px; display: none;">
                         <ul>
                             <li><a href="">새로나온책</a></li>
@@ -1446,7 +1838,7 @@
                         </ul>
                     </div>
                 </li>
-                <li><a href="#" class="arrow">이벤트</a>
+                <li><a style="cursor : pointer;" class="arrow">이벤트</a>
                     <div id="newlayer" class="slayer" style="width: 120px; display: none;">
                         <ul>
                             <li><a href="">이벤트</a></li>
@@ -1456,7 +1848,7 @@
                         </ul>
                     </div>
                 </li>
-                <li><a href="#" class="arrow">추천도서</a>
+                <li><a style="cursor : pointer;" class="arrow">추천도서</a>
                     <div id="newlayer" class="slayer" style="width: 110px; display: none;">
                         <ul>
                             <li><a href="">추천도서</a></li>
@@ -1464,12 +1856,12 @@
                         </ul>
                     </div>
                 </li>
-                <li><a href="#">단한권 인쇄소 <span class="new">N</span></a></li>
-                <li><a href="#" class="tbc">투비컨티뉴드</a></li>
+                <li><a style="cursor : pointer;">단한권 인쇄소 <span class="new">N</span></a></li>
+                <li><a style="cursor : pointer;" class="tbc">투비컨티뉴드</a></li>
             </ul>
             <ul class="hbotright">
-                <li><a href="#">알라디너TV</a></li>
-                <li><a href="#">이 책의 한 문장</a>
+                <li><a style="cursor : pointer;">알라디너TV</a></li>
+                <li><a style="cursor : pointer;">이 책의 한 문장</a>
                     <div id="jinylayer" class="slayer" style="width: 130px; display: none;">
                         <ul>
                             <li><a href="">이 책의 한 문장</a></li>
@@ -1478,7 +1870,7 @@
                         </ul>
                     </div>
                 </li>
-                <li><a href="#">북펀드</a></li>
+                <li><a style="cursor : pointer;">북펀드</a></li>
             </ul>
         </div>
     </header>
@@ -1494,49 +1886,49 @@
                         <ul>
                             <li class="erelabelwrap">
                                 <span>무료배송</span>
-                                <a href="#"><span>소득공제</span></a>
+                                <a style="cursor : pointer;"><span>소득공제</span></a>
                             </li>
                             <li>
                                 <div>
                                     <span class="erebotitle">도시와 그 불확실한 벽</span>
-                                    <a href="#"><img src="img/icon_top_search.png" alt="" style="margin-bottom:-4px;"></a>
+                                    <a style="cursor : pointer;"><img src="img/icon_top_search.png" alt="" style="margin-bottom:-4px;"></a>
                                 </div>
                             </li>
                             <li class="eresub2title">
-                                <a href="#" class="eresub2title">무라카미 하루키</a>
+                                <a style="cursor : pointer;" class="eresub2title">무라카미 하루키</a>
                                 (지은이),
                                 <span class="erepr10"></span>
-                                <a href="#" class="eresub2title">홍은주</a>
+                                <a style="cursor : pointer;" class="eresub2title">홍은주</a>
                                 (옮긴이)
                                 <span class="erepr10"></span>
-                                <a href="#" class="eresub2title">문학동네</a>
+                                <a style="cursor : pointer;" class="eresub2title">문학동네</a>
                                 2023-09-06
                                 <span class="erepr10"></span>
-                                <a href="#" class="eresub2title">원제 : 街とその不確かな壁</a>
+                                <a style="cursor : pointer;" class="eresub2title">원제 : 街とその不確かな壁</a>
                             </li>
                         </ul>
                     </div>
                 </div>
                 <!-- SNS 공유 버튼 -->
                 <div class="right">
-                    <a href="#"><img src="img/btn_share.png"></a>
+                    <a style="cursor: pointer;"><img src="img/btn_share.png"></a>
                 </div>
                 <div class="ereclear"></div>
                 <div style="position:relative;z-index:101;float:right;margin-right:39%;">
                     <div id="divsnslayer" class="erelayersttit2" style="position: absolute; background-color: rgb(255, 255, 255); z-index: 101; top: -20px; display: none;">
                         <h3 class="eretextc"> 공유하기 </h3>
                         <div class="close2">
-                            <a href="#"><img src="img/btn_top_close1.png" alt=""></a>
+                            <a style="cursor: pointer;"><img src="img/btn_top_close1.png" alt=""></a>
                         </div>
                         <div class="erespace25"></div>
                         <div class="btlist1">
                             <ul>
-                                <li><a href="#"><img src="img/icon_facebook.jpg" alt=""><br>페이스북</a></li>
-                                <li><a href="#"><img src="img/icon_twitter.jpg" alt=""><br>트위터</a></li>
-                                <li><a href="#"><img src="img/icon_sms.jpg" alt=""><br>SMS 문자</a></li>
-                                <li><a href="#"><img src="img/icon_mail.jpg" alt=""><br>이메일</a></li>
-                                <li><a href="#"><img src="img/icon_printer.jpg" alt=""><br>프린트</a></li>
-                                <li><a href="#"><img src="img/icon_copy.jpg" alt=""><br>상품 정보복사</a></li>
+                                <li><a style="cursor : pointer;"><img src="img/icon_facebook.jpg" alt=""><br>페이스북</a></li>
+                                <li><a style="cursor : pointer;"><img src="img/icon_twitter.jpg" alt=""><br>트위터</a></li>
+                                <li><a style="cursor : pointer;"><img src="img/icon_sms.jpg" alt=""><br>SMS 문자</a></li>
+                                <li><a style="cursor : pointer;"><img src="img/icon_mail.jpg" alt=""><br>이메일</a></li>
+                                <li><a style="cursor : pointer;"><img src="img/icon_printer.jpg" alt=""><br>프린트</a></li>
+                                <li><a style="cursor : pointer;"><img src="img/icon_copy.jpg" alt=""><br>상품 정보복사</a></li>
                             </ul>
                         </div>
                         <div class="erespace10"></div>
@@ -1545,7 +1937,7 @@
                                 <input type="text" class="erelayershareforminput" value="http://aladin.kr/p/w4Hv2">
                             </div>
                             <div class="erelayersharebtn" style="height:  18px;">
-                                <a href="#">URL 복사</a>
+                                <a style="cursor : pointer;">URL 복사</a>
                             </div>
                         </div>
                     </div>
@@ -1615,10 +2007,352 @@
             </div>
             <!-- 서지 정보 -->
             <div class="ereprodbinfowrap">
+                <div class="info">
+                    <div><span class="pnewpricephs"><a style="cursor : pointer;">하루키 포스터/하이볼잔(각각 대상도서 구매 시/대상도서 포함 국내서<br>4만5천원 이상)</a></span></div>
+                    <div class="erespace30"></div>
+                    <div class="infolist">
+                        <ul>
+                            <li>
+                                <div class="litem">정가</div>
+                                <div class="ritem">19,500원</div>
+                            </li>
+                            <li>
+                                <div class="litemp">판매가</div>
+                                <div class="ritem ereht11">
+                                    <span class="erefs24">17,550</span>
+                                    원 (10%, 1,950원 할인)
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="infolist">
+                        <ul>
+                            <li>
+                                <div class="litem">마일리지</div>
+                                <div class="ritem">
+                                    970원(5%) + 
+                                    <span>멤버십(3~1%)</span>
+                                </div>
+                                <div class="ritem">
+                                    + 5만원이상 구매시 2,000원
+                                    <a style="cursor: pointer;"><img src="img/p_arrow_down.gif" alt="" class="parrowbtn"></a>
+                                    <div class="nppopup" style="position: absolute; right: 0px; display: none;">
+                                        <div class="erelayersttit2">
+                                            <h3 class="eretextc">추가 마일리지</h3>
+                                            <div class="close2">
+                                                <a style="cursor: pointer;"><img src="img/btn_top_close1.png" alt=""></a>
+                                            </div>
+                                            <div class="erespace30"></div>
+                                            <div class="erelayerstit">멤버십 마일리지</div>
+                                            <div class="btlist2">
+                                                <ul>
+                                                    <li>최근 3개월간 구매 총액을 기준으로 플래티넘, 골드, 실버<br>멤버십 등급을 부여하여, 3~1% 추가 마일리지를 드립니다. (단,<br>최대 정가제 국내도서(종이책+전자책) 외의 상품, 구매사은품<br>주문금액 만큼) 
+                                                        <div class="erebtnlayermore">
+                                                            <a style="cursor : pointer;">+ more</a>
+                                                        </div>
+                                                    </li>
+                                                    <li>상품/멤버십 마일리지는 현금성 결제 수단(쿠폰, 적립금 제외)<br>사용시 적립되며, 비현금성 결제 수단을 이용할 경우 사용액의<br>비율만큼 마일리지 적립이 제외됩니다.</li>
+                                                </ul>
+                                            </div>
+                                            <div class="erespace15"></div>
+                                            <div class="erelayerstit">5만원 이상 주문시 추가 마일리지</div>
+                                            <div class="btlist2">
+                                                <ul>
+                                                    <li>정가제 국내도서(종이책+전자책) 외의 상품, 구매사은품이<br>포함된 상품주문총액(배송료/선물포장비 제외)이 5만원<br>이상이면 최대 2,000점 마일리지를 추가로 적립해 드립니다. 
+                                                        <div class="erebtnlayermore">
+                                                            <a style="cursor : pointer;">+ more</a>
+                                                        </div>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="infolist" style="margin-top: -25px;">
+                        <ul>
+                            <li>
+                                <div class="litem">배송료</div>
+                                <div class="ritem">무료</div>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="infolist">
+                        <ul>
+                            <li>
+                                <div class="litem">
+                                    <a style="cursor : pointer;">
+                                        <div class="ytzposition">
+                                            <svg x="0px" y="0px" viewBox="0 0 60 60"><defs><mask id="clock_mask"><g><path fill="#fff" d="M30,55C16.2,55,5,43.8,5,30c0-9.5,5.4-17.9,13.3-22.1l-2.3-4.4C6.5,8.5,0,18.5,0,30c0,16.6,13.4,30,30,30s30-13.4,30-30h-5  C55,43.8,43.8,55,30,55z"></path></g></mask></defs><circle cx="30" cy="30" r="27.5" fill="#fff"></circle><circle cx="30" cy="30" r="3" fill="#ffaf25"></circle><path d="M30,5c13.8,0,25,11.2,25,25S43.8,55,30,55S5,43.8,5,30S16.2,5,30,5 M30,0C13.4,0,0,13.4,0,30s13.4,30,30,30 s30-13.4,30-30S46.6,0,30,0L30,0z" fill="#ffe38c"></path><g class="c_number" fill="#ffaf25" style="font-weight: bold; font-style: italic; font-size:12px; font-family:Malgun Gothic, Helvetica, sans-serif; letter-spacing:-2px;"><text x="45" y="35">3</text><text x="12" y="19">11</text></g><polygon class="c_hour" fill="#ffaf25" points="17,29 17,31 30,33 30,27" data-svg-origin="30 30" transform="matrix(0.57358,0.81915,-0.81915,0.57358,37.3671,-11.7819)" style="transform-origin: 0px 0px; opacity: 1;"></polygon><g mask="url(#clock_mask)"><path class="c_ani2" fill="none" style="stroke: rgb(255, 175, 37); stroke-width: 9.997; stroke-miterlimit: 10; stroke-dasharray: 150; stroke-dashoffset: 0.1498; opacity: 1;" d="M57.5,29.5c0,0-1,15-9,22s-24,8-33,2s-14-15-13-27s10-19,15-22"></path></g></svg>
+                                        </div>
+                                    </a>
+                                </div>
+                                <div class="ritem">
+                                    <a style="cursor : pointer;">
+                                        <span class="ytzdelivery">양탄자배송</span>
+                                    </a>
+                                    <br>
+                                    오후 12시까지 주문하면 밤 11시
+                                    <span class="ytztxt">잠들기전 배송</span>
+                                </div>
+                                <div class="ritem">
+                                    (중구 서소문로 89-31 기준)
+                                    <a style="cursor: pointer; user-select: none;" class="erefs14 eresubblue">지역변경</a>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                    <div id="addrinputtable" style="width: 500px; border: 2px solid rgb(65, 161, 221); position: absolute; background-color: rgb(255, 255, 255); display: none; z-index: 9999;">
+                        <div class="roadnamebg1">
+                            <table cellpadding="0" cellspacing="0" width="95%">
+                                <tbody>
+                                    <tr>
+                                        <td style="width:45%;padding:0;text-align:left"><img src="img/roadname_search_title.jpg"></td>
+                                        <td style="width:50%;padding:0">
+                                            <div style="clear:both"></div>
+                                        </td>
+                                        <td style="width:5%;padding:0;text-align:right"><a style="cursor: pointer;"><img src="img/roadname_search_close.jpg" alt="닫기"></a></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="roadnamesp1">
+                            <div class="t1">
+                                <span style="font-weight: bold;">검색어(도로명,건물명,지번)를 입력해주세요(지번+도로명 통합 검색)</span>
+                            </div>
+                            <div class="left1">
+                                <input type="text" class="roadnameinput" placeholder='예) "서소문로 89-31" 또는 "중구 순화동 2-6"'>
+                            </div>
+                            <div class="right1">
+                                <div class="buttonroadname"><a style="padding:11px 0px 11px 0px; cursor: pointer;">검색</a></div>
+                            </div>
+                            <div style="clear:both"></div>
+                            <div style="text-align:center; padding-top:15px"><img src="img/roadname_search_message.png" alt=""></div>
+                        </div>
+                    </div>
+                    <div class="infolist">
+                        <div class="erefs15 ereht18">
+                            <a style="cursor : pointer;" style="color: #333;">종합 주간 1위</a>
+                            , 종합 1위
+                            <strong>3주</strong>
+                            <span class="erepr10"></span>
+                            |
+                            <span class="erepr10"></span>
+                            <div style="display: inline-block;">
+                                Sales Point : 
+                                <strong>468,620</strong>
+                                <a style="cursor: pointer;"><img src="img/p_arrow_down.gif" alt="" class="parrowbtn2"></a>
+                                <div style="position: relative;">
+                                    <div style="position: absolute; left: -100px; top: 5px; display: none;" class="nppopup2">
+                                        <div class="erelayersttit2">
+                                            <h3 class="eretextc">세일즈 포인트</h3>
+                                            <div class="close2">
+                                                <a style="cursor: pointer;">
+                                                    <img src="img/btn_top_close1.png" alt="">
+                                                </a>
+                                            </div>
+                                            <div class="erespace20"></div>
+                                            <div class="btlist3">
+                                                <ul>
+                                                    <li>SalesPoint는 판매량과 판매기간에 근거하여 해당 상품의<br> 판매도를 산출한 알라딘만의 판매지수법입니다.</li>
+                                                    <li>최근 판매분에 가중치를 준 판매점수. 팔릴수록 올라가고 덜<br> 팔리면 내려갑니다. </li>
+                                                    <li>그래서 최근 베스트셀러는 높은 점수이며, 꾸준히 팔리는<br> 스테디셀러들도 어느 정도 포인트를 유지합니다.</li>
+                                                    <li> `SalesPoint`는 매일매일 업데이트됩니다. 
+                                                        <div class="erebtnlayermore">
+                                                            <a style="cursor : pointer;">+ more</a>
+                                                        </div>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="infolist erefs15 ereht18" style="user-select: none;">
+                            <a style="cursor : pointer;"><img src="img/icon_star9.png" alt="" style="margin-bottom: -4px;"></a>
+                            <a style="cursor: pointer;" class="eresubpink erefs16 erestr">8.8</a>
+                            <div id="divranklayer" style="padding: 0px; width: 442px; height: 243px; position: absolute; margin-top: 5px; background-color: white; z-index: 999; display: none;">
+                                <div class="erelayersttit2">
+                                    <div class="btlist3">
+                                        <a style="cursor : pointer;">76명이 리뷰를 남겨주셨습니다.
+                                            <img src="img/icon_next_gray.png" alt="" style="margin-bottom: -2px;">
+                                        </a>
+                                    </div>
+                                    <div class="close2">
+                                        <a style="cursor: pointer;"><img src="img/btn_top_close1.png" alt=""></a>
+                                    </div>
+                                    <div class="erespace10"></div>
+                                    <div class="starlist">
+                                        <table width="100%" cellspacing="0" cellpadding="0">
+                                            <tbody>
+                                                <tr>
+                                                    <td class="tbleft">
+                                                        <img src="img/icon_star_on.png" style="margin-bottom:-4px;"> <img src="img/icon_star_on.png" style="margin-bottom:-4px;"><img src="img/icon_star_on.png" style="margin-bottom:-4px;"><img src="img/icon_star_on.png" style="margin-bottom:-4px;"><img src="img/icon_star_on.png" style="margin-bottom:-4px;">
+                                                    </td>
+                                                    <td class="tbright">
+                                                        <div class="bar" id="rank5" style="width:53.7%;"><img src="img/analysis_bg1.png"></div>
+                                                        <div class="per">63.2%</div>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="tbleft">
+                                                        <img src="img/icon_star_on.png" style="margin-bottom:-4px;"> <img src="img/icon_star_on.png" style="margin-bottom:-4px;"><img src="img/icon_star_on.png" style="margin-bottom:-4px;"><img src="img/icon_star_on.png" style="margin-bottom:-4px;"><img src="img/icon_star_off.png" style="margin-bottom:-4px;">
+                                                    </td>
+                                                    <td class="tbright">
+                                                        <div class="bar" id="rank4" style="width:17.9%;"><img src="img/analysis_bg1.png"></div>
+                                                        <div class="per">21.1%</div>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="tbleft">
+                                                        <img src="img/icon_star_on.png" style="margin-bottom:-4px;"> <img src="img/icon_star_on.png" style="margin-bottom:-4px;"><img src="img/icon_star_on.png" style="margin-bottom:-4px;"><img src="img/icon_star_off.png" style="margin-bottom:-4px;"><img src="img/icon_star_off.png" style="margin-bottom:-4px;">
+                                                    </td>
+                                                    <td class="tbright">
+                                                        <div class="bar" id="rank3" style="width:10.1%;"><img src="img/analysis_bg1.png"></div>
+                                                        <div class="per">11.8%</div>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="tbleft">
+                                                        <img src="img/icon_star_on.png" style="margin-bottom:-4px;"> <img src="img/icon_star_on.png" style="margin-bottom:-4px;"><img src="img/icon_star_off.png" style="margin-bottom:-4px;"><img src="img/icon_star_off.png" style="margin-bottom:-4px;"><img src="img/icon_star_off.png" style="margin-bottom:-4px;">
+                                                    </td>
+                                                    <td class="tbright">
+                                                        <div class="bar" id="rank2" style="width:1.1%;"><img src="img/analysis_bg1.png"></div>
+                                                        <div class="per">1.3%</div>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="tbleft">
+                                                        <img src="img/icon_star_on.png" style="margin-bottom:-4px;"> <img src="img/icon_star_off.png" style="margin-bottom:-4px;"><img src="img/icon_star_off.png" style="margin-bottom:-4px;"><img src="img/icon_star_off.png" style="margin-bottom:-4px;"><img src="img/icon_star_off.png" style="margin-bottom:-4px;">
+                                                    </td>
+                                                    <td class="tbright">
+                                                        <div class="bar" id="rank1" style="width:2.2%;"><img src="img/analysis_bg1.png"></div>
+                                                        <div class="per">2.6%</div>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                            <span class="erepr10"></span>
+                            <a style="cursor : pointer;">100자평(55)</a>
+                            <span class="erepr10"></span>
+                            <a style="cursor : pointer;">리뷰(24)</a>
+                            <span class="erepr10"></span>
+                            <div class="erebtnthisbook">
+                                <a style="cursor : pointer;">이 책 어때요?</a>
+                            </div>
+                        </div>
+                        <div class="infolist" style="margin-bottom:10px;">
+                            <ul>
+                                <li>
+                                    <div class="litem">전자책</div>
+                                    <div class="ritem">
+                                        <a style="cursor : pointer;">12,600원
+                                            <img src="img/p_arrow_right.gif" alt="" class="parrowbtn3" style="margin: 0 0 -3px 4px;">
+                                        </a>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="erespace15"></div>
+                    <div class="infolist2">
+                        <ul>
+                            <li>
+                                <a style="cursor : pointer;" class="eresubblue">카드/간편결제 할인
+                                    <img src="img/p_arrow_right.gif" alt="" class="parrowbtn4" style="margin: 0 0 -3px 4px;">
+                                </a>
+                            </li>
+                            <li>
+                                <a style="cursor : pointer; user-select: none;" class="eresubblue2">무이자 할부
+                                    <img src="img/p_arrow_down.gif" alt="" class="parrowbtn4" style="margin: 0 0 -3px 4px;">
+                                </a>
+                                <div id="helpfreeinterest" style="position: absolute; right: 0px; z-index: 1; display: none;">
+                                    <div class="erelayersttit2" style="background-color:white;height:290px;">
+                                        <h3 class="eretextc">무이자 할부 안내</h3>
+                                        <div class="close2">
+                                            <a style="cursor: pointer;">
+                                                <img src="img/btn_top_close1.png" alt="">
+                                            </a>
+                                        </div>
+                                        <div class="erespace20"></div>
+                                        <div class="btlist2">
+                                            <ul>
+                                                <li>
+                                                    * 2~3개월 무이자 : 신한, 국민,현대,롯데,하나,삼성 
+                                                    <br>
+                                                    * 2~4개월 무이자 : 농협
+                                                    <br>
+                                                    * 2~4개월 무이자 : 비씨, 우리
+                                                    <br><br>
+                                                    ※ 제휴 신용카드 결제시 무이자+제휴카드 혜택 가능합니다.
+                                                    <br>
+                                                    ※ 오프라인결제/Non ActiveX 결제(간편결제)/카카오페이/<br>네이버페이/페이코 등 간편결제/법인/체크/선불/기프트/<br>문화누리/은행계열카드/ 알라딘 캐시와 같은 정기과금 결제<br>등은 행사대상에서 제외됩니다.
+                                                    <br>
+                                                    ※ 무이자할부 결제 시 카드사 포인트 적립에서 제외될 수<br>있습니다.
+                                                    <br>
+                                                    ※ 본 행사는 카드사 사정에 따라 변경 또는 중단될 수 있습니다.
+                                                    <br>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <a style="cursor : pointer; user-select: none;" class="eresubblue3">소득공제 790원
+                                    <img src="img/p_arrow_down.gif" alt="" class="parrowbtn5" style="margin: 0 0 -3px 4px;">
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="ereclear erespace30">
+                        <div id="helpdeduct" style="position: absolute; display: none;" class="nppopup3">
+                            <div class="erelayersttit2">
+                                <h3 class="eretextc">세액 절감액</h3>
+                                <div class="close2">
+                                    <a style="cursor: pointer;">
+                                        <img src="img/btn_top_close1.png" alt="">
+                                    </a>
+                                </div>
+                                <div class="erespace20"></div>
+                                <div class="btlist2">
+                                    <ul>
+                                        <li>2018.7.1부터 총급여 7천만 원 이하 근로소득자 중 신용/<br>직불카드 사용액이 총 급여의 25% 이상인 경우 소득공제가<br>가능합니다.</li>
+                                        <li>책 구입비에 대해 공제율 30%, 연 100만 원까지 추가<br>소득공제가 가능합니다. </li>
+                                        <li>세액절감액 : 도서구입비 x 공제율 (30%, 공통) x 과세표준세율<br>(15% 기준,구간별) </li>
+                                    </ul>
+                                </div>
+                                <div class="erespace15"></div>
+                                <div class="erelayerstit">구간별 과세표준세율</div>
+                                <div class="erelayertablebox">
+                                    <table width="100%" cellspacing="0" cellpadding="0">
+                                        <tbody>
+                                                <tr>
+                                                    <th width="33%">1,200만원 이하</th>
+                                                    <th width="33%">1,200만원 ~ 4,600만원</th>
+                                                    <th width="33%">4,600만원 ~ 7,000만원</th>
+                                                </tr>
+                                                <tr>
+                                                    <td width="33%">6%</td>
+                                                    <td width="33%">15%</td>
+                                                    <td width="33%">24%</td>
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
 
+                </div>
             </div>
         </div>
-
     </div>
 
 

@@ -56,13 +56,13 @@ table, tr, td, select, input {
     line-height: 18px;
 }
 
-tbody {
+header tbody {
     display: table-row-group;
     vertical-align: middle;
     border-color: inherit;
 }
 
-table {
+header table {
     border-collapse: separate;
     text-indent: initial;
     border-spacing: 2px;
