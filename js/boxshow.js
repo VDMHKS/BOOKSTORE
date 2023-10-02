@@ -72,3 +72,45 @@ $(function(){
         $("#helpdeduct").css("display", "none")
     })
 })
+
+
+/* 장바구니 담기 버튼 */
+$(function(){
+    $(".erebtncart a").click(function(){
+        $("#tobasketlayer").fadeIn(200);
+        setTimeout(function () {
+            $("#tobasketlayer").fadeOut(200);
+        }, 3000); 
+    })
+    $("#tobasketlayer .close2").click(function(){
+        $("#tobasketlayer").fadeOut(200);
+    })
+})
+
+
+/* 선물하기 버튼 */
+$(function(){
+    $("#btnpresent a").click(function(){
+        $("#tbgiftbooklayer").css("display", "block");
+    })
+    $("#tbgiftbooklayer .close2").click(function(){
+        $("#tbgiftbooklayer").fadeOut(200);
+    })
+    $("#btnpresent a, #tbgiftbooklayer").mouseenter(function(){
+        $("#tbgiftbooklayer").stop().css("display", "block");
+    })
+    $("#btnpresent a, #tbgiftbooklayer").mouseleave(function(){
+        $("#tbgiftbooklayer").stop().css("display", "none");
+    })
+})
+
+
+/* 보관함 버튼 */
+$(function(){
+    $("#btnsavebasket a, layersavebasket").mouseenter(function(){
+        $("#layersavebasket").stop().css("display", "block");
+    })
+    $("#btnsavebasket a, layersavebasket").mouseleave(function(){
+        $("#layersavebasket").stop().css("display", "none");
+    })
+})
