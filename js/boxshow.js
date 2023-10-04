@@ -90,9 +90,6 @@ $(function(){
 
 /* 선물하기 버튼 */
 $(function(){
-    $("#btnpresent a").click(function(){
-        $("#tbgiftbooklayer").css("display", "block");
-    })
     $("#tbgiftbooklayer .close2").click(function(){
         $("#tbgiftbooklayer").fadeOut(200);
     })
@@ -112,5 +109,27 @@ $(function(){
     })
     $("#btnsavebasket a, layersavebasket").mouseleave(function(){
         $("#layersavebasket").stop().css("display", "none");
+    })
+})
+
+
+/* 중고로 팔기 버튼 */
+$(function(){
+    $("#usedsales").mouseenter(function(){
+        $("#usedsell").stop().css("display", "block");
+    })
+    $("#usedsales").mouseleave(function(){
+        $("#usedsell").stop().css("display", "none");
+    })
+})
+
+
+/* 1대1 문의 버튼 */
+$(function(){
+    $(".infomore, #divoneononequestion").mouseenter(function(){
+        $("#divoneononequestion").stop().css("display", "block");
+    })
+    $(".infomore, #divoneononequestion").mouseleave(function(){
+        $("#divoneononequestion").stop().css("display", "none");
     })
 })

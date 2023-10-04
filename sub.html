@@ -25,6 +25,9 @@
     <!-- 책 구매 수량 -->
     <script src="js/bookquantity.js"></script>
 
+    <!-- 이벤트 슬라이더 -->
+    <script src="js/eventswipe.js"></script>
+
     <style>
 
         #ereprodallwrap {
@@ -38,6 +41,10 @@
 
         a {
             color: #333;
+        }
+
+        b {
+            font-weight: bold;
         }
 
 
@@ -418,7 +425,6 @@
             justify-content: center;
             align-items: center;
         }
-        
 
         .ereprodbcoverwrap .swiperwrapper {
             transform-style:preserve-3d;
@@ -787,7 +793,6 @@
             font-weight: 600;
         }
 
-
         .erefs16 {
             font-size: 16px;
         }
@@ -1001,7 +1006,7 @@
         }
 
         .erebtncart a:hover {
-            background: #be296c;
+            background: #c82370;
         }
 
         .erebtnbuyitnow {
@@ -1034,11 +1039,15 @@
         }
 
         .erebtnbuyitnow a:hover {
-            background: #cf3e4f;
+            background: #cd394d;
         }
 
         #btnpresent {
             margin-bottom: 3px;
+        }
+
+        #btnpresent a:hover {
+            background-color: #fafafa;
         }
 
         .erebtngift {
@@ -1160,7 +1169,7 @@
         }
 
         .ereglayerbtnbuyitnow a:hover {
-            background: #cc3e4f;
+            background: #cd394d;
         }
 
         .erefeedbackbtncart2 {
@@ -1195,7 +1204,7 @@
         }
 
         .erefeedbackbtncart2 a:hover {
-            background: #fbfbfb;
+            background-color: #fafafa;
         }
 
         .erelayersttit3 .cont {
@@ -1228,7 +1237,40 @@
         }
 
         .erelayerstlist ul li:hover {
-            background-color: #f0f0f0;
+            background-color: #fafafa;
+        }
+
+        .erelayerstlist ul li a {
+            display: block;
+            padding: 12px 18px;
+            color: #333;
+        }
+
+        #btnsavebasket a:hover {
+            background-color: #fafafa;
+        }
+
+        .eremsgbox {
+            padding: 15px 20px 15px 20px;
+            background-color: #f5f5f5;
+        }
+
+        .eremsgbox ul {
+            margin: 0;
+            padding: 0;
+        }
+
+        .eremsgbox ul li:last-child {
+            padding: 0;
+        }
+
+        .eremsgbox ul li {
+            list-style: none;
+            text-align: left;
+            font-size: 14px;
+            color: #ef3b96;
+            line-height: 1.4;
+            letter-spacing: -0.02em;
         }
 
         .ereprodbinfowrap .infolist3 {
@@ -1238,6 +1280,535 @@
             margin: 0 0 25px 0;
             width: 450px;
         }
+
+        .ereprodbinfowrap .infolist3 ul {
+            padding: 0;
+            margin: 0;
+        }
+
+        .ereprodbinfowrap .infolist3 ul li {
+            list-style: none;
+            padding: 0 2% 0 0;
+            margin: 0;
+            float: left;
+        }
+
+        .eresubgray2 {
+            color: #222;
+            line-height: 1.5;
+        }
+
+        #usedsales > a:hover {
+            text-decoration: underline;
+        }
+
+        .erelayerstlist2 {
+            margin: 0;
+            background: #fff;
+            padding: 0;
+            border: 1px solid #ccc;
+            box-shadow: 0 1px 1px #ccc;
+            font-family: malgun, "Malgun Gothic", Dotum, 돋움, sans-serif;
+            width: 180px;
+        }
+
+        .erelayerstlist2 ul li {
+            border-bottom: 1px solid #e5e5e5;
+            font-size: 15px;
+        }
+
+        .erelayerstlist2 ul li a {
+            display: block;
+            padding: 12px 18px;
+            color: #333;
+        }
+
+        .ereprodbinfowrap .infomore {
+            float: right;
+            padding: 0;
+            margin: 0;
+            text-align: right;
+            width: 50px;
+        }
+
+        .erelayersttit1 {
+            margin: 0;
+            padding: 15px;
+            background: #fff;
+            border: 1px solid #ccc;
+            box-shadow: 0 1px 1px #ccc;
+            font-family: malgun, "Malgun Gothic", Dotum, 돋움, sans-serif;
+            width: 150px;
+        }
+
+        .erelayersttit1 h3 {
+            margin: 0;
+            padding: 0;
+            font-size: 15px;
+            color: #444;
+        }
+
+        .erelayersttit1 .btlist {
+            margin: 15px 0 5px 0;
+            padding: 0;
+        }
+
+        .erelayersttit1 .btlist ul {
+            margin: 0;
+            padding: 0;
+        }
+        
+        .erelayersttit1 .btlist ul li {
+            list-style: none;
+            background: url('img/icon_dot1.png') no-repeat 0 7px;
+            margin: 0;
+            padding: 0 0 8px 10px;
+            font-size: 14px;
+        }
+
+        .erelayersttit1 .btlist ul li a {
+            color: #333;
+        }
+
+        .btlist ul li a:hover {
+            color: #0086cd;
+        }
+
+        .erespace50 {
+            margin: 0;
+            padding: 0;
+            height: 50px;
+        }
+
+
+        /* 상단 광고 배너 */
+
+        .ereprodhalfbannerwrap {
+            width: 1060px;
+            height: 115px;
+            margin: 0 auto;
+            padding: 0;
+            overflow: hidden;
+        }
+
+        .ereprodhalfbannerleft {
+            background: #eeeeee;
+            float: left;
+            width: 489px;
+            margin: 0;
+            padding: 0 20px;
+        }
+
+        .ereprodhalfbannerleft img {
+            width: 100%;
+        }
+
+        .ereprodhalfbannerright {
+            background: #d1f2f9;
+            float: right;
+            width: 489px;
+            margin: 0;
+            padding: 0 20px;
+        }
+
+        .erespace60 {
+            margin: 0;
+            padding: 0;
+            height: 60px;
+        }
+
+
+        /* 컨텐츠 */
+
+        .ereprodmiddlewrap {
+            width: 1060px;
+            margin: 0 auto;
+            padding: 0;
+        }
+
+        .ereprodmcontsbox {
+            margin: 0;
+            padding: 0;
+            position: relative;
+            text-align: left;
+        }
+
+        .ereprodmcontsll {
+            display: block;
+            position: absolute;
+            left: 0;
+            margin: 0;
+            padding: 5px 100px 0 0;
+            width: 150px;
+            font-family: malgun, "Malgun Gothic", Dotum, 돋움, sans-serif;
+            color: #222;
+            font-size: 21px;
+            line-height: 1.4;
+            letter-spacing: -0.02em;
+            text-align: left;
+        }
+
+        .ereprodmcontsr {
+            width: 810px;
+            float: left;
+            margin: 0 0 0 250px;
+            padding: 5px 0 0px 0;
+            font-family: malgun, "Malgun Gothic", Dotum, 돋움, sans-serif;
+            color: #333;
+            font-size: 15px;
+            line-height: 1.8;
+            letter-spacing: -0.02em;
+            text-align: left;
+        }
+
+        .ereprodmcontsr a {
+            color: #333;
+        }
+
+        .ereprodmcontsr .contsinfolist1 {
+            clear: both;
+            padding: 0;
+            margin: 0;
+        }
+
+        .ereprodmcontsr .contsinfolist1 ul {
+            padding: 0;
+            margin: 0;
+        }
+
+        .ereprodmcontsr .contsinfolist1 ul li {
+            list-style: none;
+            padding: 0 25px 0 0;
+            margin: 0;
+            float: left;
+            color: #333;
+        }
+
+        .ereprodmcontsr .contstleft {
+            float: left;
+        }
+
+        .erepb10 {
+            padding-bottom: 10px;
+        }
+
+        .erebtncheck {
+            display: inline-block;
+            padding: 0;
+            vertical-align: middle;
+            text-align: center;
+            overflow: hidden;
+            text-decoration: none;
+            cursor: pointer;
+            background: #ffffff;
+            border: 1px solid #c8c8c8;
+        }
+
+        .erebtncheck a {
+            outline: 0;
+            color: #555;
+            font-size: 13px;
+            font-weight: bold;
+            font-family: malgun, "Malgun Gothic", Dotum, 돋움, sans-serif;
+            line-height: 1.5;
+            display: block;
+            white-space: nowrap;
+            margin: 0;
+            padding: 1px 7px 4px 7px;
+            letter-spacing: -0.02em;
+        }
+
+        .erebtncheck a:hover {
+            text-decoration: underline;
+        }
+
+        .ereprodmcontsr .contsinfolist2 {
+            clear: both;
+            padding: 0;
+            margin: 0;
+        }
+
+        .ereprodmcontsr .contsinfolist2 ul {
+            padding: 0;
+            margin: 0;
+        }
+
+        .ereprodmcontsr .contsinfolist2 ul li {
+            list-style: none;
+            background: url('img/icon_dot1.png') no-repeat 0 9px;
+            margin: 0;
+            padding: 0 0 6px 10px;
+            color: #333;
+            letter-spacing: -0.02em;
+        }
+
+        .ereprodmcontsr .contsinfolist2 ul li a {
+            color: #333;
+        }
+
+        #ulcategory a:hover {
+            text-decoration: underline;
+        }
+
+        .ereline2 {
+            margin: 45px 0 40px 0;
+            padding: 0;
+            border-top: 1px solid #d5d5d5;
+        }
+
+        .ereprodmcontsbox::after {
+            content: '';
+            display: block;
+            clear: both;
+        }
+
+        .erefs18 {
+            font-size: 18px;
+        }
+
+        .eresubgray3 {
+            color: #333;
+            text-decoration: none;
+            line-height: 1.6;
+            letter-spacing: -0.02em;
+        }
+
+        .erept10 {
+            padding-top: 10px;
+        }
+
+        .eretextr {
+            text-align: right;
+        }
+
+        .ereprodmcontsr .contsinfolist6 {
+            clear: both;
+            padding: 0;
+            margin: 0;
+        }
+
+        .ereprodmcontsr .contsinfolist6 ul {
+            padding: 0;
+            margin: 0;
+            height: 264.219px;
+        }
+
+        @keyframes fadeInRight {
+            0% {
+                opacity: 1;
+                transform: translate3d(+100%, 0, 0);
+            }
+            to {
+                opacity: 1;
+                transform: translateZ(0);
+            }
+        }
+
+        #swiperitemevent ul {
+            position: relative;
+            animation: fadeInRight 0.5s;
+        }
+
+        .ereprodmcontsr .contsinfolist6 ul li {
+            list-style: none;
+            padding: 0 6px 0 0;
+            width: 266px;
+            text-align: left;
+            margin: 0;
+            float: left;
+        }
+
+        .ereprodmcontsr .contsinfolist6 ul li:last-child {
+            padding: 0 0 0 0;
+        }
+
+        .ereprodmcontsr .contsinfolist6 ul li img {
+            width: 266px;
+        }
+
+        .ereprodmcontsr .eventtit {
+            margin: 0;
+            padding: 5px;
+            text-align: left;
+            color: #333;
+            font-size: 15px;
+            line-height: 1.5;
+        }
+
+        .erespace5 {
+            margin: 0;
+            padding: 0;
+            height: 5px;
+        }
+
+        .ereprodmcontsr .eventnav {
+            margin: 0;
+            padding: 5px 0 0 0;
+            text-align: center;
+        }
+
+        .ereprodmcontsr .eventnav span {
+            outline: 0;
+        }
+
+        .swiperbullet {
+            width: 14px;
+            height: 14px;
+            margin: 0 10px;
+            cursor: pointer;
+            display: inline-block;
+            border-radius: 50%;
+            background: #000;
+            opacity: 0.2;
+        }
+
+        .swiperbulletactive {
+            opacity: 1 !important;
+            background: #333333 !important;
+        }
+
+        .ereprodmcontsr .fsentencebox {
+            margin: 0;
+            padding: 0;
+        }
+
+        .ereprodmcontsr .fsentencebox .fsentitle {
+            margin-right: 15px;
+            background-color: #f6f6f6;
+            width: 100px;
+            height: 60px;
+            border-radius: 50%;
+            -webkit-border-radius: 50%;
+            -moz-border-radius: 50%;
+            text-align: center;
+            padding-top: 40px;
+            font-size: 18px;
+            font-family: 나눔명조, Nanum Myeongjo;
+            font-style: italic;
+            color: #000;
+        }
+
+        .ereprodmcontsr .fsentencebox .fsenconts {
+            margin: 0px;
+            padding: 0px 0 0px 0;
+            background: url('img/line_bg.png') repeat-x top left;
+            width: 680px;
+            font-size: 18px;
+            font-family: 나눔명조, Nanum Myeongjo, sans-serif;
+            line-height: 1.7;
+            color: #333;
+            letter-spacing: -0.02em;
+        }
+
+        .ereprodmcontsr .linelist {
+            clear: both;
+            padding: 0;
+            margin: 0 0 0px 0;
+        }
+
+        .ereprodmcontsr .linelist ul {
+            padding: 0;
+            margin: 0;
+        }
+
+        .ereprodmcontsr .linelist ul li {
+            list-style: none;
+            position: relative;
+            padding: 0 0 15px 0;
+            margin: 0;
+        }
+
+        .ereprodmcontsr .linelist ul li .rconts2 {
+            width: 100%;
+            line-height: 1.8;
+            color: #333;
+            letter-spacing: -0.02em;
+            font-family: malgun, "Malgun Gothic", Dotum, 돋움, sans-serif;
+            font-size: 15px;
+        }
+
+        .ereprodmcontsr .linelist ul li .rconts2 .page {
+            padding-right: 5px;
+            color: #3885c9;
+            text-decoration: none;
+            font-size: 17px;
+            font-family: myriad;
+            font-style: italic;
+            letter-spacing: -0.02em;
+        }
+
+        .ereprodmcontsr .linelist ul li .rconts2 span {
+            display: block;
+        }
+
+        .erebtnmore {
+            display: inline-block;
+            padding: 0;
+            vertical-align: middle;
+            text-align: center;
+            overflow: hidden;
+            text-decoration: none;
+            cursor: pointer;
+            background: #f3f3f3;
+            border: 0;
+            width: 100%;
+            text-align: center;
+        }
+
+        .erebtnmore a {
+            outline: 0;
+            color: #444;
+            font-size: 13px;
+            font-weight: bold;
+            font-family: malgun, "Malgun Gothic", Dotum, 돋움, sans-serif;
+            line-height: 1.5;
+            display: block;
+            white-space: nowrap;
+            margin: 0;
+            padding: 8px 0px 10px 0px;
+        }
+
+        .erebtnmore a:hover {
+            margin: 0;
+            background: #ececec;
+            color: #009ef8;
+        }
+        
+        .erebtnmore a:hover strong {
+            transform: translateY(3px);
+        }
+
+        .erebtnmore a:hover .morearrow::after {
+            color: #009ef8;
+            transform: rotate(135deg) translate(2px, -2px);
+        }
+
+        .erebtnmore a strong {
+            display: inline-block;
+            transition: 0.2s;
+        }
+
+        .morearrow {
+            display: inline;
+            position: relative;
+            margin-left: 5px;
+        }
+
+        .morearrow::after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            top: -1px;
+            margin: auto;
+            width: 7px;
+            height: 7px;
+            border-top: 1px solid;
+            border-right: 1px solid;
+            color: #000;
+            transform: rotate(135deg);
+            transition: 0.2s;
+        }
+
     </style>
 </head>
 
@@ -2739,16 +3310,396 @@
                             </ul>
                         </div>
                     </div>
+                    <div class="ereclear"></div>
+                    <div class="erespace10"></div>
+                    <div class="eremsgbox">
+                        <ul>
+                            <li>양장본 종료되었습니다.</li>
+                        </ul>
+                    </div>
                     <div class="erespace30"></div>
                     <div class="infolist3">
                         <ul>
-
-                            
+                            <li>
+                                <a style="cursor: pointer;" class="eresubgray2 erefs14">중고 등록알림 신청<img src="img/p_arrow_right.gif" alt="" class="parrowbtn">
+                                </a>
+                            </li>
+                            <li id="usedsales">
+                                <a style="cursor: pointer;" class="eresubgray2 erefs14">중고로 팔기<img src="img/p_arrow_right.gif" alt="" class="parrowbtn">
+                                </a>
+                                <div style="position: relative;">
+                                    <div id="usedsell" class="erelayerstlist2" style="position: absolute; background-color: white; z-index: 999; display: none;">
+                                        <ul>
+                                            <li style="width: 100%;">
+                                                <a style="cursor: pointer;">알라딘에 팔기</a>
+                                                <div id="gatelayer" style="margin-top: 0px; margin-left: -10px;" class="gatelayer"></div>
+                                            </li>
+                                            <li style="width: 100%;">
+                                                <a style="cursor: pointer;">회원에게 팔기</a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </li>
                         </ul>
                         <div class="ereclear"></div>
                     </div>
+                    <div id="oneononequestion">
+                        <div class="infomore">
+                            <a style="cursor: pointer;"><img src="img/btn_more.png" style="margin-top: -5px;"></a>
+                        </div>
+                        <div style="position: relative; float: right;">
+                            <div id="divoneononequestion" class="erelayersttit1" style="position: absolute; background-color: white; z-index: 999; top: 28px; margin-left: -130px; display: none;">
+                                <h3>1:1 문의하기</h3>
+                                <div class="btlist">
+                                    <ul>
+                                        <li><a style="cursor: pointer;">분류 요청하기</a></li>
+                                        <li><a style="cursor: pointer;">품절/절판</a></li>
+                                        <li><a style="cursor: pointer;">출고 예상시간</a></li>
+                                        <li><a style="cursor: pointer;">가격 정보</a></li>
+                                        <li><a style="cursor: pointer;">상품상세정보</a></li>
+                                        <li><a style="cursor: pointer;">오탈자 신고</a></li>
+                                        <li><a style="cursor: pointer;">리뷰 신고</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="ereclear"></div>
                 </div>
             </div>
+            <div class="ereclear"></div>
+        </div>
+
+        <div class="erespace50"></div>
+
+        <div class="ereprodhalfbannerwrap">
+            <div class="ereprodhalfbannerleft">
+                <a style="cursor: pointer;">
+                    <img src="img/230927_haruki_ptop.jpg" alt="">
+                </a>
+            </div>
+            <div class="ereprodhalfbannerright" style="background-color:#D1F2F9FF;">
+                <a style="cursor: pointer;">
+                    <img src="img/230830_bookfund_1945_ps.jpg" alt="">
+                </a>
+            </div>
+            <div class="ereclear"></div>
+        </div>
+
+        <div class="erespace60"></div>
+
+        <div class="ereprodmiddlewrap">
+
+            <div class="ereprodmcontsbox">
+                <div class="ereprodmcontsll">기본정보 </div>
+                <div class="ereprodmcontsr">
+                    <div class="contsinfolist1">
+                        <ul>
+                            <li>양장본</li>
+                            <li>768쪽</li>
+                            <li>128*188mm (B6)</li>
+                            <li>1075g</li>
+                            <li>ISBN : 9788954699075</li>
+                        </ul>
+                    </div>
+                    <div class="ereclear erespace20"></div>
+                    <div class="contstleft erefs16 erepb10">
+                        <strong>주제 분류</strong>
+                        <div class="erebtncheck" style="margin-left: 4px;">
+                            <a style="cursor: pointer;">신간알리미 신청</a>
+                        </div>
+                    </div>
+                    <div class="contsinfolist2">
+                        <ul id="ulcategory">
+                            <li>
+                                <a style="cursor: pointer;">국내도서 </a>
+                                > 
+                                <a style="cursor: pointer;">소설/시/희곡 </a>
+                                > 
+                                <a style="cursor: pointer;">일본소설 </a>
+                                > 
+                                <a style="cursor: pointer;"><b>1950년대 이후 일본소설</b></a>
+                            </li>
+                            <li>
+                                <a style="cursor: pointer;">국내도서 </a>
+                                > 
+                                <a style="cursor: pointer;">소설/시/희곡 </a>
+                                > 
+                                <a style="cursor: pointer;">세계의 문학 </a>
+                                > 
+                                <a style="cursor: pointer;"><b>일본문학</b></a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="ereline2"></div>
+                </div>
+                <div class="ereclear"></div>
+            </div>
+
+            <div class="ereprodmcontsbox">
+                <div class="ereprodmcontsll">편집장의 선택</div>
+                <div class="ereprodmcontsr">
+                    <div class="erefs18 eresubgray3 erestr">"무라카미 하루키 최신작"</div>
+                    <div class="erespace10"></div>
+                    어느 여름 석양빛 아래 선명히 남은 기억이 소년에게 있다. "진짜 내가 사는 곳은 높은 벽에 둘러싸인 도시 안이야." 소녀는 말했다. 소년과 함께 이곳에 있는 자신은 실제 자신이 아니며 대역이나 흘러가는 그림자와 같은 거라고. 소녀가 사는 도시에는 시간이 없고 시계에도 시곗바늘이 달려 있지 않으며, 진짜 자신은 그곳에서 밤의 도서관에 머문다고 했다.
+                    <br>
+                    <br>
+                    그 도시에 들어가기 위해서는 소년에게 소중한 것들을 버려야 할 수도 있고 아주 많은 시간이 걸릴지도 모른다고 했다. 그러나 어떻게든 도시에 도착한다면 소년을 위한 자리가 딱 한자리 마련되어 있을 거라고 했다. 매일 밤 도서관에 보관된 무수히 많은 오래된 꿈을 읽는 사람. '꿈 읽는 이'로 살아가게 될 것이라고. 돌연 소녀가 사라진 후, 소년은 몇 번이고 기억을 재생하며 그 도시에 갈 수 있기만을 간절히 바랐다. 그곳에서 진짜 소녀를 만날 수 있기를. 그렇게 오랜 시간을 기다린 끝에 그는 결국 견고하고 높은 돌벽으로 둘러싸인 도시를 찾아낸다. 
+                    <br>
+                    <br>
+                    <도시와 그 불확실한 벽>은 30대의 무라카미 하루키가 한 문예지에 중편소설로 발표한 후 43년이 흐른 끝에 3부 구성의 장편소설로 완성해낸 작품이다. 작가 후기에서 "이 작품에는 무언가 나에게 매우 중요한 요소가 포함되어 있다고, 처음부터 그렇게 느껴왔다. 다만 당시의 나는 유감스럽게도 아직 그 무언가를 충분히 써낼 만큼의 필력을 갖추지 못했다"며 "나에게 이 작품은 줄곧 목에 걸린 생선 가시처럼 신경쓰이는 존재였으므로 이 작품을 완성한 지금 솔직히 마음이 무척 편안해졌다"고 직접 고백할 정도로 하루키의 작품세계에 있어 중요한 위치를 점하는 소설이다.
+                    <div class="eresubblue eretextr erept10">- 소설 MD 권벼리 (2023.09.08)</div>
+                    <div class="ereline2"></div>
+                </div>
+                <div class="ereclear"></div>
+            </div>
+
+            <div class="ereprodmcontsbox">
+                <div class="ereprodmcontsll">출판사 제공 <br>북트레일러</div>
+                <div class="ereprodmcontsr">
+                    <div>
+                        <a id="bookview">
+                            <iframe width="100%" height="450" src="https://www.youtube.com/embed/U_uG-E7PkHE?si=6JwFbPK07NQrtBc-" frameborder="0" allowfullscreen=""></iframe>
+                            <br>
+                            <br>
+                        </a>
+                    </div>
+                    <div class="ereline2"></div>
+                </div>
+                <div class="ereclear"></div>
+            </div>
+
+            <div class="ereprodmcontsbox">
+                <div class="ereprodmcontsll">이벤트 </div>
+                <div class="ereprodmcontsr">
+                    <div id="swiperitemevent" class="contsinfolist6 swipercontainer swipercontainerhorizontal">
+                        <div class="swiperwrapper">
+                            <ul class="swiperslide" style="width: 810px; display: block;">
+                                <li>
+                                    <a style="cursor: pointer;">
+                                        <img src="img/m_231004_haruki_p.jpg" alt="">
+                                        <div class="eventtit">무라카미 하루키 에코백.하이볼잔<br>(대상도서 포함, 국내도서 3만원 이상<br>구매 시)</div>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a style="cursor: pointer;">
+                                        <img src="img/m_230919_nobel_p.jpg" alt="">
+                                        <div class="eventtit">2023 노벨문학상 텀블러.망토담요<br>(대상도서 포함 국내서 3만원 이상<br>구매 시)</div>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a style="cursor: pointer;">
+                                        <img src="img/2018_choice_m.jpg" alt="">
+                                        <div class="eventtit">9월의 주목도서 + 피너츠 밀크 머그 (이벤트 도서 포함 국내서 2만원 이상)</div>
+                                    </a>
+                                </li>
+                            </ul>
+                            <ul class="swiperslide" style="width: 810px; display: none;">
+                                <li>
+                                    <a style="cursor: pointer;">
+                                        <img src="img/m_230906_haruki_p_1.jpg" alt="">
+                                        <div class="eventtit"><도시와 그 불확실한 벽> 포스터<br>(대상도서 1권 이상 구매 시)</div>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a style="cursor: pointer;">
+                                        <img src="img/m_230830_novel_p.jpg" alt="">
+                                        <div class="eventtit">고전 초판본 돗자리.보온보냉백<br>(대상도서 포함 소설/시/희곡 2만원<br>이상 구매 시)</div>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a style="cursor: pointer;">
+                                        <img src="img/m_230623_novel_p.jpg" alt="">
+                                        <div class="eventtit">문학동네+다산북스+창비 
+                                            책모양<br>유리문진.고블렛잔(대상도서 포함<br>국내서 2만원 이상)</div>
+                                    </a>
+                                </li>
+                            </ul>
+                            <ul class="swiperslide" style="width: 810px; display: none;">
+                                <li>
+                                    <a style="cursor: pointer;">
+                                        <img src="img/m_221107_kurt_p.jpg" alt="">
+                                        <div class="eventtit">커트 보니것 자수 파우치.유리컵.키링.<br>배지(대상도서 포함 국내도서 2만원 <br>이상 구매 시)</div>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a style="cursor: pointer;">
+                                        <img src="img/m_231001_new_p.jpg" alt="">
+                                        <div class="eventtit">화제의 책+알라딘 굿즈 (이벤트 도서 <br>포함, 국내도서 4만원 이상)</div>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a style="cursor: pointer;">
+                                        <img src="img/m_230918_nobel_p.jpg" alt="">
+                                        <div class="eventtit">2023 노벨문학상, 당신의 선택은? 투표 <br>시, 적립금 1천원(3000명).10만원(2명) <br>추첨</div>
+                                    </a>
+                                </li>
+                            </ul>
+                            <ul class="swiperslide" style="width: 810px; display: none;">
+                                <li>
+                                    <a style="cursor: pointer;">
+                                        <img src="img/m_230720_humanistb_p.jpg" alt="">
+                                        <div class="eventtit"><매거진 흄세 시즌 5> 매거진</div>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a style="cursor: pointer;">
+                                        <img src="img/m_231001_october_p.jpg" alt="">
+                                        <div class="eventtit">10월 특별 선물. 유리 찻주전자 · 원형 <br>방석 (이벤트 도서 포함, 국내서.외서 <br>5만원 이상)</div>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a style="cursor: pointer;">
+                                        <img src="img/m_230623_free_p.jpg" alt="">
+                                        <div class="eventtit">책과 함께 무료배송 - 함께 사기 좋은 <br>특가 도서 · 저가 도서 총집합</div>
+                                    </a>
+                                </li>
+                            </ul>
+                            <ul class="swiperslide" style="width: 810px; display: none;">
+                                <li>
+                                    <a style="cursor: pointer;">
+                                        <img src="img/m_210104_plus_p.jpg" alt="">
+                                        <div class="eventtit">이 달의 적립금 혜택</div>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a style="cursor: pointer;">
+                                        <img src="img/m_230210_beready_p.jpg" alt="">
+                                        <div class="eventtit">모든 책 오늘 출고 서비스 오픈</div>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a style="cursor: pointer;">
+                                        <img src="img/m_230216_goods_p.jpg" alt="">
+                                        <div class="eventtit">함께 사면 무료배송. 1천원~4천원대  굿즈 총집합</div>
+                                    </a>
+                                </li>
+                            </ul>
+                            <ul class="swiperslide" style="width: 810px; display: none;">
+                                <li>
+                                    <a style="cursor: pointer;">
+                                        <img src="img/160426_goods_m.jpg" alt="">
+                                        <div class="eventtit">이 시간, 알라딘 사은품 총집합!</div>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="ereclear erespace5"></div>
+                    <div class="eventnav">
+                        <span class="swiperbullet swiperbulletactive"></span><span class="swiperbullet"></span><span class="swiperbullet"></span><span class="swiperbullet"></span><span class="swiperbullet"></span><span class="swiperbullet"></span>
+                    </div>
+                    <div class="ereline2"></div>
+                </div>
+                <div class="ereclear"></div>
+            </div>
+
+            <div class="ereprodmcontsbox">
+                <div class="ereprodmcontsll">책소개</div>
+                <div class="ereprodmcontsr">
+                    무라카미 하루키의 신작 장편소설 『도시와 그 불확실한 벽』은 집필과 출간에 얽힌 이야기가 특별하다. 1979년 데뷔 이래, <br>하루키는 각종 문예지에 소설을 비롯한 다양한 글을 발표했고, 대부분 그 글들을 책으로 엮어 공식 출간했다. 그중 유일하게 단행본으로 출간되지 않아 팬들 사이에서도 오랜 미스터리로 남은 작품이 문예지 <문학계>에 발표했던 중편소설 「도시와, 그 불확실한 벽」(1980)이었다.
+                    <br>
+                    <br>
+                    코로나19로 사람들 사이에 벽이 세워지기 시작한 2020년, 그는 사십 년간 묻어두었던 작품을 새로 다듬어 완성할 수 <br>있겠다고 생각했다. 그리고 삼 년간의 집필 끝에 총 3부 구성의 장편소설 『도시와 그 불확실한 벽』을 세상에 내놓았다. 매 <br>작품을 발표할 때마다 ‘하루키 신드롬’을 일으키며 전 세계 독자들의 사랑을 받고 있는 70대의 작가가 청년 시절에 그렸던 세계를 43년 만에 마침내 완성한 것이다.
+                    <br>
+                    <br>
+                    『도시와 그 불확실한 벽』은 무라카미 하루키에게 자신의 작가 인생과 작품세계를 수확하는 뜻깊은 완성이자 하나의 <br>매듭이며, 이후의 하루키를 기대하게 하는 또다른 시작을 의미한다. 현실과 비현실을 다채롭게 넘나드는 하루키적 상상력을 더욱 원숙한 세계로 만나볼 수 있는 이번 장편은 그의 신작을 기다려온 팬들에게 ‘하루키 세계를 집약한 결정적 작품’으로, 이제 막 무라카미 하루키라는 작가를 접하는 독자들에게는 ‘하루키 세계로 들어가는 완벽한 입문작’으로 자리매김할 것이다.
+                    <div class="ereline2"></div>
+                </div>
+                <div class="ereclear"></div>
+            </div>
+
+            <div class="ereprodmcontsbox">
+                <div class="ereprodmcontsll">목차</div>
+                <div class="ereprodmcontsr">
+                    1부  009
+                    <br>
+                    2부  221
+                    <br>
+                    3부  697
+                    <br>
+                    작가 후기  762
+                    <div class="ereline2"></div>
+                </div>
+                <div class="ereclear"></div>
+            </div>
+
+            <div class="ereprodmcontsbox">
+                <div class="ereprodmcontsll">책속에서</div>
+                <div class="ereprodmcontsr">
+                    <div class="fsentencebox">
+                        <table cellpadding="0" cellspacing="8" border="0">
+                            <tbody>
+                                <tr>
+                                    <td valign="top">
+                                        <div class="fsentitle">첫문장</div>
+                                    </td>
+                                    <td>
+                                        <div class="fsenconts">네가 나에게 그 도시를 알려주었다.</div>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div id="underlinect10underline" class="linelist">
+                        <div class="erespace30"></div>
+                        <ul>
+                            <div id="underline3updates">
+                                <li>
+                                    <div class="rconts2">
+                                        <span style="word-break: break-all; display: block;">
+                                            <span class="page" style="font-weight: bold;">P. 15</span>
+                                            “그냥 원하면 돼. 하지만 무언가를 진심으로 원한다는 건 그렇게 간단한 일이 아니야. 시간이 걸릴지도 몰라. 그사이 많은 것을 버려야 할지도 몰라. 너에게 소중한 것을. 그래도 포기하지 마. 아무리 오랜 시간이 걸려도, 도시가 사라질 일은 없으니까.”
+                                        </span>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="rconts2">
+                                        <span style="word-break: break-all; display: block;">
+                                            <span class="page" style="font-weight: bold;">P. 33</span>
+                                            우리는 연인 사이였을까? 간단하게 그런 이름을 붙여도 될까? 나는 알 수 없다. 어쨌거나 나와 너는 적어도 그 시기, 일 년 가까운 시간 동안 서로의 마음을 티 없이 순수하게 한데 맺고 있었다. 이윽고 둘만의 특별한 비밀 세계를 만들어내고 함께 나누게 되었다―높은 벽에 둘러싸인 신비로운 도시를.
+                                        </span>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="rconts2">
+                                        <span style="word-break: break-all; display: block;">
+                                            <span class="page" style="font-weight: bold;">P. 43</span>
+                                            너에게 꿈이란 현실세계에서 실제로 일어나는 일들과 거의 동급이었고, 간단히 잊히거나 지워지는 것이 아니었다. 꿈은 너에게 많은 것을 전달해주는, 귀중한 마음의 수원水源 같은 것이었다.
+                                        </span>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="rconts2">
+                                        <span style="word-break: break-all; display: block;">
+                                            <span class="page" style="font-weight: bold;">P. 80</span>
+                                            어쩌면 그것이 영겁이 지닌 한 가지 문제점인지도 모른다. 지금부터 어디로 향하면 좋을지 모른다는 것. 그러나 영겁을 추구하지 않는 사랑에 어느 정도의 가치가 있단 말인가?
+                                        </span>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="rconts2">
+                                        <span style="word-break: break-all; display: block;">
+                                            <span class="page" style="font-weight: bold;">P. 111</span>
+                                            “가끔 내가 무언가의, 누군가의 그림자처럼 느껴질 때가 있어.” 너는 중요한 비밀을 털어놓듯 말한다. “여기 있는 나한테는 실체 같은 게 없고, 내 실체는 다른 어딘가에 있어. 지금 여기 있는 나는 언뜻 나처럼 보여도 실은 바닥이나 벽에 비친 그림자일 뿐…… 그런 생각을 지울 수 없어.”
+                                        </span>
+                                    </div>
+                                </li>
+                            </div>
+                        </ul>
+                        <div class="erebtnmore" style="margin-top: 30px;">
+                            <a style="cursor: pointer;">
+                                <strong>더보기</strong>
+                                <div class="morearrow"></div>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="ereline2"></div>
+                </div>
+                <div class="ereclear"></div>
+            </div>
+
         </div>
     </div>
 
