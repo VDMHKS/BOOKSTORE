@@ -133,3 +133,23 @@ $(function(){
         $("#divoneononequestion").stop().css("display", "none");
     })
 })
+
+
+/* 영상 sort 버튼 */
+$(function(){
+    $(".ereprodmblogbox .btitlebox .tlistright").eq(1).mouseenter(function(){
+        $("#aladinertvbtnsort").stop().css("display", "block");
+    })
+    $(".ereprodmblogbox .btitlebox .tlistright").eq(1).mouseleave(function(){
+        $("#aladinertvbtnsort").stop().css("display", "none");
+    })
+    $("#aladinertvbtnsort li").eq(0).click(function(){
+        $("#tvsort").text("조회수순")
+    })
+    $("#aladinertvbtnsort li").eq(1).click(function(){
+        $("#tvsort").text("공감순")
+    })
+    $("#aladinertvbtnsort li").eq(2).click(function(){
+        $("#tvsort").text("최신등록순")
+    })
+})

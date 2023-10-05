@@ -61,3 +61,14 @@ $(function () {
         }
     );
 });
+
+
+
+/* 상단 고정 레이어 */
+$(window).scroll(function(){		
+	if($('body, html').scrollTop() > 1400){	
+		$('#divfixedbasket').addClass('fixedbasket');
+	} else {
+        $('#divfixedbasket').removeClass('fixedbasket');
+    }	
+})

@@ -28,6 +28,12 @@
     <!-- 이벤트 슬라이더 -->
     <script src="js/eventswipe.js"></script>
 
+    <!-- 추천글 드롭다운 -->
+    <script src="js/recommend.js"></script>
+
+    <!-- 저자 더보기 -->
+    <script src="js/moreinfo.js"></script>
+
     <style>
 
         #ereprodallwrap {
@@ -46,6 +52,15 @@
         b {
             font-weight: bold;
         }
+
+
+
+
+
+
+
+
+
 
 
         /* 상단부 */
@@ -245,6 +260,15 @@
             padding: 0;
             height: 30px;
         }
+
+
+
+
+
+
+
+
+
 
 
         /* 책 커버 */
@@ -477,6 +501,13 @@
             transform:rotateY(180deg) translateZ(150px);
             background-size:cover;
         }
+
+
+
+
+
+
+
 
         
         /* 책 정보 */
@@ -1380,6 +1411,153 @@
             height: 50px;
         }
 
+        #divfixedbasket.fixedbasket {
+            visibility: visible;
+            z-index: 9999;
+            transform: translate(0,0);
+            opacity: 1;
+        }
+
+        #divfixedbasket {
+            position: fixed;
+            left: 0;
+            top: 0;
+            z-index: 0;
+            visibility: hidden;
+            transition: visibility 0.5s ease, opacity 0.5s ease, transform 0.5s ease;
+            opacity: 0;
+            transform: translate(0,-150px);
+        }
+
+        .erelayerbasketbg {
+            background: rgba(248, 248, 248, 0.95);
+            padding: 10px 0;
+            margin: 0;
+            width: 100%;
+            box-shadow: 0 2px 2px #ccc;
+        }
+
+        .erelayerbasketbox {
+            width: 1060px;
+            margin: 0 auto;
+            text-align: left;
+            overflow: hidden;
+        }
+
+        .erelayerbasketbox .title {
+            float: left;
+            width: 75%;
+            padding-right: 1%;
+            text-align: left;
+        }
+
+        .erelayerbasketbox .title .layertlist {
+            margin: 0;
+            padding: 0;
+        }
+
+        .erelayerbasketbox .title .layertlist ul {
+            margin: 0;
+            padding: 0;
+        }
+
+        .erelayerbasketbox .title .layertlist ul li {
+            list-style: none;
+            font-size: 15px;
+            color: #333;
+            letter-spacing: -0.01em;
+            line-height: 1.5;
+            padding-bottom: 0px;
+        }
+
+        .erebotitlely {
+            font-size: 17px;
+            font-family: malgun, "Malgun Gothic", Dotum, 돋움, sans-serif;
+            color: #222;
+            text-decoration: none;
+            line-height: 1.4;
+            letter-spacing: -0.02em;
+        }
+
+        .erefs17 {
+            font-size: 17px;
+        }
+
+        .erelayerbasketbox .btnbox {
+            float: right;
+            width: 24%;
+            text-align: right;
+            padding-top: 10px;
+        }
+
+        .erelayerbtnbuyitnow {
+            display: inline-block;
+            padding: 0;
+            vertical-align: middle;
+            text-align: center;
+            overflow: hidden;
+            text-decoration: none;
+            cursor: pointer;
+            background: #e24457;
+        }
+
+        .erelayerbtnbuyitnow a {
+            outline: 0;
+            color: #FFF;
+            font-size: 13px;
+            font-weight: bold;
+            font-family: malgun, "Malgun Gothic", Dotum, 돋움, sans-serif;
+            line-height: 1.5;
+            display: block;
+            white-space: nowrap;
+            background: #e24457;
+            margin: 0;
+            padding: 4px 20px 5px 19px;
+            letter-spacing: -0.07em;
+        }
+
+        .erefloatr {
+            float: right;
+        }
+
+        .erelayerbtncart {
+            display: inline-block;
+            padding: 0;
+            vertical-align: middle;
+            text-align: center;
+            overflow: hidden;
+            text-decoration: none;
+            cursor: pointer;
+            background: #df307f;
+        }
+
+        .erelayerbtncart a {
+            outline: 0;
+            color: #FFF;
+            font-size: 13px;
+            font-weight: bold;
+            font-family: malgun, "Malgun Gothic", Dotum, 돋움, sans-serif;
+            line-height: 1.5;
+            display: block;
+            white-space: nowrap;
+            background: #df307f;
+            margin: 0;
+            padding: 4px 6px 5px 5px;
+            letter-spacing: -0.07em;
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
 
         /* 상단 광고 배너 */
 
@@ -1416,6 +1594,18 @@
             padding: 0;
             height: 60px;
         }
+
+
+
+
+
+
+
+
+
+
+
+
 
 
         /* 컨텐츠 */
@@ -1809,6 +1999,401 @@
             transition: 0.2s;
         }
 
+        .ereprodmcontsr .contsinfolist7 {
+            clear: both;
+            padding: 0;
+            margin: 0;
+        }
+
+        .ereprodmcontsr .contsinfolist7 ul {
+            padding: 0;
+            margin: 0;
+        }
+
+        .ereprodmcontsr .contsinfolist7 ul li {
+            list-style: none;
+            background: url('img/icon_dot1.png') no-repeat 0 9px;
+            margin: 0;
+            padding: 0 0 10px 9px;
+            color: #333;
+            letter-spacing: -0.02em;
+        }
+
+        .ereprodmcontsr .contsinfolist7 ul li:last-child {
+            padding-bottom: 0;
+        }
+
+        .eresubgray7 {
+            color: #777;
+            text-decoration: none;
+        }
+
+        .erefs142 {
+            font-size: 14px;
+        }
+
+        .erelayerstlist3 {
+            margin: 0;
+            padding: 0;
+            border: 1px solid #ccc;
+            box-shadow: 0 1px 1px #ccc;
+            font-family: malgun, "Malgun Gothic", Dotum, 돋움, sans-serif;
+            width: 200px;
+        }
+
+        .erelayerstlist3 ul li a {
+            display: block;
+            padding: 12px 18px;
+            color: #333;
+        }
+
+        .erelayerstlist3 ul li {
+            border-bottom: 1px solid #e5e5e5;
+            font-size: 15px;
+        }
+
+        .erestrn {
+            font-weight: normal;
+        }
+
+        .erebtncheck2 {
+            display: inline-block;
+            padding: 0;
+            vertical-align: middle;
+            text-align: center;
+            overflow: hidden;
+            text-decoration: none;
+            cursor: pointer;
+            background: #ffffff;
+            border: 1px solid #c8c8c8;
+        }
+
+        .erebtncheck2 a {
+            outline: 0;
+            color: #555;
+            font-size: 13px;
+            font-weight: bold;
+            font-family: malgun, "Malgun Gothic", Dotum, 돋움, sans-serif;
+            line-height: 1.5;
+            display: block;
+            white-space: nowrap;
+            margin: 0;
+            padding: 1px 7px 4px 7px;
+            letter-spacing: -0.02em;
+        }
+
+        .erebtncheck2 a:hover {
+            background: #fafafa;
+        }
+
+        .ereprodmcontsr .authorbox {
+            width: 810px;
+            margin: 0;
+            padding: 0;
+        }
+
+        .ereprodmcontsr .authorbox .introductionnopic {
+            width: 810px;
+            word-break: break-all;
+        }
+
+        .eresubgray8 {
+            color: #888;
+        }
+
+        .erefs13 {
+            font-size: 13px;
+        }
+
+        .ereprodmcontsr .contsinfolist2 {
+            clear: both;
+            padding: 0;
+            margin: 0;
+        }
+
+        .ereprodmcontsr .contsinfolist2 ul {
+            padding: 0;
+            margin: 0;
+        }
+
+        .ereprodmcontsr .contsinfolist2 ul li {
+            list-style: none;
+            background: url('img/icon_dot1.png') no-repeat 0 9px;
+            margin: 0;
+            padding: 0 0 6px 10px;
+            color: #333;
+            letter-spacing: -0.02em;
+        }
+
+        .contsinfolist2 .eresubblue a:hover {
+            text-decoration: underline;
+        }
+
+        .ereprodmcontsr .publishingbox {
+            width: 810px;
+            margin: 0;
+            padding: 0;
+        }
+
+        .ereprodmcontsr .publishingbox .pic {
+            width: 140px;
+            float: left;
+            margin: 0;
+            padding: 0;
+        }
+
+        .ereprodmcontsr .publishingbox .pic img {
+            width: 138px;
+            border: 1px solid #ddd;
+        }
+
+        .ereprodmcontsr .publishingbox .introduction {
+            float: left;
+            width: 650px;
+            margin: 0 0 0 20px;
+            word-break: break-all;
+        }
+
+        .erembm4 {
+            margin-bottom: -4px;
+        }
+
+        .introduction .contsinfolist2 ul li a:hover {
+            text-decoration: underline;
+        }
+
+
+
+
+
+
+        /* 서재 */
+
+        .ereprodblogwrap {
+            width: 1060px;
+            margin: 0 auto;
+            padding: 0;
+        }
+
+        .ereprodmblogbox {
+            margin: 0;
+            padding: 0;
+            position: relative;
+            text-align: left;
+        }
+
+        .ereprodmblogl {
+            position: absolute;
+            left: 2px;
+            margin: 0;
+            padding: 0 100px 0 0;
+            width: 150px;
+            font-family: malgun, "Malgun Gothic", Dotum, 돋움, sans-serif;
+            color: #0086cd;
+            font-size: 21px;
+            line-height: 1.6;
+            text-align: left;
+            letter-spacing: -0.02em;
+        }
+
+        .ereprodmblogr {
+            width: 810px;
+            float: left;
+            margin: 0 0 0 250px;
+            padding: 5px 0 0px 0;
+            font-family: malgun, "Malgun Gothic", Dotum, 돋움, sans-serif;
+            color: #333;
+            font-size: 15px;
+            line-height: 1.8;
+            text-align: left;
+            letter-spacing: -0.02em;
+        }
+
+        .ereprodmblogr .btitlebox {
+            margin: 0;
+            padding: 10px 0;
+            width: 810px;
+            border-bottom: 1px solid #d5d5d5;
+        }
+
+        .ereprodmblogr .btitlebox .tlistleft {
+            float: left;
+            margin: 0;
+            padding: 0;
+        }
+
+        .ereprodmblogr .btitlebox .tlistleft ul {
+            margin: 0;
+            padding: 0;
+        }
+
+        .ereprodmblogr .btitlebox .tlistleft ul li {
+            float: left;
+            list-style: none;
+            margin: 0;
+            padding: 0 25px 0 5px;
+            color: #333;
+            font-size: 16px;
+            text-align: left;
+        }
+
+        .ereprodmblogr .btitlebox .tlistright {
+            float: right;
+            margin: 0;
+            padding: 0;
+            color: #333;
+            font-size: 15px;
+        }
+
+        .ereprodmblogr .btitlebox .tlistright ul {
+            margin: 0;
+            padding: 0;
+            color: #333;
+            font-size: 15px;
+        }
+
+        .ereprodmblogr .btitlebox .tlistright ul li {
+            float: left;
+            list-style: none;
+            margin: 0;
+            padding: 0 0 0 25px;
+            color: #333;
+            font-size: 14px;
+        }
+
+        .erebtnblogwrite {
+            display: inline-block;
+            padding: 0;
+            vertical-align: middle;
+            text-align: center;
+            overflow: hidden;
+            text-decoration: none;
+            cursor: pointer;
+            background: #0fa8ff;
+            border: 1px solid #0fa8ff;
+        }
+
+        .erebtnblogwrite a {
+            outline: 0;
+            color: #fff;
+            font-size: 13px;
+            font-weight: bold;
+            font-family: malgun, "Malgun Gothic", Dotum, 돋움, sans-serif;
+            line-height: 1.5;
+            display: block;
+            white-space: nowrap;
+            margin: 0;
+            padding: 2px 18px 6px 19px;
+        }
+
+        .eresubblue2 {
+            color: #0fa8ff;
+            line-height: 1.5;
+        }
+
+        #aladinertvbtnsort .erelayerstlist2 a:hover {
+            color: #0086cd;
+        }
+
+        .eresapce40 {
+            margin: 0;
+            padding: 0;
+            height: 40px;
+        }
+        
+        .hundredlist {
+            margin: 0;
+            padding: 0;
+        }
+
+        .ereprodmblogr .bloglist3 {
+            clear: both;
+            padding: 0;
+            margin: 0;
+        }
+
+        .ereprodmblogr .bloglist3 ul {
+            padding: 0;
+            margin: 0;
+        }
+
+        .ereprodmblogr .bloglist3 ul li {
+            list-style: none;
+            margin: 0;
+            padding: 0 0 8px 0px;
+            line-height: 1.8;
+            color: #333;
+            letter-spacing: -0.02em;
+        }
+
+        .ereprodmblogr .bloglist3 ul li .left {
+            float: left;
+        }
+
+        .ereprodmblogr .bloglist3 ul li .right {
+            float: right;
+        }
+
+        .erebtnblogsym {
+            display: inline-block;
+            padding: 0;
+            vertical-align: middle;
+            text-align: center;
+            overflow: hidden;
+            text-decoration: none;
+            cursor: pointer;
+            background: #fcfcfc;
+            border: 1px solid #e5e5e5;
+        }
+
+        .erebtnblogsym a {
+            outline: 0;
+            color: #777;
+            font-size: 13px;
+            font-weight: bold;
+            font-family: malgun, "Malgun Gothic", Dotum, 돋움, sans-serif;
+            line-height: 150%;
+            display: block;
+            white-space: nowrap;
+            margin: 0;
+            padding: 2px 8px 4px 8px;
+        }
+
+        .tvline {
+            border-bottom: 1px solid #d5d5d5;
+            padding-bottom: 15px;
+            margin-bottom: 20px;
+            clear: both;
+        }
+
+        .tvline::after {
+            content: '';
+            display: block;
+            clear: both;
+        }
+
+        .erealadinertvbox {
+            width: 100%;
+            margin: 0 auto;
+            padding: 0;
+            position: relative;
+        }
+
+        .erealadinertvbox .leftarrows {
+            position: absolute;
+            left: -20px;
+            width: 20px;
+            top: 18%;
+            z-index: 10;
+        }
+
+        .erealadinertvbox .rightarrows {
+            position: absolute;
+            right: -24px;
+            width: 20px;
+            top: 18%;
+            z-index: 10;
+        }
     </style>
 </head>
 
@@ -2831,6 +3416,8 @@
             <div class="ereclear"></div>
         </div>
 
+
+
         <div class="ereprodbookwrap">
             <!-- 좌 배너 -->
             <div class="eretopleftbn">
@@ -3232,6 +3819,30 @@
                             </div>
                         </div>
                     </div>
+
+                    <!-- 상단 고정 레이어 -->
+                    <div class="erelayerbasketbg" id="divfixedbasket">
+                        <div class="erelayerbasketbox">
+                            <div class="title">
+                                <div class="layertlist">
+                                    <ul>
+                                        <li><a style="cursor: pointer;" class="erebotitlely">도시와 그 불확실한 벽</a></li>
+                                        <li><span class="erefs17 eresubpink erestr">17,550</span>원 (10%, 1,950원 할인)</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="btnbox">
+                                <div class="erelayerbtnbuyitnow erefloatr ereml4">
+                                    <a style="cursor: pointer;">바로구매</a>
+                                </div>
+                                <div class="erelayerbtncart erefloatr ereml4">
+                                    <a style="cursor: pointer;">장바구니 담기</a>
+                                </div>
+                            </div>
+                            <div class="ereclear"></div>
+                        </div>
+                    </div>
+
                     <div class="infolist">
                         <ul>
                             <li>
@@ -3366,12 +3977,14 @@
                         </div>
                     </div>
                     <div class="ereclear"></div>
+
                 </div>
             </div>
             <div class="ereclear"></div>
         </div>
-
         <div class="erespace50"></div>
+
+
 
         <div class="ereprodhalfbannerwrap">
             <div class="ereprodhalfbannerleft">
@@ -3386,8 +3999,9 @@
             </div>
             <div class="ereclear"></div>
         </div>
-
         <div class="erespace60"></div>
+
+
 
         <div class="ereprodmiddlewrap">
 
@@ -3460,7 +4074,7 @@
                 <div class="ereprodmcontsr">
                     <div>
                         <a id="bookview">
-                            <iframe width="100%" height="450" src="https://www.youtube.com/embed/U_uG-E7PkHE?si=6JwFbPK07NQrtBc-" frameborder="0" allowfullscreen=""></iframe>
+                            <iframe width="100%" height="450" src="https://www.youtube.com/embed/SgzHM13jG5o?si=8mPc4vcPOL-jfyCJ" frameborder="0" allowfullscreen=""></iframe>
                             <br>
                             <br>
                         </a>
@@ -3700,8 +4314,595 @@
                 <div class="ereclear"></div>
             </div>
 
+            <div class="ereprodmcontsbox">
+                <div class="ereprodmcontsll">추천글</div>
+                <div class="ereprodmcontsr">
+                    <div class="contsinfolist7">
+                        <ul>
+                            <span id="ctl0htmrecommend">
+                                <li>
+                                    이렇게 완벽한 벽에 둘러싸인 세계가 작가의 안에서만 존재해왔다. 몇 번을 고쳐 써도 바래지 않았고, 세월도 손을 대지 못했다. 이 소설을 읽는다는 것은 확고히 존재하는 그 벽의 안쪽으로, 자의와 상관 없이 이끌려 들어가는 체험을 의미한다. 귀환할 수 없을지 모른다 해도. 
+                                    <div class="eresubgray7 erefs142" style="cursor: pointer;display: inline-block;">
+                                        - 가쿠타 미츠요 (소설가)
+                                        <img src="img/icon_down_gray9.png" alt="" style="margin-bottom: -2px;">
+                                        <div style="position: relative;">
+                                            <div class="erelayerstlist3" style="position: absolute; z-index: 200; background: rgb(255, 255, 255); display: none;">
+                                                <div class="btlist">
+                                                    <ul>
+                                                        <li style="padding: 0; background: none;">
+                                                            <a style="cursor: pointer;">다른 추천도서 보기</a>
+                                                        </li>
+                                                        <li style="padding: 0; background: none;">
+                                                            <a style="cursor: pointer;">이 저자의 출간작품보기</a>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li>
+                                    읽는 동안 매우 행복했다. 스스로를 있는 그대로 강력하게 믿을 수 있도록 해준 작품. 
+                                    <div class="eresubgray7 erefs142" style="cursor: pointer;display: inline-block;">
+                                        - 요시모토 바나나 (소설가) 
+                                        <img src="img/icon_down_gray9.png" alt="" style="margin-bottom: -2px;">
+                                        <div style="position: relative;">
+                                            <div class="erelayerstlist3" style="position: absolute; z-index: 200; background: rgb(255, 255, 255); display: none;">
+                                                <div class="btlist">
+                                                    <ul>
+                                                        <li style="padding: 0; background: none;">
+                                                            <a style="cursor: pointer;">다른 추천도서 보기</a>
+                                                        </li>
+                                                        <li style="padding: 0; background: none;">
+                                                            <a style="cursor: pointer;">이 저자의 출간작품보기</a>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li> 
+                                <li>
+                                    작가란 자기 고유의 표현 장소를 정하고, 깊고 넓게 파나가는 사람이다. 『도시와 그 불확실한 벽』을 세상에 내놓은 무라카미 하루키는 그런 작업을 지금껏 철저히 추구해온 몇 안 되는 작가 중 한 명이다. 이번 작품이 그 사실을 모두에게 분명히 보여줄 것이다. 
+                                    <div class="eresubgray7 erefs142" style="cursor: pointer;display: inline-block;">
+                                        - 안도 레이지 (문학평론가) 
+                                        <img src="img/icon_down_gray9.png" alt="" style="margin-bottom: -2px;">
+                                        <div style="position: relative;">
+                                            <div class="erelayerstlist3" style="position: absolute; z-index: 200; background: rgb(255, 255, 255); display: none;">
+                                                <div class="btlist">
+                                                    <ul>
+                                                        <li style="padding: 0; background: none;">
+                                                            <a style="cursor: pointer;">다른 추천도서 보기</a>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li> 
+                                <li>
+                                    진실과 허구, 이항 갈등을 뛰어넘는 이야기의 힘. 
+                                    <div class="eresubgray7 erefs142" style="cursor: pointer;display: inline-block;">
+                                        - 아사히신문 
+                                        <img src="img/icon_down_gray9.png" alt="" style="margin-bottom: -2px;">
+                                        <div style="position: relative;">
+                                            <div class="erelayerstlist3" style="position: absolute; z-index: 200; background: rgb(255, 255, 255); display: none;">
+                                                <div class="btlist">
+                                                    <ul>
+                                                        <li style="padding: 0; background: none;">
+                                                            <a style="cursor: pointer;">다른 추천도서 보기</a>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li> 
+                                <li>
+                                    이야기의 진행을 지탱하는 숙련된 표현력이 시공을 초월한다. 
+                                    <div class="eresubgray7 erefs142" style="cursor: pointer;display: inline-block;">
+                                        - 요미우리 신문 
+                                        <img src="img/icon_down_gray9.png" alt="" style="margin-bottom: -2px;">
+                                        <div style="position: relative;">
+                                            <div class="erelayerstlist3" style="position: absolute; z-index: 200; background: rgb(255, 255, 255); display: none;">
+                                                <div class="btlist">
+                                                    <ul>
+                                                        <li style="padding: 0; background: none;">
+                                                            <a style="cursor: pointer;">다른 추천도서 보기</a>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li> 
+                                <li>
+                                    인간이 존재하며 맞닥뜨리는 벽에 대해 생각하게 만든다. 당신에게 벽과 그림자란 무엇인가? 
+                                    <div class="eresubgray7 erefs142" style="cursor: pointer;display: inline-block;">
+                                        - 도쿄신문 
+                                        <img src="img/icon_down_gray9.png" alt="" style="margin-bottom: -2px;">
+                                        <div style="position: relative;">
+                                            <div class="erelayerstlist3" style="position: absolute; z-index: 200; background: rgb(255, 255, 255); display: none;">
+                                                <div class="btlist">
+                                                    <ul>
+                                                        <li style="padding: 0; background: none;">
+                                                            <a style="cursor: pointer;">다른 추천도서 보기</a>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li> 
+                                <li>
+                                    마음의 벽을 뚫고 나오는 용기에 대한 이야기. 
+                                    <div class="eresubgray7 erefs142" style="cursor: pointer;display: inline-block;">
+                                        - 니혼게이자이신문 
+                                        <img src="img/icon_down_gray9.png" alt="" style="margin-bottom: -2px;">
+                                        <div style="position: relative;">
+                                            <div class="erelayerstlist3" style="position: absolute; z-index: 200; background: rgb(255, 255, 255); display: none;">
+                                                <div class="btlist">
+                                                    <ul>
+                                                        <li style="padding: 0; background: none;">
+                                                            <a style="cursor: pointer;">다른 추천도서 보기</a>
+                                                        </li>
+                                                        <li style="padding: 0; background: none;">
+                                                            <a style="cursor: pointer;">이 저자의 출간작품보기</a>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li> 
+                            </span>
+                            <span id="ct10htmsourcerecommned">
+                                <li></li>
+                                <div>이 책을 추천한 다른 분들 : </div>
+                                <li>
+                                    <div class="dropbox" style="float:left;cursor:pointer;margin-right:5px;">
+                                        <span class="pnonunder"><strong>한겨레 신문</strong></span>
+                                        <img src="img/icon_arrow_down.png" alt="">
+                                        <br clear="both">
+                                        <div class="erelayerstlist3" style="position: absolute; z-index: 200; background: rgb(255, 255, 255); display: none;">
+                                            <div class="btlist">
+                                                <ul>
+                                                    <li style="padding: 0; background: none;">
+                                                        <a style="cursor: pointer;">다른 추천도서 보기</a>
+                                                    </li>
+                                                    <li style="padding: 0; background: none;">
+                                                        <a style="cursor: pointer;">이 저자의 출간작품보기</a>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div> &nbsp;- 한겨레 신문 2023년 9월 8일자 '책&생각'
+                                </li>
+                                <li>
+                                    <div class="dropbox" style="float:left;cursor:pointer;margin-right:5px;">
+                                        <span class="pnonunder"><strong>서울신문</strong></span>
+                                        <img src="img/icon_arrow_down.png" alt="">
+                                        <br clear="both">
+                                        <div class="erelayerstlist3" style="position: absolute; z-index: 200; background: rgb(255, 255, 255); display: none;">
+                                            <div class="btlist">
+                                                <ul>
+                                                    <li style="padding: 0; background: none;">
+                                                        <a style="cursor: pointer;">다른 추천도서 보기</a>
+                                                    </li>
+                                                    <li style="padding: 0; background: none;">
+                                                        <a style="cursor: pointer;">이 저자의 출간작품보기</a>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div> &nbsp;- 서울신문 2023년 9월 8일자
+                                </li>
+                                <li>
+                                    <div class="dropbox" style="float:left;cursor:pointer;margin-right:5px;">
+                                        <span class="pnonunder"><strong>국민일보</strong></span>
+                                        <img src="img/icon_arrow_down.png" alt="">
+                                        <br clear="both">
+                                        <div class="erelayerstlist3" style="position: absolute; z-index: 200; background: rgb(255, 255, 255); display: none;">
+                                            <div class="btlist">
+                                                <ul>
+                                                    <li style="padding: 0; background: none;">
+                                                        <a style="cursor: pointer;">다른 추천도서 보기</a>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div> &nbsp;- 국민일보 2023년 9월 7일자 '책과 길'
+                                </li>
+                                <li>
+                                    <div class="dropbox" style="float:left;cursor:pointer;margin-right:5px;">
+                                        <span class="pnonunder"><strong>문화일보</strong></span>
+                                        <img src="img/icon_arrow_down.png" alt="">
+                                        <br clear="both">
+                                        <div class="erelayerstlist3" style="position: absolute; z-index: 200; background: rgb(255, 255, 255); display: none;">
+                                            <div class="btlist">
+                                                <ul>
+                                                    <li style="padding: 0; background: none;">
+                                                        <a style="cursor: pointer;">다른 추천도서 보기</a>
+                                                    </li>
+                                                    <li style="padding: 0; background: none;">
+                                                        <a style="cursor: pointer;">이 저자의 출간작품보기</a>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div> &nbsp;- 문화일보 2023년 9월 8일자
+                                </li>
+                                <li>
+                                    <div class="dropbox" style="float:left;cursor:pointer;margin-right:5px;">
+                                        <span class="pnonunder"><strong>중앙SUNDAY</strong></span>
+                                        <img src="img/icon_arrow_down.png" alt="">
+                                        <br clear="both">
+                                        <div class="erelayerstlist3" style="position: absolute; z-index: 200; background: rgb(255, 255, 255); display: none;">
+                                            <div class="btlist">
+                                                <ul>
+                                                    <li style="padding: 0; background: none;">
+                                                        <a style="cursor: pointer;">다른 추천도서 보기</a>
+                                                    </li>
+                                                    <li style="padding: 0; background: none;">
+                                                        <a style="cursor: pointer;">이 저자의 출간작품보기</a>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div> &nbsp;- 중앙SUNDAY 2023년 9월 9일자
+                                </li>
+                                <li>
+                                    <div class="dropbox" style="float:left;cursor:pointer;margin-right:5px;">
+                                        <span class="pnonunder"><strong>경향신문</strong></span>
+                                        <img src="img/icon_arrow_down.png" alt="">
+                                        <br clear="both">
+                                        <div class="erelayerstlist3" style="position: absolute; z-index: 200; background: rgb(255, 255, 255); display: none;">
+                                            <div class="btlist">
+                                                <ul>
+                                                    <li style="padding: 0; background: none;">
+                                                        <a style="cursor: pointer;">다른 추천도서 보기</a>
+                                                    </li>
+                                                    <li style="padding: 0; background: none;">
+                                                        <a style="cursor: pointer;">이 저자의 출간작품보기</a>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div> &nbsp;- 경향신문 2023년 9월 8일자 '책과 삶'
+                                </li>
+                                <li>
+                                    <div class="dropbox" style="float:left;cursor:pointer;margin-right:5px;">
+                                        <span class="pnonunder"><strong>한국일보</strong></span>
+                                        <img src="img/icon_arrow_down.png" alt="">
+                                        <br clear="both">
+                                        <div class="erelayerstlist3" style="position: absolute; z-index: 200; background: rgb(255, 255, 255); display: none;">
+                                            <div class="btlist">
+                                                <ul>
+                                                    <li style="padding: 0; background: none;">
+                                                        <a style="cursor: pointer;">다른 추천도서 보기</a>
+                                                    </li>
+                                                    <li style="padding: 0; background: none;">
+                                                        <a style="cursor: pointer;">이 저자의 출간작품보기</a>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div> &nbsp;- 한국일보 2023년 9월 9일자 '책과 세상'
+                                </li>
+                                <li>
+                                    <div class="dropbox" style="float:left;cursor:pointer;margin-right:5px;">
+                                        <span class="pnonunder"><strong>동아일보</strong></span>
+                                        <img src="img/icon_arrow_down.png" alt="">
+                                        <br clear="both">
+                                        <div class="erelayerstlist3" style="position: absolute; z-index: 200; background: rgb(255, 255, 255); display: none;">
+                                            <div class="btlist">
+                                                <ul>
+                                                    <li style="padding: 0; background: none;">
+                                                        <a style="cursor: pointer;">다른 추천도서 보기</a>
+                                                    </li>
+                                                    <li style="padding: 0; background: none;">
+                                                        <a style="cursor: pointer;">이 저자의 출간작품보기</a>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div> &nbsp;- 동아일보 2023년 9월 16일자
+                                </li>
+                                <li>
+                                    <div class="dropbox" style="float:left;cursor:pointer;margin-right:5px;">
+                                        <span class="pnonunder"><strong>세계일보</strong></span>
+                                        <img src="img/icon_arrow_down.png" alt="">
+                                        <br clear="both">
+                                        <div class="erelayerstlist3" style="position: absolute; z-index: 200; background: rgb(255, 255, 255); display: none;">
+                                            <div class="btlist">
+                                                <ul>
+                                                    <li style="padding: 0; background: none;">
+                                                        <a style="cursor: pointer;">다른 추천도서 보기</a>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div> &nbsp;- 세계일보 2023년 9월 15일자
+                                </li>
+
+                            </span>
+                        </ul>
+                    </div>
+                    <div class="ereline2"></div>
+                </div>
+                <div class="ereclear"></div>
+            </div>
+
+            <div class="ereprodmcontsbox">
+                <div class="ereprodmcontsll">저자 및<br>역자소개</div>
+                <div class="ereprodmcontsr">
+                    <div class="erefs18 eresubgray3 erestr">
+                        무라카미 하루키 (村上春樹)  
+                        <span class="erefs142 eresubgray7 erestrn">(지은이)</span>
+                        <div class="erebtncheck2">
+                            <a style="cursor: pointer;">저자파일</a>
+                        </div>
+                        <div class="erebtncheck2" style="position:relative;overflow:visible;z-index:997">
+                            <a style="cursor: pointer;">신간알리미 신청</a>
+                        </div>
+                    </div>
+                    <div class="erespace15"></div>
+                    <div class="authorbox">
+                        <div class="introductionnopic">
+                            <div id="divauthorinfoshort" style="display: block;">
+                                <a style="cursor: pointer; text-decoration: none !important;">1979년 『바람의 노래를 들어라』로 군조신인문학상을 수상하며 데뷔했다. 1982년 『양을 쫓는 모험』으로 노마문예신인상, 1985년 『세계의 끝과 하드보일드 원더랜드』로 다니자키 준이치로 상을 수상했다. 1987년 『노르웨이의 숲』을 발표하고 기록적인 판매고를 올렸다. 1996년 『태엽 감는 새』로 요미우리문학상을 수상했고, 2005년 『해변의 카프카』가 당시 아시아 작가의 작품으로는 드물게 <뉴욕 타임스> ‘올해의 책’에 선정되었다. 2009년에 발표한 장편소설 『1Q84』는 출간되자마자 한일 양국의 서점가를 점령하며...</a>
+                                <a class="eresubgray8 erefs13" style="cursor: pointer;">더보기<img src="img/icon_arrow_more.png" alt="" style="margin-bottom: -1px;">
+                                </a>
+                            </div>
+                            <div id="divauthorinfoall" style="display: none;">
+                                <a style="cursor: pointer; text-decoration: none !important;">1979년 『바람의 노래를 들어라』로 군조신인문학상을 수상하며 데뷔했다. 1982년 『양을 쫓는 모험』으로 노마문예신인상, 1985년 『세계의 끝과 하드보일드 원더랜드』로 다니자키 준이치로 상을 수상했다. 1987년 『노르웨이의 숲』을 발표하고 기록적인 판매고를 올렸다. 1996년 『태엽 감는 새』로 요미우리문학상을 수상했고, 2005년 『해변의 카프카』가 당시 아시아 작가의 작품으로는 드물게 <뉴욕 타임스> ‘올해의 책’에 선정되었다. 2009년에 발표한 장편소설 『1Q84』는 출간되자마자 한일 양국의 서점가를 점령하며 또다시 베스트셀러가 되었다. 그의 작품들은 50여 개 이상의 언어로 출간되어 전 세계 독자들에게 전폭적인 사랑을 받고 있다. 2006년 엘프리데 옐리네크와 해럴드 핀터 등 노벨문학상 수상자들이 받은 체코의 프란츠 카프카 상, 2009년 이스라엘 최고의 문학상인 예루살렘상, 2016년 한스 크리스티안 안데르센 문학상을 수상하며 문학적 성취를 인정받았다.</a>
+                                <a class="eresubgray8 erefs13" style="cursor: pointer;">접기<img src="img/icon_arrow_fold.png" alt="" style="margin-bottom: -1px;">
+                                </a>
+                            </div>
+                            <div class="erespace10"></div>
+                            <div class="contsinfolist2">
+                                <ul>
+                                    <li>
+                                        수상 : 
+                                        <span class="eresubblue"> 2010년 일본 서점대상, 2006년 프란츠 카프카상, 1994년 요미우리 문학상, 1985년 다니자키 준이치로상, 1982년 노마문예신인상, 1979년 군조신인문학상, 1944년 요미우리 문학상</span>
+                                    </li>
+                                    <li>
+                                        최근작 : 
+                                        <span class="eresubblue">
+                                            <a style="cursor: pointer;" class="eresubblue"><도시와 그 불확실한 벽></a>,<a style="cursor: pointer;" class="eresubblue"><1Q84 3 (문학동네 30주년 기념 특별판)></a>,<a style="cursor: pointer;" class="eresubblue"><1Q84 2 (문학동네 30주년 기념 특별판)></a>
+                                            <span style="color: #333;">… 총 963종</span>
+                                            <a style="cursor: pointer;" class="eresubblue">(모두보기)</a>
+                                        </span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="ereclear erespace30"></div>
+                <div class="ereprodmcontsr">
+                    <div class="erefs18 eresubgray3 erestr">
+                        홍은주
+                        <span class="erefs142 eresubgray7 erestrn">(옮긴이)</span>
+                        <div class="erebtncheck2">
+                            <a style="cursor: pointer;">저자파일</a>
+                        </div>
+                        <div class="erebtncheck2" style="position:relative;overflow:visible;z-index:997">
+                            <a style="cursor: pointer;">신간알리미 신청</a>
+                        </div>
+                    </div>
+                    <div class="erespace15"></div>
+                    <div class="authorbox">
+                        <div class="introductionnopic">
+                            이화여자대학교 불어교육학과와 동 대학원 불어불문학과를 졸업했다. 일본에 거주하며 일본어와 프랑스어 번역가로 활동하고 있다. 옮긴 책으로 『오래되고 멋진 클래식 레코드』 『일인칭 단수』 『기사단장 죽이기』 『장수 고양이의 비밀』 『눈의 무게』 등이 있다.
+                            <div class="erespace10"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="ereprodmcontsr">
+                    <div class="ereline2"></div>
+                </div>
+                <div class="ereclear"></div>
+            </div>
+
+            <div class="ereprodmcontsbox">
+                <div class="ereprodmcontsll">출판사 소개</div>
+                <div class="ereprodmcontsr">
+                    <div class="erefs18 eresubgray3 erestr">
+                        <a style="cursor: pointer;">문학동네</a>
+                        <div class="erebtncheck">
+                            <a style="cursor: pointer;">도서 모두보기</a>
+                        </div>&nbsp;
+                        <div class="erebtncheck">
+                            <a style="cursor: pointer;">신간알리미 신청</a>
+                        </div>
+                    </div>
+                    <div class="erespace15"></div>
+                    <div class="publishingbox">
+                        <div class="pic">
+                            <a style="cursor: pointer;">
+                                <img src="img/1728_1.jpg" alt="">
+                            </a>
+                        </div>
+                        <div class="introduction">
+                            <div class="contsinfolist2">
+                                <ul>
+                                    <li>최근작 : <a style="cursor: pointer;"><2023 김승옥문학상 수상작품집></a>,<a style="cursor: pointer;"><소년, 소녀를 만나다></a>,<a style="cursor: pointer;"><먹는 존재 시즌2 : 4></a>등 총 4,183종</li>
+                                    <li>대표분야 : 일본소설 1위 (브랜드 지수 1,412,567점), 2000년대 이후 한국소설 1위 (브랜드 지수 4,093,581점), 에세이 1위 (브랜드 지수 2,122,722점)
+                                        <a style="cursor: pointer;"><img src="img/icon_question.png" alt="" class="erembm4"></a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="ereclear"></div>
+                    </div>
+                    <div class="ereline2"></div>
+                </div>
+                <div class="ereclear"></div>
+            </div>
+
+            <div class="ereprodmcontsbox">
+                <div class="ereprodmcontsll">출판사 제공<br>책소개</div>
+                <div class="ereprodmcontsr">
+                    <div id="divpublisherdescshort" style="word-break: break-all; display: block;">
+                        <a style="cursor: pointer;">
+                            <b>무라카미 하루키, 6년 만의 신작 장편소설<br>한국어판 예약판매 직후 종합 베스트셀러 1위</b><br><br>
+                            무라카미 하루키의 신작 장편소설 『도시와 그 불확실한 벽』이 9월 6일 출간된다. 6년 만에 발표하는 장편소설로 화제가 된 이번 작품은 현지 출간과 동시에 책을 구입하려는 독자들의 행렬과 언론의 취재 열기로 주요 서점이 마비되었고, 2개월 만에 상반기 베스트셀러 1위에 오르며 거장 하루키에 대한 독자들의 관심과 사랑이 여전함을 과시했다.<br>
+                            8월 28일 예약판매를 시작한 한국어판의 반응 역시 뜨거웠다. 예약판매 즉시 교보문고, 알라딘, 예스24 3대 온라인서점의 실시간 베스트셀러에 올랐으며, 이례적으로 예약판매 기간 내내 종합 베스트셀러 1위를 유지하고 있다. 전작인 장편소설 『기사단장 죽이기』와 비교해볼 때 하루 만에 전작의 3일간 판매량을 넘어선 기록이다. 독자들의 뜨거운 반응에 힘입어 문학동네는 예약판매중 급히 중쇄를 결정했으며 9월 4일 기준 ...
+                        </a>
+                        <a style="cursor: pointer;" class="eresubgray8 erefs13">더보기<img src="img/icon_arrow_more.png" style="margin-bottom: -1px;"></a>
+                    </div>
+                    <div id="divpublisherdescall" style="word-break: break-all; display: none;">
+                        <a style="cursor: pointer;">
+                            <b>무라카미 하루키, 6년 만의 신작 장편소설<br>한국어판 예약판매 직후 종합 베스트셀러 1위</b>
+                            <br>
+                            <br>
+                            무라카미 하루키의 신작 장편소설 『도시와 그 불확실한 벽』이 9월 6일 출간된다. 6년 만에 발표하는 장편소설로 화제가 된 이번 작품은 현지 출간과 동시에 책을 구입하려는 독자들의 행렬과 언론의 취재 열기로 주요 서점이 마비되었고, 2개월 만에 상반기 베스트셀러 1위에 오르며 거장 하루키에 대한 독자들의 관심과 사랑이 여전함을 과시했다.<br>
+                            8월 28일 예약판매를 시작한 한국어판의 반응 역시 뜨거웠다. 예약판매 즉시 교보문고, 알라딘, 예스24 3대 온라인서점의 실시간 베스트셀러에 올랐으며, 이례적으로 예약판매 기간 내내 종합 베스트셀러 1위를 유지하고 있다. 전작인 장편소설 『기사단장 죽이기』와 비교해볼 때 하루 만에 전작의 3일간 판매량을 넘어선 기록이다. 독자들의 뜨거운 반응에 힘입어 문학동네는 예약판매중 급히 중쇄를 결정했으며 9월 4일 기준 3쇄를 제작중이다.
+                            <br>
+                            <br>
+                            <b>첫 발표 이후 43년, 마음에 품어왔던 소설을 마침내 완성하다.<br>하루키적 상상력의 모든 것이 담긴 결정적 세계!<br><br>“이 작품에는 무언가 나에게 매우 중요한 요소가 포함되어 있다고,<br>처음부터 그렇게 느껴왔다.” _무라카미 하루키</b>
+                            <br>
+                            <br>
+                            무라카미 하루키의 신작 장편소설 『도시와 그 불확실한 벽』은 집필과 출간에 얽힌 이야기가 특별하다. 1979년 데뷔 이래, 하루키는 각종 문예지에 소설을 비롯한 다양한 글을 발표했고, 대부분 그 글들을 책으로 엮어 공식 출간했다. 그중 유일하게 단행본으로 출간되지 않아 팬들 사이에서도 오랜 미스터리로 남은 작품이 문예지 <문학계>에 발표했던 중편소설 「도시와, 그 불확실한 벽」(1980)이었다.<br>코로나19로 사람들 사이에 벽이 세워지기 시작한 2020년, 그는 사십 년간 묻어두었던 작품을 새로 다듬어 완성할 수 있겠다고 생각했다. 그리고 삼 년간의 집필 끝에 총 3부 구성의 장편소설 『도시와 그 불확실한 벽』을 세상에 내놓았다. 매 작품을 발표할 때마다 ‘하루키 신드롬’을 일으키며 전 세계 독자들의 사랑을 받고 있는 70대의 작가가 청년 시절에 그렸던 세계를 43년 만에 마침내 완성한 것이다.<br><br>“내가 쓴 소설 가운데 책이 되어 나오지 않은 것은 거의 없을 텐데, 이 작품만은 일본에서도 다른 어느 나라에서도 아직 한 번도 출판되지 않았다. (…) 그사이 나는 서른한 살에서 일흔한 살이 되었다. (…) 어쨌거나 이 작품을 이렇게 다시 한번, 새로운 형태로 다듬어 쓸 수 있어서(혹은 완성할 수 있어서) 솔직히 마음이 무척 편안해졌다. 나에게 이 작품은 줄곧 목에 걸린 생선 가시처럼 신경쓰이는 존재였으므로. (…) 그것은 역시 나에게(나라는 작가에게, 나라는 인간에게) 중요한 의미를 지니는 가시였다. 사십 년 만에 새로 쓰면서 다시 한번 ‘그 도시’에 돌아가보고, 그 사실을 새삼 통감했다.” _무라카미 하루키, 『도시와 그 불확실한 벽』 작가 후기에서
+                            <br>
+                            <br>
+                            <b>마음속에 비밀을 품지 않은 사람은 없다.<br>“진짜 내가 사는 곳은 높은 벽에 둘러싸인 그 도시 안이야.”</b>
+                            <br>
+                            <br>
+                            열일곱 살 남고생인 ‘나’, 열여섯 살 여고생인 ‘너’. 두 사람은 고교생 에세이 대회에서 만나 서로 좋아하게 된다. 그러던 어느 날, 소녀가 알 수 없는 말을 한다. “진짜 내가 사는 곳은 높은 벽에 둘러싸인 그 도시 안이야. 지금 여기 있는 나는 진짜 내가 아니야. 흘러가는 그림자 같은 거야.” ‘나’는 어리둥절하지만 이내 소녀가 들려주는 도시 이야기에 빠져든다. 그 이야기를 따라 도시의 모습을 상세히 기록해가던 나날, 돌연 소녀가 사라진다. 우연한 사고인지, 무언가의 암시일지 종잡을 수 없어 괴로워하던 ‘나’는 오랜 시간을 기다리다 결국 소녀가 말했던 미지의 도시로 향한다.<br>소녀가 말한 도시는 견고하고 높은 돌벽으로 둘러싸여 있다. 그곳 시계에는 바늘이 없지만 사람들은 자연히 시간을 감각할 수 있다. 도시에는 도서관이 하나 있는데, 그곳 서가에는 책이 아닌 사람들의 꿈이 달걀 모양으로 줄지어 놓여 있다. 그 꿈들을 관리하고 꿈의 내용을 해독하는 것이 도시의 중요한 임무 중 하나다. 도시의 출입구는 단 하나, 그마저 우람한 문지기가 지키고 있어 아무나 드나들지 못한다. 도시에 들어가려면 특별한 조건이 있다. 바로 자신의 ‘그림자’를 버려야 한다는 것. ‘나’는 그림자를 버리고 그 도시에 들어간 후, 도서관에 출근하며 ‘꿈 읽는 이’가 되어 생활한다. 애타게 그리던 소녀와도 재회하지만 어찌된 일인지 소녀는 ‘나’를 알아보지 못한다.<br><br>나는 그림자를 버렸다. (…) 문지기는 말했다. “막상 떨어지고 나면 상당히 기묘하게 보이지. 뭐 저런 걸 애지중지 달고 다녔나 싶을 거야.” 나는 대답을 얼버무렸다. 자신의 그림자를 잃고 말았다는 사실이 아직 제대로 실감나지 않았다. “그림자 같은 건 실로 아무짝에도 쓸모가 없어.” 문지기는 말을 이었다. “지금껏 그림자가 자신한테 대단한 도움을 줬던 기억이 있나?” 그런 기억은 없다. 적어도 곧바로 떠오르진 않는다. (본문 66p)<br><br>너는 커다란 흰색 헝겊으로 오래된 꿈에 하얗게 쌓인 먼지를 주의깊게 닦아 내 앞 책상 위에 올려놓는다. 나는 진녹색 안경을 벗고 오래된 꿈의 표면에 양손을 얹는다. 손바닥으로 그것을 감싼다. 오 분쯤 그러고 있으면 오래된 꿈이 깊은 잠에서 차츰 깨어나 표면이 엷게 빛나기 시작한다. 양 손바닥에 편안하고 자연스러운 온기가 전해진다. 그리고 그들이 꿈을 잣기 시작한다. 누에고치가 실을 뽑듯이, 처음에는 머뭇거리며, 이윽고 걸맞은 열의를 담아서. 그들에게는 해야 할 이야기가 있다. 그들은 껍질 밖으로 나갈 때가 오기를 선반 위에서 참을성 있게 기다려왔을 것이다. (본문 48p)
+                            <br>
+                            <br>
+                            <b>나와 세계, 진실과 허구, 비밀과 공유, 분리와 결속……<br>수많은 경계를 직면하며, 그럼에도 계속 이어져야 하는 이 시대를 위한 메시지</b>
+                            <br>
+                            <br>
+                            세월이 흘러 ‘나’는 어느덧 중년이 된다. 오래 몸담았던 출판 유통업계 일을 그만두고, 산간 지방의 작은 도서관에서 신임 관장으로 일한다. 그곳에서 전임 관장 ‘고야스’, 사서 ‘소에다’, 노란 잠수함이 그려진 옷을 입고 매일 도서관을 찾아와 엄청난 속도로 책을 읽어나가는 ‘M소년’과 교류하며 평온한 나날을 보낸다.<br>어느 날, ‘고야스’의 미스터리한 비밀이 밝혀지고 ‘M소년’이 행방불명되면서 ‘나’는 현실과 비현실의 경계에서 혼란스러움을 느낀다. 그리고 ‘산간 지방의 한적한 도서관’과 ‘벽으로 둘러싸인 도시’의 경계에서 부유하듯 살아가던 ‘나’는 이제 이러한 생활에도 끝이 필요하다는 것을 감지한다. 단 하나의 분명한 진실과 현상을 갈구하는 일이 무의미한 경계, 인간의 믿음이 끊임없이 시험당하는 그 경계에서 과연 ‘나’는 어떤 선택을 하게 될까?<br><br>무엇이 현실이고, 무엇이 현실이 아닌가? 아니, 애당초 현실과 비현실을 구분짓는 벽 같은 것이 이 세계에 실제로 존재하는가? 벽은 존재할지도 모른다, 라고 나는 생각한다. 아니, 틀림없이 존재할 것이다. 하지만 어디까지나 불확실한 벽이다. 경우에 따라, 상대에 따라 견고함을 달리하고 형상을 바꿔나간다. 마치 살아 있는 생명체처럼. (본문 684p)
+                            <br>
+                            <br>
+                            <b>역병과 전쟁의 시대에 소설이란 무엇인가<br>작가 무라카미 하루키에게 뜻깊은 ‘완성’이자 새로운 ‘시작’</b>
+                            <br>
+                            <br>
+                            무라카미 하루키는 2023년 4월 27일 미국 매사추세츠주 웰즐리 칼리지에서 「역병과 전쟁의 시대에 소설을 쓰는 것」이라는 주제로 강연을 했다. ‘코로나19’와 ‘우크라이나 전쟁’을 겪으며 사람들 사이에 경계심이라는 벽이 생기고, 그 벽을 허물어 정의롭고 자유로운 가치관을 추구하는 일이 개인의 선택으로 떠맡겨지는 오늘날의 현상에 대해 언급하면서 『도시와 그 불확실한 벽』이 이러한 시대에 합치하는 작품이 될 것이라고 밝혔다.<br>『도시와 그 불확실한 벽』에는 하루키의 작품세계에서 빼놓을 수 없는 요소들, 즉 사랑, 그림자, 도서관, 비틀스, 클래식과 재즈 등이 더욱 긴밀히 어우러진다. 하루키가 40년 넘게 구축해온 세계의 씨앗이 또 한번 훌륭히 꽃을 피운 것이다.<br>하루키는 주로 개인의 내면에 집중하는 작가라는 평가를 받아왔다. 그리고 소설에 대해 ‘마음으로 쓰는 것’ ‘마음과 논리적인 의식의 간격을 메워나가는 것’ ‘논리만으로 구제할 수 없는 것을 구하는 것’이라는 신념을 밝혀왔다. 이번 작품에서 하루키는 그간 구축해온 자신만의 고유한 세계를 보여주는 동시에 ‘계승’ ‘이후 세대’라는 메시지를 강조한다. 확고한 작품세계를 이룬 거장 하루키가 향후 작가로서 어떤 행보를 보여줄지 기대해볼 수 있는 대목이다.<br><br>벽의 웃음소리를 들으면서 나는 고개를 들지 않고 똑바로 달려 그 앞에 있을 벽으로 돌진했다. 여기까지 온 이상 그림자의 말을 믿는 수밖에 없다. 두려워해서는 안 된다. 나는 온 힘을 쥐어짜 의심을 버리고 나 자신의 마음을 믿었다. (본문 206p)<br><br>『도시와 그 불확실한 벽』은 무라카미 하루키에게 자신의 작가 인생과 작품세계를 수확하는 뜻깊은 완성이자 하나의 매듭이며, 이후의 하루키를 기대하게 하는 또다른 시작을 의미한다. 현실과 비현실을 다채롭게 넘나드는 하루키적 상상력을 더욱 원숙한 세계로 만나볼 수 있는 이번 장편은 그의 신작을 기다려온 팬들에게 ‘하루키 세계를 집약한 결정적 작품’으로, 이제 막 무라카미 하루키라는 작가를 접하는 독자들에게는 ‘하루키 세계로 들어가는 완벽한 입문작’으로 자리매김할 것이다.
+                        </a>
+                        <a style="cursor: pointer;" class="eresubgray8 erefs13">접기<img src="img/icon_arrow_fold.png" style="margin-bottom: -1px;"></a>
+                    </div>
+                    <div class="ereline2"></div>
+                </div>
+                <div class="ereclear"></div>
+            </div>
+        </div>
+
+
+
+        <div class="ereprodblogwrap">
+            <div class="ereprodmblogbox tv">
+                <div class="ereprodmblogl" style="cursor: pointer;">알라디너TV</div>
+                <div class="ereprodmblogr">
+                    <div class="btitlebox">
+                        <div class="tlistleft">
+                            <ul>
+                                <li>전체 (5)</li>
+                            </ul>
+                        </div>
+                        <div class="tlistright">
+                            <ul>
+                                <li>
+                                    <div class="erebtnblogwrite"><a style="cursor: pointer;">쓰기</a></div>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="tlistright">
+                            <ul>
+                                <li>
+                                    <a style="cursor: pointer;" class="eresubblue2">
+                                        <span id="tvsort">조회수순</span>
+                                        <img src="img/arrow_down_blue.png" style="margin-bottom: -2px;">
+                                    </a>
+                                </li>
+                            </ul>
+                            <div class="ereclear"></div>
+                            <div id="aladinertvbtnsort" style="position: relative; display: none;">
+                                <div class="erelayerstlist2" style="position:absolute; background-color: white; left: -20px;">
+                                    <ul>
+                                        <li style="width:180px;padding-left:0;font-size:15px;"><a style="cursor: pointer; padding: 8px 18px;">조회수순</a></li>
+                                        <li style="width:180px;padding-left:0;font-size:15px;"><a style="cursor: pointer; padding: 8px 18px;">공감순</a></li>
+                                        <li style="width:180px;padding-left:0;font-size:15px;"><a style="cursor: pointer; padding: 8px 18px;">최신등록순</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="ereclear"></div>
+                    </div>
+
+                    <div class="erespace30"></div>
+
+                    <div class="hundredlist">
+                        <div id="aladinertvplayvideo">
+                            <div>
+                                <iframe width="100%" height="450" src="https://www.youtube.com/embed/p_Phjdi0rLY?si=1sMe5D6EatUpjDtN" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe>
+                            </div>
+                            <div class="erespace15"></div>
+                            <div class="bloglist3">
+                                <ul>
+                                    <li>
+                                        <div class="left">
+                                            <a style="cursor: pointer;" class="erestr">연휴에 읽은 베스트셀러들 책추천 <img src="img/icon_ano_page.png" style="margin-bottom:-3px;"></a>
+                                        </div>
+                                    </li>
+                                    <li class="ereclear">
+                                        <div class="left">
+                                            <a style="cursor: pointer;" class="eresubgray8 erefs13 erepr10">Kwonido</a>
+                                            <span class="eresubgray8 erefs13 erepr10">2023-09-30</span>
+                                            <span class="eresubgray8 erefs13 erepr10">조회수 (707)</span>
+                                            <span class="eresubgray8 erefs13 erepr10">공감 (1)</span>
+                                            <a style="cursor: pointer;" class="eresubgray8 erefs13 erepr10">댓글 (0)</a>
+                                        </div>
+                                        <div class="right">
+                                            <div class="erebtnblogsym">
+                                                <a style="cursor: pointer;">Thanks to</a>
+                                            </div>
+                                            <div class="erebtnblogsym">
+                                                <a style="cursor: pointer;">공감</a>
+                                            </div>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="tvline"></div>
+
+                        <div id="aladinertvlistcontainer" class="erealadinertvbox">
+                            <div class="leftarrows">
+                                <a style="cursor: pointer;" id="aladinertvnaviprev">
+                                    <img src="img/icon_arrow_left_s.png" alt="">
+                                </a>
+                            </div>
+                            <div class="rightarrows">
+                                <a style="cursor: pointer;" id="aladinertvnavinext">
+                                    <img src="img/icon_arrow_right_s.png" alt="">
+                                </a>
+                            </div>
+                            <div class="swipercontainer aladinertvlist">
+
+
+
+
+
+
+                                
+                            </div>
+                            <div class="ereclear erespace20"></div>
+                        </div>
+                    </div>
+
+                    <div class="erespace40"></div>
+                </div>
+                <div class="ereclear"></div>
+            </div>
         </div>
     </div>
+
 
 
 </body>
