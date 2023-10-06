@@ -34,6 +34,12 @@
     <!-- 저자 더보기 -->
     <script src="js/moreinfo.js"></script>
 
+    <!-- 알라디너tv 섹션 -->
+    <script src="js/aladinertvslider.js"></script>
+
+    <!-- 리뷰 섹션 -->
+    <script src="js/review.js"></script>
+
     <style>
 
         #ereprodallwrap {
@@ -53,6 +59,12 @@
             font-weight: bold;
         }
 
+        tr {
+            color: #3E3E3E;
+            font-family: Malgun Gothic,'돋움','굴림',Gulim,dotum,'Segoe WPC','Segoe UI','Apple SD Gothic Neo',Helvetica,AppleGothic,Sans-serif!important;
+            font-size: 12px;
+            line-height: 18px;
+        }
 
 
 
@@ -2167,7 +2179,7 @@
 
 
 
-        /* 서재 */
+        /* 블로그 & 알라디너tv */
 
         .ereprodblogwrap {
             width: 1060px;
@@ -2359,6 +2371,10 @@
             padding: 2px 8px 4px 8px;
         }
 
+        .erebtnblogsym a:hover {
+            background: #f5f5f5;
+        }
+
         .tvline {
             border-bottom: 1px solid #d5d5d5;
             padding-bottom: 15px;
@@ -2393,6 +2409,560 @@
             width: 20px;
             top: 18%;
             z-index: 10;
+        }
+
+        .erealadinertvbox .aladinertvlist {
+            padding: 0;
+            margin: 0;
+            text-align: center;
+            width: 100%;
+        }
+
+        .erealadinertvbox .aladinertvlist ul {
+            padding: 0;
+            margin: 0;
+        }
+
+        .erealadinertvbox .aladinertvlist ul li {
+            float: left;
+            list-style: none;
+            text-align: center;
+            margin: 0;
+            color: #333;
+            line-height: 1.3;
+        }
+
+        .erealadinertvwrap {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            position: relative;
+        }
+
+        .erealadinertvicon {
+            position: absolute;
+            left: 40%;
+            top: 35%;
+        }
+
+        .erealadinertvicon img {
+            width: 40px;
+        }
+
+        .erealadinertvthumb {
+            width: 100%;
+            height: 110px;
+            margin-bottom: 8px;
+            padding: 0;
+            text-align: center;
+        }
+
+        .erealadinertvthumb img {
+            width: 100%;
+            height: 110px;
+        }
+        
+        .aladinertvtit {
+            color: #222;
+            font-size: 14px;
+            letter-spacing: -0.02em; 
+            line-height: 1.3;
+            margin-bottom: 5px;
+        }
+
+        .aladinertvtag {
+            color: #33afe9;
+            display: inline-block;
+        }
+
+        .aladinertvsubt {
+            color: #777;
+            font-size: 13px;
+            margin-top: 5px;
+        }
+
+        .erespace40 {
+            margin: 0;
+            padding: 0;
+            height: 40px;
+        }
+
+
+
+
+        /* 통계 */
+
+        .ereprodmblogbox {
+            margin: 0;
+            padding: 0;
+            position: relative;
+            text-align: left;
+        }
+
+        .ereprodmblogr .manialist {
+            margin: 0;
+            padding: 0;
+        }
+
+        .ereprodmblogr .manialist .maphoto {
+            float: left;
+            margin: 0 15px 0 0;
+            padding: 5px 0 0 0;
+            text-align: left;
+            width: 80px;
+        }
+
+        .ereprodmblogr .manialist .maphoto img {
+            width: 80px;
+            height: 80px;
+        }
+
+        .ereprodmblogr .manialist .mawrite {
+            float: left;
+            margin: 0;
+            padding: 0;
+            width: 715px;
+            font-size: 15px;
+            font-family: malgun, "Malgun Gothic", Dotum, 돋움, sans-serif;
+            color: #333;
+            letter-spacing: -0.02em;
+            line-height: 1.6;
+        }
+
+        .ereprodmblogr .bookplebox2 {
+            margin: 0;
+            padding: 0;
+        }
+
+        .ereprodmblogr .bookplebox2 .bpconts {
+            float: left;
+            margin: 0 0;
+            padding: 0px;
+            font-size: 15px;
+            font-weight: 600;
+            font-family: malgun, "Malgun Gothic", Dotum, 돋움, sans-serif;
+            color: #333;
+        }
+
+        .ereprodmblogr .bloglist1 {
+            clear: both;
+            padding: 0;
+            margin: 0;
+        }
+
+        .ereprodmblogr .bloglist1 ul {
+            padding: 0;
+            margin: 0;
+        }
+
+        .ereprodmblogr .bloglist1 ul li {
+            list-style: none;
+            padding: 0 25px 0 0;
+            margin: 0;
+            float: left;
+            line-height: 1.8;
+            color: #333;
+            letter-spacing: -0.02em;
+        }
+
+        .ereprodmblogr .bookplebox2 .bptitle {
+            width: 120px;
+            float: right;
+            margin: 0;
+            padding: 0;
+        }
+
+        .ereml7 {
+            margin-left: 7px;
+        }
+
+        .ereprodgraphwrapa {
+            margin: 0 auto;
+            padding: 40px 0;
+            background: #f9f9f9;
+        }
+
+        .ereprodgraphwrapa .graphbox {
+            width: 1060px;
+            margin: 0 auto;
+            padding: 0;
+            font-size: 15px;
+            font-family: malgun, "Malgun Gothic", Dotum, 돋움, sans-serif;
+            color: #333;
+        }
+
+        .ereprodgraphwrapa .graphbox .buyerareaa {
+            width: 519px;
+            float: left;
+            margin: 0;
+            padding: 0 10px 0 0;
+            border-bottom: 0;
+            border-right: 1px dotted #ccc;
+        }
+
+        .buyerareaa .buyerbox {
+            margin: 0;
+            padding: 0;
+        }
+
+        .buyerareaa .buyerbox .anaytitle {
+            margin: 0 0 30px 0;
+            padding: 0;
+            width: 519px;
+            float: left;
+        }
+
+        .buyerareaa .buyerbox .anaytroundl {
+            display: block;
+            margin: 0 30px 0 0;
+            text-align: center;
+            font-size: 19px;
+            font-family: malgun, "Malgun Gothic", Dotum, 돋움, sans-serif;
+            color: #0086cd;
+            line-height: 1.4;
+        }
+
+        .buyerareaa .buyerbox .anayconts {
+            float: left;
+            margin: 0;
+            padding: 0 5% 0 0;
+            width: 95%;
+            font-size: 13px;
+        }
+
+        .buyerareaa .buyerbox .anayconts .analysis {
+            float: left;
+            width: 100%;
+            padding: 0;
+        }
+
+        .buyerareaa .buyerbox .analysisbox {
+            margin: 0;
+            padding: 0;
+        }
+
+        .buyerareaa .buyerbox .analysisbox .tbwoman {
+            background: url('img/analysis_box_bg1.png') repeat-x 0 0;
+            text-align: right;
+            padding: 8px 0;
+            width: 45%;
+            font-size: 15px;
+        }
+
+        .buyerareaa .buyerbox .analysisbox .tbwoman .bar {
+            float: right;
+        }
+
+        .buyerareaa .buyerbox .analysisbox .tbwoman .bar img {
+            width: 100%;
+            height: 20px;
+        }
+
+        .buyerareaa .buyerbox .analysisbox .tbwoman .per {
+            background: #f9f9f9;
+            padding-bottom: 2px;
+            width: 18%;
+            float: left;
+            padding-right: 5px;
+            font-size: 15px;
+            font-family: malgun, "Malgun Gothic", Dotum, 돋움, sans-serif;
+            font-style: italic;
+            color: #000;
+            letter-spacing: -0.05em;
+        }
+
+        .buyerareaa .buyerbox .analysisbox .tbtit {
+            text-align: center;
+            width: 10%;
+            padding: 3px 0 8px 0;
+            font-size: 15px;
+            color: #333;
+            font-weight: 600;
+            letter-spacing: -0.05em;
+            vertical-align: middle !important;
+        }
+
+        .buyerareaa .buyerbox .analysisbox .tbman {
+            background: url('img/analysis_box_bg1.png') repeat-x 0 0;
+            text-align: left;
+            padding: 8px 0;
+            width: 45%;
+            font-size: 15px;
+        }
+
+        .buyerareaa .buyerbox .analysisbox .tbman .bar {
+            float: left;
+        }
+
+        .buyerareaa .buyerbox .analysisbox .tbman .bar img {
+            width: 100%;
+            height: 20px;
+        }
+
+        .buyerareaa .buyerbox .analysisbox .tbman .per {
+            background: #f9f9f9;
+            padding-bottom: 2px;
+            width: 18%;
+            float: right;
+            padding-left: 5px;
+            font-size: 15px;
+            font-family: malgun, "Malgun Gothic", Dotum, 돋움, sans-serif;
+            font-style: italic;
+            color: #000;
+            letter-spacing: -0.05em;
+            text-align: right;
+        }
+        
+        .erembm1 {
+            margin-bottom: -1px;
+        }
+
+        .buyerareaa .buyerbox .analysisbox .tbwomanlast {
+            text-align: right;
+            padding: 8px 0;
+            width: 45%;
+            font-size: 15px;
+        }
+
+        .buyerareaa .buyerbox .analysisbox .tbmanlast {
+            text-align: left;
+            padding: 8px 0;
+            width: 45%;
+            font-size: 15px;
+        }
+
+        .ereprodgraphwrapa .graphbox .starareaa {
+            width: 520px;
+            float: left;
+            margin: 0;
+            padding: 0 0 0 10px;
+        }
+
+        .starareaa .starbox {
+            margin: 0;
+            padding: 0;
+        }
+
+        .starareaa .starbox .anaytitle {
+            margin: 0 0 20px 0;
+            padding: 0;
+            width: 519px;
+        }
+
+        .starareaa .starbox .anaytroundl {
+            display: block;
+            margin: 0 auto;
+            text-align: center;
+            font-size: 19px;
+            font-family: malgun, "Malgun Gothic", Dotum, 돋움, sans-serif;
+            color: #0086cd;
+            line-height: 1.4;
+        }
+
+        .starareaa .starbox .anayconts {
+            float: left;
+            margin: 0;
+            padding: 0 0 0 5%;
+            width: 95%;
+            font-size: 13px;
+        }
+
+        .starareaa .starbox .anayconts .analysis {
+            float: left;
+            width: 100%;
+            padding: 0;
+        }
+
+        .starareaa .starbox .analysisbox {
+            margin: 0;
+            padding: 0;
+        }
+
+        .starareaa .starbox .starlist {
+            float: left;
+            margin: 0;
+            padding: 0 0 0 0;
+            width: 100%;
+            font-size: 13px;
+            text-align: center;
+        }
+
+        .scorebox {
+            display: inline-block;
+            margin: 0 auto 15px auto;
+            padding: 0;
+            text-align: center;
+        }
+
+        .scorebox .star {
+            margin: 0;
+            padding: 0;
+            float: left;
+        }
+
+        .scorebox .num {
+            float: left;
+            padding: 7px 0 0 15px;
+            color: #ef3b96;
+            font-weight: bold;
+            font-size: 34px;
+        }
+
+        .starareaa .starbox .starlist .tbleft {
+            text-align: left;
+            width: 130px;
+            padding: 6px 0 9px 0;
+            vertical-align: middle;
+        }
+
+        .starareaa .starbox .starlist .tbright {
+            background: url('img/analysis_box_bg1.png') repeat-x 0 0;
+            text-align: left;
+            padding: 8px 0;
+        }
+
+        .starareaa .starbox .starlist .tbright .bar {
+            float: left;
+        }
+
+        .starareaa .starbox .starlist .tbright .bar img {
+            width: 100%;
+            height: 20px;
+        }
+
+        .starareaa .starbox .starlist .tbright .per {
+            background: #f9f9f9;
+            padding-bottom: 2px;
+            width: 15%;
+            float: right;
+            font-size: 14px;
+            font-family: malgun, "Malgun Gothic", Dotum, 돋움, sans-serif;
+            font-style: italic;
+            color: #111;
+            padding-left: 6px;
+            text-align: right;
+        }
+
+
+
+
+
+
+        /* 리뷰 */
+
+        .hundredbox {
+            margin: 0;
+            padding: 0;
+        }
+
+        .ereprodmblogr .hundredbox .hleft1 {
+            margin: 0 5px 0 0;
+            padding: 0;
+            width: 710px;
+            float: left;
+        }
+
+        .ereprodmblogr .hundredbox .starbox {
+            margin: 0;
+            padding: 6px 0;
+            width: 145px;
+        }
+
+        .ereprodmblogr .hundredbox .textbox {
+            border: 1px solid #d5d5d5;
+            margin: 0;
+            padding: 0px;
+            width: 708px;
+            height: 65px;
+        }
+
+        .ereprodmblogr .hundredbox .textbox .btextarea {
+            border: 0;
+            padding: 10px 10px;
+            width: 685px;
+            height: 45px;
+            font-family: malgun, "Malgun Gothic", Dotum, 돋움, sans-serif;
+            font-size: 14px;
+            color: #777;
+            text-align: left;
+            letter-spacing: -0.02em;
+            line-height: 1.6;
+        }
+
+        .ereprodmblogr .hundredbox .hright1 {
+            float: right;
+            margin: 0;
+            padding: 0px;
+            width: 95px;
+        }
+
+        .erebtnregister {
+            display: inline-block;
+            padding: 0;
+            vertical-align: middle;
+            text-align: center;
+            overflow: hidden;
+            text-decoration: none;
+            cursor: pointer;
+            background: #0fa8ff;
+        }
+
+        .erebtnregister a {
+            outline: 0;
+            color: #FFF;
+            font-size: 15px;
+            font-weight: bold;
+            font-family: malgun, "Malgun Gothic", Dotum, 돋움, sans-serif;
+            line-height: 1.5;
+            display: block;
+            white-space: nowrap;
+            background: #0fa8ff;
+            margin: 0;
+            width: 95px;
+            padding: 23px 0px 22px 0px;
+        }
+
+
+
+        /* 메인 하단 */
+
+        .erefooterwrap {
+            margin: 0;
+            padding: 35px 0 0 0;
+            background-color: #fff;
+            border-top: 1px solid #cccccc;
+        }
+
+        .erelbooktbox {
+            width: 1060px;
+            margin: 0 auto;
+            padding: 0;
+        }
+
+        .erelbooklbox {
+            width: 1060px;
+            margin: 0 auto;
+            padding: 0;
+            position: relative;
+        }
+
+        .erelasttitle {
+            float: left;
+            font-family: malgun, "Malgun Gothic", Dotum, 돋움, sans-serif;
+            color: #111;
+            font-size: 18px;
+            line-height: 1.5;
+            letter-spacing: -0.02em;
+            text-align: left;
+            padding: 0 50px 0 0;
+        }
+
+        .erelastmore {
+            float: right;
+        }
+
+        .erelastmore .erebtncheck a:hover {
+            background-color: #fafafa;
         }
     </style>
 </head>
@@ -3344,6 +3914,7 @@
     </header>
 
     <div id="ereprodallwrap">
+
         <div id="topv1line" style="padding: 3px 0 2px 0;"></div>
 
         <div class="ereprodtopwrap">
@@ -4842,7 +5413,7 @@
                                 <iframe width="100%" height="450" src="https://www.youtube.com/embed/p_Phjdi0rLY?si=1sMe5D6EatUpjDtN" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe>
                             </div>
                             <div class="erespace15"></div>
-                            <div class="bloglist3">
+                            <div class="bloglist3" style="display: block;">
                                 <ul>
                                     <li>
                                         <div class="left">
@@ -4856,6 +5427,110 @@
                                             <span class="eresubgray8 erefs13 erepr10">조회수 (707)</span>
                                             <span class="eresubgray8 erefs13 erepr10">공감 (1)</span>
                                             <a style="cursor: pointer;" class="eresubgray8 erefs13 erepr10">댓글 (0)</a>
+                                        </div>
+                                        <div class="right">
+                                            <div class="erebtnblogsym">
+                                                <a style="cursor: pointer;">Thanks to</a>
+                                            </div>
+                                            <div class="erebtnblogsym">
+                                                <a style="cursor: pointer;">공감</a>
+                                            </div>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="bloglist3" style="display: none;">
+                                <ul>
+                                    <li>
+                                        <div class="left">
+                                            <a style="cursor: pointer;" class="erestr">무라카미 하루키 신작! [도시와 그 불확실한 벽] <img src="img/icon_ano_page.png" style="margin-bottom:-3px;"></a>
+                                        </div>
+                                    </li>
+                                    <li class="ereclear">
+                                        <div class="left">
+                                            <a style="cursor: pointer;" class="eresubgray8 erefs13 erepr10">캡틴스타</a>
+                                            <span class="eresubgray8 erefs13 erepr10">2023-09-10</span>
+                                            <span class="eresubgray8 erefs13 erepr10">조회수 (672)</span>
+                                            <span class="eresubgray8 erefs13 erepr10">공감 (2)</span>
+                                            <a style="cursor: pointer;" class="eresubgray8 erefs13 erepr10">댓글 (0)</a>
+                                        </div>
+                                        <div class="right">
+                                            <div class="erebtnblogsym">
+                                                <a style="cursor: pointer;">Thanks to</a>
+                                            </div>
+                                            <div class="erebtnblogsym">
+                                                <a style="cursor: pointer;">공감</a>
+                                            </div>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="bloglist3" style="display: none;">
+                                <ul>
+                                    <li>
+                                        <div class="left">
+                                            <a style="cursor: pointer;" class="erestr">9월 구매 도서 : 무라카미 하루키 신작 언박싱 <img src="img/icon_ano_page.png" style="margin-bottom:-3px;"></a>
+                                        </div>
+                                    </li>
+                                    <li class="ereclear">
+                                        <div class="left">
+                                            <a style="cursor: pointer;" class="eresubgray8 erefs13 erepr10">자몽샤샥</a>
+                                            <span class="eresubgray8 erefs13 erepr10">2023-09-08</span>
+                                            <span class="eresubgray8 erefs13 erepr10">조회수 (604)</span>
+                                            <span class="eresubgray8 erefs13 erepr10">공감 (2)</span>
+                                            <a style="cursor: pointer;" class="eresubgray8 erefs13 erepr10">댓글 (0)</a>
+                                        </div>
+                                        <div class="right">
+                                            <div class="erebtnblogsym">
+                                                <a style="cursor: pointer;">Thanks to</a>
+                                            </div>
+                                            <div class="erebtnblogsym">
+                                                <a style="cursor: pointer;">공감</a>
+                                            </div>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="bloglist3" style="display: none;">
+                                <ul>
+                                    <li>
+                                        <div class="left">
+                                            <a style="cursor: pointer;" class="erestr">하루키를 읽는 이유?! 📚 | 노벨문학상 후보, 일본 대표 작가 <img src="img/icon_ano_page.png" style="margin-bottom:-3px;"></a>
+                                        </div>
+                                    </li>
+                                    <li class="ereclear">
+                                        <div class="left">
+                                            <a style="cursor: pointer;" class="eresubgray8 erefs13 erepr10">제이픽</a>
+                                            <span class="eresubgray8 erefs13 erepr10">2023-09-28</span>
+                                            <span class="eresubgray8 erefs13 erepr10">조회수 (573)</span>
+                                            <span class="eresubgray8 erefs13 erepr10">공감 (2)</span>
+                                            <a style="cursor: pointer;" class="eresubgray8 erefs13 erepr10">댓글 (0)</a>
+                                        </div>
+                                        <div class="right">
+                                            <div class="erebtnblogsym">
+                                                <a style="cursor: pointer;">Thanks to</a>
+                                            </div>
+                                            <div class="erebtnblogsym">
+                                                <a style="cursor: pointer;">공감</a>
+                                            </div>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="bloglist3" style="display: none;">
+                                <ul>
+                                    <li>
+                                        <div class="left">
+                                            <a style="cursor: pointer;" class="erestr">도시와 그 불확실한 벽 <img src="img/icon_ano_page.png" style="margin-bottom:-3px;"></a>
+                                        </div>
+                                    </li>
+                                    <li class="ereclear">
+                                        <div class="left">
+                                            <a style="cursor: pointer;" class="eresubgray8 erefs13 erepr10">하이드</a>
+                                            <span class="eresubgray8 erefs13 erepr10">2023-09-15</span>
+                                            <span class="eresubgray8 erefs13 erepr10">조회수 (254)</span>
+                                            <span class="eresubgray8 erefs13 erepr10">공감 (24)</span>
+                                            <a style="cursor: pointer;" class="eresubgray8 erefs13 erepr10">댓글 (3)</a>
                                         </div>
                                         <div class="right">
                                             <div class="erebtnblogsym">
@@ -4884,22 +5559,538 @@
                                 </a>
                             </div>
                             <div class="swipercontainer aladinertvlist">
-
-
-
-
-
-
-                                
+                                <ul class="swiperwrapper" style="transform: translate3d(0px, 0px, 0px);">
+                                    <li class="swiperslide" style="padding: 0px 2% 0px 0px; width: 202.5px;">
+                                        <div class="erealadinertvwrap">
+                                            <div class="erealadinertvicon" style="cursor: pointer;">
+                                                <img src="img/tv_icon1.png" alt="">
+                                            </div>
+                                            <div class="erealadinertvthumb">
+                                                <a style="cursor: pointer;"><img src="img/mqdefault (3).jpg" alt=""></a>
+                                            </div>
+                                        </div>
+                                        <div>
+                                            <a style="cursor: pointer;" class="aladinertvtit">연휴에 읽은 베스트셀러들<br>책추천 <img src="img/icon_ano_page.png" style="margin-bottom: -3px;"></a>
+                                        </div>
+                                        <div>
+                                            <a style="cursor: pointer;" class="aladinertvtag">#가을엔에세이</a>
+                                        </div>
+                                        <div class="aladinertvsubt">
+                                            <a style="cursor: pointer;" class="eresubgray8">Kwonido</a> 조회수 707
+                                        </div>
+                                    </li>
+                                    <li class="swiperslide" style="padding: 0px 2% 0px 0px; width: 202.5px;">
+                                        <div class="erealadinertvwrap">
+                                            <div class="erealadinertvicon" style="cursor: pointer;">
+                                                <img src="img/tv_icon1.png" alt="">
+                                            </div>
+                                            <div class="erealadinertvthumb">
+                                                <a style="cursor: pointer;"><img src="img/mqdefault (4).jpg" alt=""></a>
+                                            </div>
+                                        </div>
+                                        <div>
+                                            <a style="cursor: pointer;" class="aladinertvtit">무라카미 하루키 신작! [도시와 <br>그 불확실한 벽] <img src="img/icon_ano_page.png" style="margin-bottom: -3px;"></a>
+                                        </div>
+                                        <div>
+                                            <a style="cursor: pointer;" class="aladinertvtag">#미스터리추리</a>
+                                        </div>
+                                        <div class="aladinertvsubt">
+                                            <a style="cursor: pointer;" class="eresubgray8">캡틴스타</a> 조회수 672
+                                        </div>
+                                    </li>
+                                    <li class="swiperslide" style="padding: 0px 2% 0px 0px; width: 202.5px;">
+                                        <div class="erealadinertvwrap">
+                                            <div class="erealadinertvicon" style="cursor: pointer;">
+                                                <img src="img/tv_icon1.png" alt="">
+                                            </div>
+                                            <div class="erealadinertvthumb">
+                                                <a style="cursor: pointer;"><img src="img/mqdefault (5).jpg" alt=""></a>
+                                            </div>
+                                        </div>
+                                        <div>
+                                            <a style="cursor: pointer;" class="aladinertvtit">9월 구매 도서 : 무라카미 하루키 <br>신작 언박싱 <img src="img/icon_ano_page.png" style="margin-bottom: -3px;"></a>
+                                        </div>
+                                        <div>
+                                            <a style="cursor: pointer;" class="aladinertvtag">#무라카미하루키</a>
+                                            <a style="cursor: pointer;" class="aladinertvtag">#도시와그불확실한벽</a>
+                                        </div>
+                                        <div class="aladinertvsubt">
+                                            <a style="cursor: pointer;" class="eresubgray8">자몽샤샥</a> 조회수 604
+                                        </div>
+                                    </li>
+                                    <li class="swiperslide" style="padding: 0px 2% 0px 0px; width: 202.5px;">
+                                        <div class="erealadinertvwrap">
+                                            <div class="erealadinertvicon" style="cursor: pointer;">
+                                                <img src="img/tv_icon1.png" alt="">
+                                            </div>
+                                            <div class="erealadinertvthumb">
+                                                <a style="cursor: pointer;"><img src="img/mqdefault (6).jpg" alt=""></a>
+                                            </div>
+                                        </div>
+                                        <div>
+                                            <a style="cursor: pointer;" class="aladinertvtit">하루키를 읽는 이유?! 📚 |<br>노벨문학상 후보, 일본 대표 작가 <img src="img/icon_ano_page.png" style="margin-bottom: -3px;"></a>
+                                        </div>
+                                        <div>
+                                            <a style="cursor: pointer;" class="aladinertvtag">#가을엔에세이</a>
+                                            <a style="cursor: pointer;" class="aladinertvtag">#시작하는북튜버를위해</a>
+                                            <a style="cursor: pointer;" class="aladinertvtag">#선물하고싶은책</a>
+                                            <a style="cursor: pointer;" class="aladinertvtag">#나의하반기PICK</a>
+                                        </div>
+                                        <div class="aladinertvsubt">
+                                            <a style="cursor: pointer;" class="eresubgray8">제이픽</a> 조회수 573
+                                        </div>
+                                    </li>
+                                    <li class="swiperslide" style="padding: 0px 2% 0px 0px; width: 202.5px;">
+                                        <div class="erealadinertvwrap">
+                                            <div class="erealadinertvicon" style="cursor: pointer;">
+                                                <img src="img/tv_icon1.png" alt="">
+                                            </div>
+                                            <div class="erealadinertvthumb">
+                                                <a style="cursor: pointer;"><img src="img/mqdefault (7).jpg" alt=""></a>
+                                            </div>
+                                        </div>
+                                        <div>
+                                            <a style="cursor: pointer;" class="aladinertvtit">도시와 그 불확실한 벽 <img src="img/icon_ano_page.png" style="margin-bottom: -3px;"></a>
+                                        </div>
+                                        <div>
+                                            <a style="cursor: pointer;" class="aladinertvtag">#1분1북</a>
+                                            <a style="cursor: pointer;" class="aladinertvtag">#shorts</a>
+                                            <a style="cursor: pointer;" class="aladinertvtag">#무라카미하루키</a>
+                                        </div>
+                                        <div class="aladinertvsubt">
+                                            <a style="cursor: pointer;" class="eresubgray8">하이드</a> 조회수 254
+                                        </div>
+                                    </li>
+                                </ul>
                             </div>
                             <div class="ereclear erespace20"></div>
                         </div>
                     </div>
-
                     <div class="erespace40"></div>
                 </div>
                 <div class="ereclear"></div>
             </div>
+
+            <div class="ereclear"></div>
+
+            <div id="ct10pnpc">
+                <div class="ereprodmblogbox" id="divbookplenewsfeedlistpccontents">
+                    <div class="ereprodmblogl">북플 bookple</div>
+                    <div class="ereprodmblogr">
+
+                        <div id="divbookplemaniafeedlist">
+                            <div class="manialist">
+                                <div class="maphoto">
+                                    <img src="img/pt_7796361641220817.jpg" alt="">
+                                </div>
+                                <div class="mawrite">
+                                    <div class="bloglist3">
+                                        <ul>
+                                            <li>
+                                                좋아하는 사람이 어느 날 갑자기 사라진다면 어떨까. 설명다운 설명도 없이 떠나버린다면, 꿈이라고 믿기엔 너무나 생생한 추억을 남기고 간다면 어떨까. 무라카미 하루키의 소설 <도시와 그 불확실한 벽>의 주인공 '나'는 겨우 열일곱 살 때 이런 경험을 한다. 고등학생 에세이 대회에서 만나 나란히 3등과 4등을 수상한 '나'와 '너'는 급속히 친해져 ... <a style="cursor: pointer;" class="eresubgray8 erefs13">더보기<img src="img/icon_arrow_more.png" style="margin-bottom: -1px;"></a>
+                                            </li>
+                                            <li>
+                                                <div class="left">
+                                                    <a style="cursor: pointer;" class="eresubgray8 erefs13 erepr10">키치</a>
+                                                    <span class="eresubgray8 erefs13 erepr10">2023-10-05</span>
+                                                    <span class="eresubgray8 erefs13 erepr10">공감 (11)</span>
+                                                    <a style="cursor: pointer;" class="eresubgray8 erefs13">댓글 (0)</a>
+                                                </div>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="ereclear"></div>
+                            </div>
+                            <div class="erespace30"></div>
+                            <div class="manialist">
+                                <div class="maphoto">
+                                    <img src="img/pt_7070941053115255.jpg" alt="">
+                                </div>
+                                <div class="mawrite">
+                                    <div class="bloglist3">
+                                        <ul>
+                                            <li>
+                                                벽같은 명절 연휴 둘쨋날 풍경:
+                                                1. 어젯밤 과음한 1인과 며칠 전부터 음식 준비와 집안 청소로 과로한 1인은 낮잠의 세계로ㅡ
+                                                2. 명절에 더 바쁜 직업을 가진 1인은 출근(자영업이니까 명절인데 문 좀 닫고 같이 지내도 좋으련만 가차없이 출근해버리는 조카에게 섭섭함을 느낀다. 이모 조카 사이에도 이런데 부모 자식 간에는 그 섭섭함의 농도가 얼마나 짙을 ... <a style="cursor: pointer;" class="eresubgray8 erefs13">더보기<img src="img/icon_arrow_more.png" style="margin-bottom: -1px;"></a>
+                                            </li>
+                                            <li>
+                                                <div class="left">
+                                                    <a style="cursor: pointer;" class="eresubgray8 erefs13 erepr10">잘잘랄라</a>
+                                                    <span class="eresubgray8 erefs13 erepr10">2023-09-29</span>
+                                                    <span class="eresubgray8 erefs13 erepr10">공감 (19)</span>
+                                                    <a style="cursor: pointer;" class="eresubgray8 erefs13">댓글 (2)</a>
+                                                </div>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="ereclear"></div>
+                            </div>
+                            <div class="erespace30"></div>
+                            <div class="manialist">
+                                <div class="maphoto">
+                                    <img src="img/pt_721010125997971.jpg" alt="">
+                                </div>
+                                <div class="mawrite">
+                                    <div class="bloglist3">
+                                        <ul>
+                                            <li>
+                                                Zhu Xiao-Mei를 연달아 듣고 있다. 아마존에서 어제 도착한 스칼라티, 하이든, 모차르트, 베토벤, 슈베르트, 슈만의 다섯 개의 CD 합본이다.
+                                                미국에서도 구할 수 없는 것을 한국에서 구할 수 있어서 주문했으니 도착하면 제대로 들어볼 것이다. Glen Gould의 연주로만 들어본 Goldberg Variation도 이분의 연주로 들어볼 수 있을 것...<a style="cursor: pointer;" class="eresubgray8 erefs13">더보기<img src="img/icon_arrow_more.png" style="margin-bottom: -1px;"></a>
+                                            </li>
+                                            <li>
+                                                <div class="left">
+                                                    <a style="cursor: pointer;" class="eresubgray8 erefs13 erepr10">transient-guest</a>
+                                                    <span class="eresubgray8 erefs13 erepr10">2023-09-27</span>
+                                                    <span class="eresubgray8 erefs13 erepr10">공감 (15)</span>
+                                                    <a style="cursor: pointer;" class="eresubgray8 erefs13">댓글 (0)</a>
+                                                </div>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="ereclear"></div>
+                            </div>
+                            <div class="erespace30"></div>
+                            <div class="erebtnmore" style="margin-bottom: 20px;">
+                                <a style="cursor: pointer;">
+                                    <strong>더보기</strong>
+                                    <div class="morearrow"></div>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="bookplebox2">
+                            <div class="bpconts">
+                                <div class="bloglist1">
+                                    <ul>
+                                        <li>
+                                            <a style="cursor: pointer; border-bottom: 1px solid #0fa8ff;" class="eresubblue2 erefs16">마니아 <img src="img/icon_next_blue.png" style="margin-bottom: -2px;"></a>
+                                        </li>
+                                        <li>
+                                            <a style="cursor: pointer;">읽고 싶어요 (102) <img src="img/icon_next_gray.png" style="margin-bottom: -2px;"></a>
+                                        </li>
+                                        <li>
+                                            <a style="cursor: pointer;">읽고 있어요 (63) <img src="img/icon_next_gray.png" style="margin-bottom: -2px;"></a>
+                                        </li>
+                                        <li>
+                                            <a style="cursor: pointer;">읽었어요 (121) <img src="img/icon_next_gray.png" style="margin-bottom: -2px;"></a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="bptitle">
+                                <div class="erebtnblogwrite ereml7">
+                                    <a style="cursor: pointer;">이 책 어때요?</a>
+                                </div>
+                            </div>
+                            <div class="ereclear"></div>
+                        </div>
+                        <div class="ereline2"></div>
+                    </div>
+                    <div class="ereclear"></div>
+                </div>
+            </div>
+
+        </div>
+
+
+
+        <div class="ereprodgraphwrapa">
+
+            <div class="graphbox">
+
+                <div class="buyerareaa">
+                    <div class="buyerbox">
+                        <div class="anaytitle">
+                            <div class="anaytroundl">구매자 분포</div>
+                        </div>
+                        <div class="anayconts">
+                            <div class="analysis">
+                                <div class="analysisbox">
+                                    <table style="width: 100%; border: 0;">
+                                        <tbody>
+                                            <tr>
+                                                <td class="tbwoman">
+                                                    <div class="bar" style="width: 0.3%;">
+                                                        <img src="img/analysis_bg1.png" alt="">
+                                                    </div>
+                                                    <div class="per">0.2%</div>
+                                                </td>
+                                                <td class="tbtit">10대</td>
+                                                <td class="tbman">
+                                                    <div class="bar" style="width: 0.3%;">
+                                                        <img src="img/analysis_bg1.png" alt="">
+                                                    </div>
+                                                    <div class="per">0.3%</div>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td class="tbwoman">
+                                                    <div class="bar" style="width: 10.13%;">
+                                                        <img src="img/analysis_bg1.png" alt="">
+                                                    </div>
+                                                    <div class="per">6.4%</div>
+                                                </td>
+                                                <td class="tbtit">20대</td>
+                                                <td class="tbman">
+                                                    <div class="bar" style="width: 10.74%;">
+                                                        <img src="img/analysis_bg1.png" alt="">
+                                                    </div>
+                                                    <div class="per">6.8%</div>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td class="tbwoman">
+                                                    <div class="bar" style="width: 26.63%;">
+                                                        <img src="img/analysis_bg1.png" alt="">
+                                                    </div>
+                                                    <div class="per">16.7%</div>
+                                                </td>
+                                                <td class="tbtit">30대</td>
+                                                <td class="tbman">
+                                                    <div class="bar" style="width: 19.04%;">
+                                                        <img src="img/analysis_bg1.png" alt="">
+                                                    </div>
+                                                    <div class="per">12.0%</div>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td class="tbwoman">
+                                                    <div class="bar" style="width: 37.88%;">
+                                                        <img src="img/analysis_bg1.png" alt="">
+                                                    </div>
+                                                    <div class="per">23.8%</div>
+                                                </td>
+                                                <td class="tbtit">40대</td>
+                                                <td class="tbman">
+                                                    <div class="bar" style="width: 21.93%;">
+                                                        <img src="img/analysis_bg1.png" alt="">
+                                                    </div>
+                                                    <div class="per">13.8%</div>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td class="tbwoman">
+                                                    <div class="bar" style="width: 14.66%;">
+                                                        <img src="img/analysis_bg1.png" alt="">
+                                                    </div>
+                                                    <div class="per">9.2%</div>
+                                                </td>
+                                                <td class="tbtit">50대</td>
+                                                <td class="tbman">
+                                                    <div class="bar" style="width: 12.15%;">
+                                                        <img src="img/analysis_bg1.png" alt="">
+                                                    </div>
+                                                    <div class="per">7.6%</div>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td class="tbwoman">
+                                                    <div class="bar" style="width: 2.37%;">
+                                                        <img src="img/analysis_bg1.png" alt="">
+                                                    </div>
+                                                    <div class="per">1.5%</div>
+                                                </td>
+                                                <td class="tbtit">60대<img src="img/over_sixty.png" class="erembm1"></td>
+                                                <td class="tbman">
+                                                    <div class="bar" style="width: 2.74%;">
+                                                        <img src="img/analysis_bg1.png" alt="">
+                                                    </div>
+                                                    <div class="per">1.7%</div>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td class="tbwomanlast erept10 erestr">여성</td>
+                                                <td class="tbtit"></td>
+                                                <td class="tbmanlast erept10 erestr">남성</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="starareaa">
+                    <div class="starbox">
+                        <div class="anaytitle">
+                            <div class="anaytroundl">별점 분포</div>
+                        </div>
+                        <div class="anayconts">
+                            <div class="analysis">
+                                <div class="analysisbox">
+                                    <div class="starlist">
+                                        <div class="scorebox">
+                                            <div class="star">
+                                                <img src="img/icon_Lstar_on.png" alt="">
+                                                <img src="img/icon_Lstar_on.png" alt="">
+                                                <img src="img/icon_Lstar_on.png" alt="">
+                                                <img src="img/icon_Lstar_on.png" alt="">
+                                                <img src="img/icon_Lstar_off.png" alt="">
+                                            </div>
+                                            <div class="num"> 8.8 </div>
+                                            <div class="ereclear"></div>
+                                        </div>
+                                    </div>
+                                    <div class="starlist">
+                                        <table style="width: 100%; border: 0;">
+                                            <tbody>
+                                                <tr>
+                                                    <td class="tbleft">
+                                                        <img src="img/icon_star_on.png" style="margin-bottom: -4px;">
+                                                        <img src="img/icon_star_on.png" style="margin-bottom: -4px;">
+                                                        <img src="img/icon_star_on.png" style="margin-bottom: -4px;">
+                                                        <img src="img/icon_star_on.png" style="margin-bottom: -4px;">
+                                                        <img src="img/icon_star_on.png" style="margin-bottom: -4px;">
+                                                    </td>
+                                                    <td class="tbright">
+                                                        <div class="bar" style="width: 50.5%;"><img src="img/analysis_bg1.png" alt=""></div>
+                                                        <div class="per">60.5%</div>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="tbleft">
+                                                        <img src="img/icon_star_on.png" style="margin-bottom: -4px;">
+                                                        <img src="img/icon_star_on.png" style="margin-bottom: -4px;">
+                                                        <img src="img/icon_star_on.png" style="margin-bottom: -4px;">
+                                                        <img src="img/icon_star_on.png" style="margin-bottom: -4px;">
+                                                        <img src="img/icon_star_off.png" style="margin-bottom: -4px;">
+                                                    </td>
+                                                    <td class="tbright">
+                                                        <div class="bar" style="width: 20.6%;"><img src="img/analysis_bg1.png" alt=""></div>
+                                                        <div class="per">24.7%</div>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="tbleft">
+                                                        <img src="img/icon_star_on.png" style="margin-bottom: -4px;">
+                                                        <img src="img/icon_star_on.png" style="margin-bottom: -4px;">
+                                                        <img src="img/icon_star_on.png" style="margin-bottom: -4px;">
+                                                        <img src="img/icon_star_off.png" style="margin-bottom: -4px;">
+                                                        <img src="img/icon_star_off.png" style="margin-bottom: -4px;">
+                                                    </td>
+                                                    <td class="tbright">
+                                                        <div class="bar" style="width: 9.3%;"><img src="img/analysis_bg1.png" alt=""></div>
+                                                        <div class="per">11.1%</div>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="tbleft">
+                                                        <img src="img/icon_star_on.png" style="margin-bottom: -4px;">
+                                                        <img src="img/icon_star_on.png" style="margin-bottom: -4px;">
+                                                        <img src="img/icon_star_off.png" style="margin-bottom: -4px;">
+                                                        <img src="img/icon_star_off.png" style="margin-bottom: -4px;">
+                                                        <img src="img/icon_star_off.png" style="margin-bottom: -4px;">
+                                                    </td>
+                                                    <td class="tbright">
+                                                        <div class="bar" style="width: 1%;"><img src="img/analysis_bg1.png" alt=""></div>
+                                                        <div class="per">1.2%</div>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="tbleft">
+                                                        <img src="img/icon_star_on.png" style="margin-bottom: -4px;">
+                                                        <img src="img/icon_star_off.png" style="margin-bottom: -4px;">
+                                                        <img src="img/icon_star_off.png" style="margin-bottom: -4px;">
+                                                        <img src="img/icon_star_off.png" style="margin-bottom: -4px;">
+                                                        <img src="img/icon_star_off.png" style="margin-bottom: -4px;">
+                                                    </td>
+                                                    <td class="tbright">
+                                                        <div class="bar" style="width: 2.1%;"><img src="img/analysis_bg1.png" alt=""></div>
+                                                        <div class="per">2.5%</div>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <div class="ereclear"></div>
+
+        </div>
+        <div class="ereclear erespace50"></div>
+
+
+
+        <div class="ereprodblogwrap">
+
+            <div class="ereprodmblogbox">
+
+                <div class="ereprodmblogl">100자평</div>
+
+                <div class="ereprodmblogr">
+                    <div class="hundredbox">
+                        <div class="hleft1">
+                            <div class="starbox">
+                                <div class="erefloatl" style="cursor: pointer;">
+                                    <a id="divcommentreviewstar1" class="divcommentreviewstar">
+                                        <img src="img/icon_star_gray.png" alt="">
+                                    </a>
+                                    <a id="divcommentreviewstar2" class="divcommentreviewstar">
+                                        <img src="img/icon_star_gray.png" alt="">
+                                    </a>
+                                    <a id="divcommentreviewstar3" class="divcommentreviewstar">
+                                        <img src="img/icon_star_gray.png" alt="">
+                                    </a>
+                                    <a id="divcommentreviewstar4" class="divcommentreviewstar">
+                                        <img src="img/icon_star_gray.png" alt="">
+                                    </a>
+                                    <a id="divcommentreviewstar5" class="divcommentreviewstar">
+                                        <img src="img/icon_star_gray.png" alt="">
+                                    </a>
+                                </div>
+                                <div class="ereclear"></div>
+                            </div>
+                        </div>
+                        <div class="ereclear"></div>
+                    </div>
+                    <div class="erespace10"></div>
+
+                    <div class="hundredbox">
+                        <div class="hleft1">
+                            <div class="textbox">
+                                <textarea name="tagsave" id="txtcommentreview" cols="87" rows="3" class="btextarea watermark" style="resize: none;"></textarea>
+                            </div>
+                        </div>
+                        <div class="hright1">
+                            <div class="erebtnregister">
+                                <a style="pointer-events: none;">등록</a>
+                            </div>
+                        </div>
+                        <div class="ereclear"></div>
+                    </div>
+                    <div class="erespace10"></div>
+                </div>
+                <div class="ereclear"></div>
+            </div>
+        </div>
+        <div class="erespace40"></div>
+
+
+
+        <div class="erefooterwrap">
+
+            <div id="divrelationbuyitemv2">
+                <div class="erelbooktbox">
+                    <div class="erelasttitle">이 상품을 구입하신 분들이 다음 상품도 구입하셨습니다.</div>
+                    <div class="erelastmore">
+                        <div class="erebtncheck">
+                            <a style="cursor: pointer; padding:1px 8px 4px 11px; text-decoration: none !important;">더보기<img src="img/icon_next_gray.png" style="margin-bottom: -3px;"></a>
+                        </div>
+                    </div>
+                    <div class="ereclear erespace20"></div>
+                </div>
+                <div class="erelbooklbox"></div>
+            </div>
+            
         </div>
     </div>
 
