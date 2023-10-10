@@ -297,7 +297,7 @@ tr {
 }
 
 .leftarrow2 span {
-    background: url('img/arrow-left-white.svg') rgba(58, 58, 58, 0.4) no-repeat center / 15px auto;
+    background: url('./img/arrow-left-white.svg') rgba(58, 58, 58, 0.4) no-repeat center / 15px auto;
     left: 5px;
 }
 
@@ -331,7 +331,7 @@ tr {
 }
 
 .rightarrow2 span {
-    background: url('img/arrow-right-white.svg') rgba(58, 58, 58, 0.4) no-repeat center / 15px auto;
+    background: url('./img/arrow-right-white.svg') rgba(58, 58, 58, 0.4) no-repeat center / 15px auto;
     right: 5px;
 }
 
@@ -428,7 +428,7 @@ tr {
 }
 
 .coveritem {
-    cursor: url('img/mousecursor2.png'), pointer !important;
+    cursor: url('./img/mousecursor2.png'), pointer !important;
     position:relative;
     width:400px;
     height:600px;
@@ -453,7 +453,7 @@ tr {
     width:150px;
     height:100%;
     transform-origin:left;
-    background:url("img/8954699073_d.jpg");
+    background:url("./img/8954699073_d.jpg");
     background-position:center;
     transform:rotateY(90deg);
     background-size:cover;
@@ -466,7 +466,7 @@ tr {
     width:100%;
     height:100%;
     transform-origin:center;
-    background:url("img/S002834999_b.jpg");
+    background:url("./img/S002834999_b.jpg");
     background-position:center;
     transform:rotateY(180deg) translateZ(150px);
     background-size:cover;
@@ -586,7 +586,7 @@ tr {
 
 .erelayersttit2 .btlist2 ul li {
     list-style: none !important;
-    background: url('img/icon_dot1.png') no-repeat 0 7px;
+    background: url('./img/icon_dot1.png') no-repeat 0 7px;
     margin: 0 !important;
     padding: 0 0 7px 10px !important;
     font-size: 14px;
@@ -1361,7 +1361,7 @@ tr {
 
 .erelayersttit1 .btlist ul li {
     list-style: none;
-    background: url('img/icon_dot1.png') no-repeat 0 7px;
+    background: url('./img/icon_dot1.png') no-repeat 0 7px;
     margin: 0;
     padding: 0 0 8px 10px;
     font-size: 14px;
@@ -1695,7 +1695,7 @@ tr {
 
 .ereprodmcontsr .contsinfolist2 ul li {
     list-style: none;
-    background: url('img/icon_dot1.png') no-repeat 0 9px;
+    background: url('./img/icon_dot1.png') no-repeat 0 9px;
     margin: 0;
     padding: 0 0 6px 10px;
     color: #333;
@@ -1851,7 +1851,7 @@ tr {
 .ereprodmcontsr .fsentencebox .fsenconts {
     margin: 0px;
     padding: 0px 0 0px 0;
-    background: url('img/line_bg.png') repeat-x top left;
+    background: url('./img/line_bg.png') repeat-x top left;
     width: 680px;
     font-size: 18px;
     font-family: 나눔명조, Nanum Myeongjo, sans-serif;
@@ -1982,7 +1982,7 @@ tr {
 
 .ereprodmcontsr .contsinfolist7 ul li {
     list-style: none;
-    background: url('img/icon_dot1.png') no-repeat 0 9px;
+    background: url('./img/icon_dot1.png') no-repeat 0 9px;
     margin: 0;
     padding: 0 0 10px 9px;
     color: #333;
@@ -2088,7 +2088,7 @@ tr {
 
 .ereprodmcontsr .contsinfolist2 ul li {
     list-style: none;
-    background: url('img/icon_dot1.png') no-repeat 0 9px;
+    background: url('./img/icon_dot1.png') no-repeat 0 9px;
     margin: 0;
     padding: 0 0 6px 10px;
     color: #333;
@@ -2600,7 +2600,7 @@ tr {
 }
 
 .buyerareaa .buyerbox .analysisbox .tbwoman {
-    background: url('img/analysis_box_bg1.png') repeat-x 0 0;
+    background: url('./img/analysis_box_bg1.png') repeat-x 0 0;
     text-align: right;
     padding: 8px 0;
     width: 45%;
@@ -2641,7 +2641,7 @@ tr {
 }
 
 .buyerareaa .buyerbox .analysisbox .tbman {
-    background: url('img/analysis_box_bg1.png') repeat-x 0 0;
+    background: url('./img/analysis_box_bg1.png') repeat-x 0 0;
     text-align: left;
     padding: 8px 0;
     width: 45%;
@@ -2774,7 +2774,7 @@ tr {
 }
 
 .starareaa .starbox .starlist .tbright {
-    background: url('img/analysis_box_bg1.png') repeat-x 0 0;
+    background: url('./img/analysis_box_bg1.png') repeat-x 0 0;
     text-align: left;
     padding: 8px 0;
 }
